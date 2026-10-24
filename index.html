@@ -81,11 +81,16 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 
 /* Laboratorio de Proyectos: Preselección (Hover) y Expansión (Click) */
 .proj-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));transition:.35s}
-.proj-grid:hover .proj-card:not(:hover){opacity:.68;transform:scale(.985)}
-.proj-card{background:linear-gradient(160deg,#151519,#0c0c0e);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;cursor:pointer}
-.proj-card::after{content:"🔍 Clic para expandir especificaciones";position:absolute;top:12px;right:12px;background:#0a0a0ce6;border:1px solid var(--gold);color:var(--gold2);font:600 10.5px Inter,sans-serif;padding:4px 10px;border-radius:999px;opacity:0;transform:translateY(-6px);transition:.25s;pointer-events:none;z-index:15}
+.proj-grid.hide-grid,#projSubText.hide-grid{display:none !important}
+@media(hover:hover){
+  .proj-grid:hover .proj-card:not(:hover){opacity:.62;transform:scale(.98)}
+}
+.proj-card{background:linear-gradient(160deg,#151519,#0c0c0e);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all .32s cubic-bezier(.2,.8,.2,1);position:relative;cursor:pointer}
+.proj-card *{pointer-events:none}
+.proj-card .btn-try{pointer-events:auto}
+.proj-card::after{content:"🔍 Clic para agrandar proyecto";position:absolute;top:12px;right:12px;background:#0a0a0ce6;border:1px solid var(--gold);color:var(--gold2);font:600 10.5px Inter,sans-serif;padding:4px 10px;border-radius:999px;opacity:0;transform:translateY(-6px);transition:.25s;pointer-events:none;z-index:15}
 .proj-card:hover::after{opacity:1;transform:none}
-.proj-card:hover,.proj-card.active-sim{border-color:var(--gold2);transform:translateY(-7px) scale(1.015);box-shadow:0 18px 42px #000e,0 0 28px #C9A24B38}
+.proj-card:hover,.proj-card.active-sim{border-color:var(--gold2);transform:translateY(-7px) scale(1.015);box-shadow:0 18px 42px #000e,0 0 28px #C9A24B44}
 
 .proj-stage{position:relative;height:215px;background:#08080a;border-bottom:1px solid var(--line);padding:12px;overflow:hidden;font-family:'JetBrains Mono',monospace;user-select:none}
 .stage-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #ffffff12;font-size:10.5px;color:#8e939c}
@@ -95,21 +100,21 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 .outfit-pill{background:#C9A24B22;border:1px solid var(--gold);color:var(--gold2);padding:2px 8px;border-radius:999px;font:600 10px Inter,sans-serif}
 
 /* Vista Expandida de Proyecto Individual (Solo ese en pantalla) */
-.proj-detail{display:none;background:linear-gradient(160deg,#15151a,#09090c);border:2px solid var(--gold);border-radius:20px;padding:28px;box-shadow:0 24px 60px #000e,0 0 40px #C9A24B26;animation:zoomIn .4s cubic-bezier(.2,.8,.2,1)}
-.proj-detail.on{display:block}
+.proj-detail{display:none;background:linear-gradient(160deg,#15151a,#09090c);border:2px solid var(--gold);border-radius:20px;padding:28px;box-shadow:0 24px 60px #000e,0 0 40px #C9A24B26;animation:zoomIn .38s cubic-bezier(.2,.8,.2,1)}
+.proj-detail.on{display:block !important}
 @keyframes zoomIn{from{opacity:0;transform:scale(.95) translateY(12px)}to{opacity:1;transform:none}}
 .detail-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.btn-back{display:inline-flex;align-items:center;gap:8px;background:#121216;border:1px solid var(--gold);color:var(--gold2);padding:10px 20px;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer;transition:.25s}
-.btn-back:hover{background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;transform:translateX(-3px)}
-.detail-nav{display:flex;gap:8px}
-.detail-nav button{background:#141418;border:1px solid var(--line);color:var(--silver);padding:8px 14px;border-radius:999px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s}
-.detail-nav button:hover{border-color:var(--gold);color:var(--gold2)}
-.detail-grid{display:grid;grid-template-columns:1.08fr 1.22fr;gap:28px;align-items:start}
+.btn-back{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#C9A24B,#E8C877);border:0;color:#111;padding:10px 22px;border-radius:999px;font:700 13px Inter,sans-serif;cursor:pointer;transition:.25s;box-shadow:0 4px 16px #C9A24B44}
+.btn-back:hover{transform:translateX(-3px);filter:brightness(1.08)}
+.detail-nav{display:flex;gap:8px;flex-wrap:wrap}
+.detail-nav button{background:#141418;border:1px solid var(--goldLine);color:var(--gold2);padding:9px 16px;border-radius:999px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s}
+.detail-nav button:hover{background:#C9A24B22;border-color:var(--gold)}
+.detail-grid{display:grid;grid-template-columns:1.05fr 1.25fr;gap:28px;align-items:start}
 @media(max-width:860px){.detail-grid{grid-template-columns:1fr}}
-.detail-stage-wrap .proj-stage{height:290px;border:1px solid var(--goldLine);border-radius:14px;padding:16px;box-shadow:inset 0 0 30px #000}
+.detail-stage-wrap .proj-stage{height:280px;border:1px solid var(--goldLine);border-radius:14px;padding:16px;box-shadow:inset 0 0 30px #000}
 .detail-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
 .detail-kpi{background:#101014;border:1px solid var(--goldLine);border-radius:10px;padding:12px;text-align:center}
-.detail-kpi b{display:block;font:700 22px 'Playfair Display',serif;color:var(--gold2)}
+.detail-kpi b{display:block;font:700 20px 'Playfair Display',serif;color:var(--gold2)}
 .detail-kpi small{font-size:10.5px;color:var(--silver);text-transform:uppercase;letter-spacing:.08em}
 .detail-info small.cat{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:11.5px;font-weight:700}
 .detail-info h3{font-size:clamp(24px,3.6vw,34px);margin:4px 0 12px;color:var(--text)}
@@ -123,6 +128,14 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 .spec-list li strong{color:var(--text)}
 .repo-box{background:#0b0b0f;border:1px solid var(--goldLine);border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .repo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold2);word-break:break-all}
+
+/* Otros proyectos miniatura abajo del proyecto expandido */
+.other-projs{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.other-projs h4{font-size:16px;color:var(--gold2);margin-bottom:12px;letter-spacing:.06em}
+.other-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.other-item{background:#101014;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:.2s;text-align:left;color:var(--text);font:500 12.5px Inter,sans-serif}
+.other-item:hover{border-color:var(--gold);background:#C9A24B18;transform:translateY(-2px)}
+.other-item small{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
 
 /* Cursor simulado dentro de cada proyecto */
 .sim-cursor{position:absolute;width:18px;height:18px;z-index:10;pointer-events:none;filter:drop-shadow(0 2px 4px #000)}
@@ -163,8 +176,8 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 .proj-actions{display:flex;gap:10px;align-items:center;margin-top:auto}
 .btn-gh{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;text-decoration:none;font:600 12.5px Inter,sans-serif;padding:10px 14px;border-radius:9px;transition:.25s;cursor:pointer;border:0}
 .btn-gh:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-try{background:#16161a;border:1px solid var(--goldLine);color:var(--gold2);padding:10px 12px;border-radius:9px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s;width:100%}
-.btn-try:hover{background:#C9A24B22}
+.btn-try{background:linear-gradient(135deg,#C9A24B22,#E8C87711);border:1px solid var(--gold);color:var(--gold2);padding:10px 12px;border-radius:9px;font:600 12.5px Inter,sans-serif;cursor:pointer;transition:.2s;width:100%}
+.proj-card:hover .btn-try{background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111}
 
 /* Espacio Unificado QC&CP (Sub-tabs) */
 .subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:14px}
@@ -535,22 +548,18 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
     <!-- MINI MARIO ANIME MULTITRAJE -->
     <div id="mario" class="mario-char" data-outfit="gala">
       <svg viewBox="0 0 68 118">
-        <!-- Pierna Izquierda -->
         <g class="lgL lg">
           <path d="M22 66h10l-1 13h-8z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1"/>
           <rect x="23" y="79" width="7.5" height="9" rx="2.5" fill="url(#gSkin)"/>
           <rect x="23" y="86" width="7.5" height="10" rx="2" fill="#151515" stroke="#E8C877" stroke-width=".9"/>
           <path d="M19 98c0-3 4-4 11-4s5 4 5 5H19z" fill="#F5F2EA" stroke="#C9A24B" stroke-width="1"/>
         </g>
-        <!-- Pierna Derecha -->
         <g class="lgR lg">
           <path d="M35 66h10l-1 13h-8z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1"/>
           <rect x="36" y="79" width="7.5" height="9" rx="2.5" fill="url(#gSkin)"/>
           <rect x="36" y="86" width="7.5" height="10" rx="2" fill="#151515" stroke="#E8C877" stroke-width=".9"/>
           <path d="M34 98c0-3 4-4 11-4s5 4 5 5H34z" fill="#E8C877" stroke="#5a3f0a" stroke-width="1"/>
         </g>
-
-        <!-- Brazo Izquierdo -->
         <g class="arL ar">
           <rect x="11" y="34" width="8" height="22" rx="4" fill="url(#gSkin)"/>
           <path d="M10 32h10l-1 10h-8z" fill="#111" stroke="#C9A24B" stroke-width="1"/>
@@ -558,15 +567,11 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
           <g class="gear g-helmet"><rect x="3" y="52" width="12" height="15" rx="2" fill="#1e293b" stroke="#E8C877" stroke-width="1.2"/><line x1="6" y1="56" x2="12" y2="56" stroke="#38bdf8" stroke-width="1.2"/><line x1="6" y1="60" x2="11" y2="60" stroke="#E8C877" stroke-width="1.2"/></g>
           <g class="gear g-exec"><rect x="3" y="54" width="13" height="14" rx="2" fill="#F5F2EA" stroke="#C9A24B" stroke-width="1"/><line x1="6" y1="58" x2="13" y2="58" stroke="#333" stroke-width="1"/><line x1="6" y1="62" x2="11" y2="62" stroke="#C9A24B" stroke-width="1"/></g>
         </g>
-
-        <!-- TORSO BASE (#10 Gala) -->
         <path d="M18 32h31l-2.5 36h-26z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1.8" stroke-linejoin="round"/>
         <g class="gear g-gala">
           <path d="M27 32l6.5 8 6.5-8" fill="none" stroke="#E8C877" stroke-width="1.6"/>
           <text x="33.5" y="56" text-anchor="middle" font-size="14" fill="#E8C877" font-family="Playfair Display,serif" font-weight="700">10</text>
         </g>
-
-        <!-- TRAJE 1: CASCO & CHALECO TERRENO -->
         <g class="gear g-helmet">
           <path d="M18 32h31l-2 34H20z" fill="#d97706" stroke="#FFF1B8" stroke-width="1.2"/>
           <rect x="19" y="44" width="29" height="4" fill="#FFF1B8"/>
@@ -574,16 +579,12 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
           <rect x="25" y="32" width="4" height="34" fill="#FFF1B8"/>
           <rect x="38" y="32" width="4" height="34" fill="#FFF1B8"/>
         </g>
-
-        <!-- TRAJE 2: EJECUTIVO SAP / CORPORATIVO -->
         <g class="gear g-exec">
           <path d="M18 32h31l-2.5 36h-26z" fill="#161922" stroke="#C9A24B" stroke-width="1.5"/>
           <polygon points="28,32 39,32 33.5,48" fill="#F5F2EA"/>
           <polygon points="32,35 35,35 36,54 33.5,58 31,54" fill="#C9A24B"/>
           <rect x="38" y="42" width="6" height="4" rx="1" fill="#E8C877"/>
         </g>
-
-        <!-- TRAJE 3: INVESTIGADOR / BATA LAB -->
         <g class="gear g-research">
           <path d="M17 32h33l-1.5 37h-30z" fill="#F5F2EA" stroke="#C0C4CC" stroke-width="1.4"/>
           <path d="M28 32l5.5 14L39 32" fill="#1e293b"/>
@@ -592,35 +593,25 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
           <line x1="39" y1="40" x2="39" y2="44" stroke="#ef4444" stroke-width="1.5"/>
           <line x1="41" y1="40" x2="41" y2="44" stroke="#3b82f6" stroke-width="1.5"/>
         </g>
-
-        <!-- TRAJE 4: PENSADOR / ESTRATEGA MCDM -->
         <g class="gear g-thinker">
           <path d="M18 32h31l-2.5 36h-26z" fill="#1f1610" stroke="#C9A24B" stroke-width="1.5"/>
           <rect x="27" y="29" width="13" height="6" rx="2" fill="#C9A24B"/>
           <path d="M26 32l7.5 16L41 32" fill="none" stroke="#E8C877" stroke-width="1.4"/>
         </g>
-
-        <!-- TRAJE 5: ANALISTA FINANCIERO / BI -->
         <g class="gear g-finance">
           <path d="M18 32h31l-2.5 36h-26z" fill="#0f172a" stroke="#E8C877" stroke-width="1.5"/>
           <polygon points="28,32 39,32 33.5,45" fill="#F5F2EA"/>
           <polygon points="32,34 35,34 35.5,52 33.5,55 31.5,52" fill="#22c55e"/>
         </g>
-
-        <!-- TRAJE 6: DATA SCIENTIST & FÚTBOL ANALYTICS -->
         <g class="gear g-data">
           <path d="M17 32h33l-2 36H19z" fill="#111827" stroke="#38bdf8" stroke-width="1.5"/>
           <text x="33.5" y="53" text-anchor="middle" font-size="9" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-weight="700">&lt;AI/&gt;</text>
         </g>
-
-        <!-- Brazo Derecho -->
         <g class="arR ar">
           <rect x="48" y="34" width="8" height="22" rx="4" fill="url(#gSkin)"/>
           <path d="M47 32h10l-1 10h-8z" fill="#111" stroke="#C9A24B" stroke-width="1"/>
           <circle cx="52" cy="57" r="3.6" fill="url(#gSkin)"/>
         </g>
-
-        <!-- Cuello y Cabeza Anime -->
         <rect x="30" y="27" width="7" height="6" rx="2" fill="url(#gSkin)"/>
         <path d="M19 14c0-9 29-9 29 0v6c0 8-6 12-14.5 12S19 28 19 20z" fill="url(#gSkin)"/>
         <circle cx="19" cy="19" r="3" fill="url(#gSkin)"/>
@@ -634,35 +625,26 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
         <circle cx="37.8" cy="17.2" r="1.1" fill="#fff"/>
         <path d="M24 14.5q3.5-2 7 0M36 14.5q3.5-2 7 0" stroke="#1a110b" stroke-width="1.7" fill="none" stroke-linecap="round"/>
         <path d="M30 24.8q3.5 3 7 0" stroke="#7a3b2b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-
-        <!-- Lentes -->
         <g class="gear g-research g-thinker g-finance">
           <rect x="23" y="15.5" width="9" height="6" rx="1.5" fill="#38bdf822" stroke="#E8C877" stroke-width="1.3"/>
           <rect x="35" y="15.5" width="9" height="6" rx="1.5" fill="#38bdf822" stroke="#E8C877" stroke-width="1.3"/>
           <line x1="32" y1="18" x2="35" y2="18" stroke="#E8C877" stroke-width="1.3"/>
         </g>
-
-        <!-- Visor / Audífonos -->
         <g class="gear g-data">
           <path d="M17 18a16.5 16.5 0 0 1 33 0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
           <rect x="15" y="15" width="4" height="8" rx="2" fill="#0284c7" stroke="#E8C877" stroke-width="1"/>
           <rect x="48" y="15" width="4" height="8" rx="2" fill="#0284c7" stroke="#E8C877" stroke-width="1"/>
           <rect x="23" y="15.5" width="21" height="5.5" rx="2" fill="#22c55e44" stroke="#38bdf8" stroke-width="1.2"/>
         </g>
-
-        <!-- Cabello Anime -->
         <g class="hair-front">
           <path d="M16 17C14 6 23 1 33.5 1S53 6 51 17c-2-4-4-5-6-3-1 4-3 6-5 2-2 4-6 5-8 1-3 4-6 3-9-1-2 1-4 3-7 1z" fill="url(#gHair)"/>
           <path d="M24 2l-6-4 3 6M33.5 0l2-5 2 5M42 2l7-3-4 6" fill="#18110c"/>
         </g>
-
-        <!-- Casco -->
         <g class="gear g-helmet">
           <path d="M17 13c0-9 33-9 33 0z" fill="#E8C877" stroke="#8a6414" stroke-width="1.5"/>
           <rect x="15" y="12" width="37" height="3" rx="1.5" fill="#C9A24B"/>
           <circle cx="33.5" cy="8" r="3" fill="#FFF1B8" stroke="#111" stroke-width="1"/>
         </g>
-
         <g class="gear g-thinker">
           <text x="54" y="8" font-size="11" fill="#E8C877" font-weight="700">∑</text>
         </g>
@@ -696,7 +678,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   <div class="wrap">
     <h2 class="title gold">Laboratorio de Proyectos e Ingeniería</h2>
     <div class="rule"></div>
-    <p class="sub" id="projSubText">Complemento interactivo a mi CV. <b>Pasa el mouse</b> sobre cualquier proyecto para preseleccionarlo y cambiar el rol de Mini Mario, o <b>haz clic dentro de la tarjeta</b> para expandirla a pantalla completa con sus especificaciones técnicas y repositorio.</p>
+    <p class="sub" id="projSubText">Complemento interactivo a mi CV. <b>Pasa el mouse</b> sobre cualquier proyecto para preseleccionarlo y cambiar el rol de Mini Mario, o <b>haz clic en cualquier tarjeta</b> para agrandar solo ese proyecto en pantalla con todas sus especificaciones y el link a GitHub.</p>
 
     <div class="wardrobe-bar">
       <span>👔 <b>Modo actual de Mini Mario:</b> <em id="outfitLabel" style="color:var(--text);font-style:normal">Gala Balón de Oro (#10)</em></span>
@@ -1035,7 +1017,7 @@ var PROJECTS = [
   }
 ];
 
-/* Renderizar tarjetas de proyectos y vista expandida */
+/* Renderizar tarjetas de proyectos con delegación robusta de clic y hover */
 var projGrid = document.getElementById("projGrid");
 var projDetail = document.getElementById("projDetail");
 var projSubText = document.getElementById("projSubText");
@@ -1043,6 +1025,10 @@ var projSubText = document.getElementById("projSubText");
 PROJECTS.forEach(function(p, idx){
   var card = document.createElement("article");
   card.className = "proj-card";
+  card.setAttribute("data-idx", idx);
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Expandir proyecto " + p.title);
   card.innerHTML =
     '<div class="proj-stage">'+
       '<div class="stage-top"><div class="stage-dots"><i></i><i></i><i></i></div><span>sim://'+p.id+'.exe</span><span class="outfit-pill">'+p.outfitName.split(" ")[0]+' Rol</span></div>'+
@@ -1055,21 +1041,33 @@ PROJECTS.forEach(function(p, idx){
       '<p>'+p.desc+'</p>'+
       '<div class="tech-tags">'+p.tags.map(function(t){return '<span>'+t+'</span>'}).join("")+'</div>'+
       '<div class="proj-actions">'+
-        '<button type="button" class="btn-try">🔍 Ver Especificaciones y Repositorio</button>'+
+        '<button type="button" class="btn-try">🔍 Agrandar Proyecto y Ver Especificaciones</button>'+
       '</div>'+
     '</div>';
 
-  /* Al pasar el mouse: se preselecciona y cambia el traje del Mini Mario */
   card.addEventListener("mouseenter", function(){
     setMarioOutfit(p.outfit, p.speech, card);
   });
 
-  /* Al hacer clic en cualquier parte de la tarjeta: se agranda solo ese proyecto */
-  card.addEventListener("click", function(){
-    openProjectDetail(idx);
-  });
-
   projGrid.appendChild(card);
+});
+
+/* Listener único infalible en la cuadrícula para expandir al hacer clic */
+projGrid.addEventListener("click", function(e){
+  var card = e.target.closest(".proj-card");
+  if(!card) return;
+  var idx = parseInt(card.getAttribute("data-idx"), 10);
+  if(!isNaN(idx)) openProjectDetail(idx);
+});
+
+projGrid.addEventListener("keydown", function(e){
+  if(e.key === "Enter" || e.key === " "){
+    var card = e.target.closest(".proj-card");
+    if(card){
+      e.preventDefault();
+      openProjectDetail(parseInt(card.getAttribute("data-idx"), 10));
+    }
+  }
 });
 
 function openProjectDetail(idx){
@@ -1079,23 +1077,28 @@ function openProjectDetail(idx){
 
   setMarioOutfit(p.outfit, "Revisando a fondo «"+p.title+"». Aquí están sus especificaciones técnicas y el link al repositorio.");
 
-  projGrid.style.display = "none";
-  projSubText.style.display = "none";
+  projGrid.classList.add("hide-grid");
+  projSubText.classList.add("hide-grid");
   projDetail.classList.add("on");
+
+  var othersHTML = PROJECTS.map(function(op, oIdx){
+    if(oIdx === idx) return "";
+    return '<button type="button" class="other-item" data-open-idx="'+oIdx+'"><small>'+op.outfitName.split(" ")[0]+' '+op.cat.split(" ")[0]+'</small>'+op.title+'</button>';
+  }).join("");
 
   projDetail.innerHTML =
     '<div class="detail-topbar">'+
       '<button type="button" class="btn-back" id="btnBackGrid">← Volver a todos los proyectos (6)</button>'+
       '<div class="detail-nav">'+
-        '<button type="button" id="btnPrevProj">‹ Proyecto anterior</button>'+
-        '<button type="button" id="btnNextProj">Siguiente proyecto ›</button>'+
+        '<button type="button" id="btnPrevProj">‹ Anterior</button>'+
+        '<button type="button" id="btnNextProj">Siguiente ›</button>'+
       '</div>'+
     '</div>'+
     '<div class="detail-grid">'+
       '<div class="detail-stage-wrap">'+
         '<div class="proj-stage">'+
           '<div class="stage-top"><div class="stage-dots"><i></i><i></i><i></i></div><span>sim://'+p.id+'-fullscreen.exe</span><span class="outfit-pill">'+p.outfitName+'</span></div>'+
-          '<div style="transform:scale(1.12);transform-origin:top center;margin-top:14px">'+p.stageHTML+'</div>'+
+          '<div style="transform:scale(1.1);transform-origin:top center;margin-top:12px">'+p.stageHTML+'</div>'+
           '<svg class="sim-cursor '+p.cur+'" viewBox="0 0 24 24"><use href="#s-cursor"/></svg>'+
         '</div>'+
         '<div class="detail-kpis">'+
@@ -1123,20 +1126,27 @@ function openProjectDetail(idx){
           '<a class="btn-gh" style="flex:0 0 auto" href="'+p.repoUrl+'" target="_blank" rel="noopener noreferrer">Abrir Repositorio en GitHub ↗</a>'+
         '</div>'+
       '</div>'+
+    '</div>'+
+    '<div class="other-projs">'+
+      '<h4>Explorar los demás proyectos directamente:</h4>'+
+      '<div class="other-strip">'+othersHTML+'</div>'+
     '</div>';
 
   document.getElementById("btnBackGrid").onclick = closeProjectDetail;
   document.getElementById("btnPrevProj").onclick = function(){ openProjectDetail(prevIdx); };
   document.getElementById("btnNextProj").onclick = function(){ openProjectDetail(nextIdx); };
-  window.scrollTo({top: projDetail.offsetTop - 90, behavior: "smooth"});
+  projDetail.querySelectorAll("[data-open-idx]").forEach(function(b){
+    b.onclick = function(){ openProjectDetail(parseInt(b.getAttribute("data-open-idx"), 10)); };
+  });
+
+  window.scrollTo({top: document.getElementById("proyectos").offsetTop, behavior: "smooth"});
 }
 
 function closeProjectDetail(){
   projDetail.classList.remove("on");
   projDetail.innerHTML = "";
-  projGrid.style.display = "grid";
-  projSubText.style.display = "block";
-  buddySay("De vuelta en el laboratorio. Pasa el mouse o elige otro proyecto para expandirlo.");
+  projGrid.classList.remove("hide-grid");
+  projSubText.classList.remove("hide-grid");
 }
 
 /* 2. SISTEMA DE CAMBIO DE TRAJE DEL MINI MARIO */
