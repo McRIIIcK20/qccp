@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Blindaje de Seguridad (Content Security Policy & Anti-Sniffing) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>QC&CP · Mario Andrés Coroseo Ramos | Portafolio & Historia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +38,7 @@ nav button:hover{color:var(--gold2);background:#ffffff08}
 nav button.on{color:var(--gold2);border-left-color:var(--gold);background:linear-gradient(90deg,#C9A24B1f,transparent)}
 nav button .ni{width:20px;height:20px;flex:0 0 auto}
 nav .nav-foot{margin-top:auto;padding:14px 10px 4px;border-top:1px solid var(--line);font-size:11.5px;color:#8e939c}
+.sec-badge{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:3px 8px;border-radius:6px;background:#22c55e18;border:1px solid #22c55e55;color:#4ade80;font-size:10px;font-weight:600}
 
 main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 @media(min-width:1040px){body.open main{margin-left:270px}}
@@ -74,16 +79,50 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 .outfit-btn{background:#0b0b0d;border:1px solid var(--line);color:var(--silver);padding:6px 12px;border-radius:999px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
 .outfit-btn:hover,.outfit-btn.on{border-color:var(--gold);color:#111;background:linear-gradient(135deg,#C9A24B,#E8C877)}
 
-/* Laboratorio de Proyectos (Grid & Simuladores) */
-.proj-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.proj-card{background:linear-gradient(160deg,#151519,#0c0c0e);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.35s;position:relative}
-.proj-card:hover,.proj-card.active-sim{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 14px 36px #000c,0 0 24px #C9A24B28}
+/* Laboratorio de Proyectos: Preselección (Hover) y Expansión (Click) */
+.proj-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));transition:.35s}
+.proj-grid:hover .proj-card:not(:hover){opacity:.68;transform:scale(.985)}
+.proj-card{background:linear-gradient(160deg,#151519,#0c0c0e);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;cursor:pointer}
+.proj-card::after{content:"🔍 Clic para expandir especificaciones";position:absolute;top:12px;right:12px;background:#0a0a0ce6;border:1px solid var(--gold);color:var(--gold2);font:600 10.5px Inter,sans-serif;padding:4px 10px;border-radius:999px;opacity:0;transform:translateY(-6px);transition:.25s;pointer-events:none;z-index:15}
+.proj-card:hover::after{opacity:1;transform:none}
+.proj-card:hover,.proj-card.active-sim{border-color:var(--gold2);transform:translateY(-7px) scale(1.015);box-shadow:0 18px 42px #000e,0 0 28px #C9A24B38}
+
 .proj-stage{position:relative;height:215px;background:#08080a;border-bottom:1px solid var(--line);padding:12px;overflow:hidden;font-family:'JetBrains Mono',monospace;user-select:none}
 .stage-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #ffffff12;font-size:10.5px;color:#8e939c}
 .stage-dots{display:flex;gap:5px}
 .stage-dots i{width:8px;height:8px;border-radius:50%;display:inline-block}
 .stage-dots i:nth-child(1){background:#ff5f56}.stage-dots i:nth-child(2){background:#ffbd2e}.stage-dots i:nth-child(3){background:#27c93f}
 .outfit-pill{background:#C9A24B22;border:1px solid var(--gold);color:var(--gold2);padding:2px 8px;border-radius:999px;font:600 10px Inter,sans-serif}
+
+/* Vista Expandida de Proyecto Individual (Solo ese en pantalla) */
+.proj-detail{display:none;background:linear-gradient(160deg,#15151a,#09090c);border:2px solid var(--gold);border-radius:20px;padding:28px;box-shadow:0 24px 60px #000e,0 0 40px #C9A24B26;animation:zoomIn .4s cubic-bezier(.2,.8,.2,1)}
+.proj-detail.on{display:block}
+@keyframes zoomIn{from{opacity:0;transform:scale(.95) translateY(12px)}to{opacity:1;transform:none}}
+.detail-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.btn-back{display:inline-flex;align-items:center;gap:8px;background:#121216;border:1px solid var(--gold);color:var(--gold2);padding:10px 20px;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer;transition:.25s}
+.btn-back:hover{background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;transform:translateX(-3px)}
+.detail-nav{display:flex;gap:8px}
+.detail-nav button{background:#141418;border:1px solid var(--line);color:var(--silver);padding:8px 14px;border-radius:999px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s}
+.detail-nav button:hover{border-color:var(--gold);color:var(--gold2)}
+.detail-grid{display:grid;grid-template-columns:1.08fr 1.22fr;gap:28px;align-items:start}
+@media(max-width:860px){.detail-grid{grid-template-columns:1fr}}
+.detail-stage-wrap .proj-stage{height:290px;border:1px solid var(--goldLine);border-radius:14px;padding:16px;box-shadow:inset 0 0 30px #000}
+.detail-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.detail-kpi{background:#101014;border:1px solid var(--goldLine);border-radius:10px;padding:12px;text-align:center}
+.detail-kpi b{display:block;font:700 22px 'Playfair Display',serif;color:var(--gold2)}
+.detail-kpi small{font-size:10.5px;color:var(--silver);text-transform:uppercase;letter-spacing:.08em}
+.detail-info small.cat{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:11.5px;font-weight:700}
+.detail-info h3{font-size:clamp(24px,3.6vw,34px);margin:4px 0 12px;color:var(--text)}
+.detail-info .lead{color:var(--silver);font-size:15.5px;margin:0 0 18px}
+.spec-blocks{display:grid;gap:12px;margin-bottom:18px}
+.spec-box{background:#0e0e12;border-left:3px solid var(--gold);border-radius:8px;padding:12px 16px}
+.spec-box b{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold2);margin-bottom:4px}
+.spec-box p{margin:0;font-size:14px;color:var(--text)}
+.spec-list{margin:0 0 20px;padding-left:18px;color:var(--silver);font-size:14px}
+.spec-list li{margin-bottom:6px}
+.spec-list li strong{color:var(--text)}
+.repo-box{background:#0b0b0f;border:1px solid var(--goldLine);border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.repo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold2);word-break:break-all}
 
 /* Cursor simulado dentro de cada proyecto */
 .sim-cursor{position:absolute;width:18px;height:18px;z-index:10;pointer-events:none;filter:drop-shadow(0 2px 4px #000)}
@@ -124,9 +163,7 @@ main{transition:margin .45s cubic-bezier(.5,0,0,1)}
 .proj-actions{display:flex;gap:10px;align-items:center;margin-top:auto}
 .btn-gh{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;text-decoration:none;font:600 12.5px Inter,sans-serif;padding:10px 14px;border-radius:9px;transition:.25s;cursor:pointer;border:0}
 .btn-gh:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-gh.pending{background:#18181f;color:var(--gold2);border:1px dashed var(--gold)}
-.btn-gh.pending:hover{background:#C9A24B22}
-.btn-try{background:#16161a;border:1px solid var(--goldLine);color:var(--gold2);padding:10px 12px;border-radius:9px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s}
+.btn-try{background:#16161a;border:1px solid var(--goldLine);color:var(--gold2);padding:10px 12px;border-radius:9px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s;width:100%}
 .btn-try:hover{background:#C9A24B22}
 
 /* Espacio Unificado QC&CP (Sub-tabs) */
@@ -357,7 +394,6 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   <!-- Símbolo Anime de Belén -->
   <symbol id="s-belen" viewBox="0 0 64 64">
     <ellipse cx="32" cy="59" rx="14" ry="3.5" fill="#000" opacity=".45"/>
-    <!-- Cabello largo atrás -->
     <path d="M15 16c-2 12-3 26 2 32h30c5-6 4-20 2-32z" fill="#1c120d"/>
     <rect x="24" y="44" width="6.5" height="13" rx="3" fill="url(#gSkin)"/>
     <rect x="33.5" y="44" width="6.5" height="13" rx="3" fill="url(#gSkin)"/>
@@ -365,7 +401,6 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
     <ellipse cx="37" cy="57" rx="4.5" ry="2.4" fill="#E8C877"/>
     <rect x="14" y="28" width="6.5" height="15" rx="3.2" fill="url(#gSkin)"/>
     <rect x="43.5" y="28" width="6.5" height="15" rx="3.2" fill="url(#gSkin)"/>
-    <!-- Vestido elegante dorado/vino -->
     <path d="M21 26h22l4 20H17z" fill="#c94b6b" stroke="#E8C877" stroke-width="1.3" stroke-linejoin="round"/>
     <path d="M27 26l5 5 5-5" fill="none" stroke="#FFF1B8" stroke-width="1.3"/>
     <path d="M20 12c0-7 24-7 24 0v5c0 7-5 11-12 11s-12-4-12-11z" fill="url(#gSkin)"/>
@@ -380,7 +415,6 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
     <path d="M16 16C16 5 24 2 32 2s16 3 16 14c-3-4-6-5-9-3-3 2-5 2-7 0-3 2-6 1-9-1-2 1-5 2-7 4z" fill="url(#gHair)"/>
   </symbol>
 
-  <!-- Símbolo de Cartas Selladas -->
   <symbol id="s-letter" viewBox="0 0 64 64">
     <rect x="8" y="16" width="48" height="34" rx="4" fill="#F5F2EA" stroke="#C9A24B" stroke-width="2.2"/>
     <path d="M10 18l22 17 22-17" fill="none" stroke="#C9A24B" stroke-width="2.2" stroke-linejoin="round"/>
@@ -487,7 +521,10 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   <div class="brand">QC&amp;CP</div>
   <div class="brand-sub">Portafolio &amp; Esencia</div>
   <div id="navItems"></div>
-  <div class="nav-foot">Mario Andrés Coroseo Ramos<br>Ing. Civil Industrial · UCN</div>
+  <div class="nav-foot">
+    Mario Andrés Coroseo Ramos<br>Ing. Civil Industrial · UCN<br>
+    <span class="sec-badge">🔒 Sitio Estático Blindado (CSP)</span>
+  </div>
 </nav>
 
 <main>
@@ -659,7 +696,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   <div class="wrap">
     <h2 class="title gold">Laboratorio de Proyectos e Ingeniería</h2>
     <div class="rule"></div>
-    <p class="sub">Complemento interactivo a mi CV. Pasa el cursor o haz clic en <b>“Simular Proceso”</b> en cada proyecto para ver la interfaz animada en acción y cómo mi avatar cambia de rol profesional.</p>
+    <p class="sub" id="projSubText">Complemento interactivo a mi CV. <b>Pasa el mouse</b> sobre cualquier proyecto para preseleccionarlo y cambiar el rol de Mini Mario, o <b>haz clic dentro de la tarjeta</b> para expandirla a pantalla completa con sus especificaciones técnicas y repositorio.</p>
 
     <div class="wardrobe-bar">
       <span>👔 <b>Modo actual de Mini Mario:</b> <em id="outfitLabel" style="color:var(--text);font-style:normal">Gala Balón de Oro (#10)</em></span>
@@ -674,7 +711,11 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
       </div>
     </div>
 
+    <!-- Cuadrícula de los 6 proyectos -->
     <div class="proj-grid" id="projGrid"></div>
+
+    <!-- Vista Expandida de 1 solo proyecto al hacer clic -->
+    <div class="proj-detail" id="projDetail"></div>
   </div>
 </section>
 
@@ -769,7 +810,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   </div>
 </section>
 
-<!-- 4. HACIA DÓNDE VOY (VISIÓN PROFESIONAL & SUEÑO AZUL AZUL) -->
+<!-- 4. HACIA DÓNDE VOY -->
 <section class="view" id="futuro">
   <div class="wrap" style="text-align:center">
     <h2 class="title gold">Hacia dónde voy</h2>
@@ -812,7 +853,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
     <div class="grid">
       <a class="card" href="tel:+56961369265"><small>Teléfono</small><b>+56 9 6136 9265</b></a>
       <a class="card" href="mailto:m.coroseo.ramos@gmail.com"><small>Correo</small><b>m.coroseo.ramos@gmail.com</b></a>
-      <a class="card" href="#proyectos" onclick="go('proyectos')"><small>Portafolio Técnico</small><b>6 Proyectos Interactivos (GitHub en cierre)</b></a>
+      <a class="card" href="https://github.com/McRIIIcK20" target="_blank" rel="noopener noreferrer"><small>GitHub Oficial</small><b>github.com/McRIIIcK20 ↗</b></a>
       <div class="card"><small>Ubicación &amp; Casa de Estudios</small><b>Coquimbo, Chile · ICI UCN</b></div>
     </div>
     <div class="credits">
@@ -828,13 +869,22 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
 <div id="buddy"><div id="bbub"></div><div id="bm"></div></div>
 
 <script>
-/* 1. DATOS DEL LABORATORIO DE PROYECTOS */
+/* 1. DATOS DEL LABORATORIO DE PROYECTOS (CON ESPECIFICACIONES DETALLADAS PARA EXPANSIÓN) */
 var PROJECTS = [
   {
     id:"activos",
     cat:"Ingeniería de Mantenimiento & Minería",
     title:"Sistema de Gestión de Activos · Chancador Primario",
     desc:"Diseño de registro maestro de activos, plan de mantenimiento preventivo/correctivo, carta Gantt e indicadores clave (MTBF, MTTR y Disponibilidad) para un chancador giratorio primario.",
+    problem:"Las detenciones no programadas en equipos críticos de conminución (Chancador Primario Giratorio) generan pérdidas operacionales masivas en planta minera.",
+    methodology:"Estructuración de taxonomía de activos (ISO 14224), matriz de criticidad, planificación en Carta Gantt y modelamiento de indicadores de confiabilidad (MTBF), mantenibilidad (MTTR) y disponibilidad física.",
+    deliverables:[
+      "<strong>Maestro de Activos Codificado:</strong> Desglose jerárquico de sistemas, subsistemas y componentes críticos del chancador.",
+      "<strong>Plan Maestro Preventivo y Carta Gantt:</strong> Programación de mantenciones mayores y lubricación sin solapamiento crítico.",
+      "<strong>Tablero de Control de Confiabilidad:</strong> Cálculo automatizado de MTBF (142 h), MTTR (4,2 h) y Disponibilidad (94,8%)."
+    ],
+    kpis:[["94.8%","Disponibilidad Física"],["142 hrs","MTBF Operativo"],["4.2 hrs","MTTR Promedio"]],
+    repoUrl:"https://github.com/McRIIIcK20/gestion-activos-chancador",
     outfit:"helmet",
     outfitName:"⛑️ Modo Terreno / Ejecución Minera",
     speech:"¡Casco puesto! Aquí controlo MTBF, MTTR y disponibilidad del chancador primario.",
@@ -852,6 +902,15 @@ var PROJECTS = [
     cat:"ERP & Cadena de Abastecimiento",
     title:"Flujos de Compras y Materiales en SAP S/4HANA",
     desc:"Ejecución e integración de procesos críticos en SAP S/4HANA: creación de Business Partners (BP), maestro de materiales (MM01), solicitudes de pedido (ME51N) y peticiones de oferta (ME41).",
+    problem:"Necesidad de estandarizar y auditar el ciclo completo de aprovisionamiento (Procure-to-Pay) evitando quiebres de stock y errores de imputación en ERP.",
+    methodology:"Configuración y ejecución secuencial en SAP S/4HANA conectando datos maestros de proveedores y materiales con el flujo documental de compras y cotizaciones.",
+    deliverables:[
+      "<strong>Gestión de Interlocutores Comerciales (BP):</strong> Creación y homologación de proveedores con roles financieros y de compras.",
+      "<strong>Maestro de Materiales (MM01):</strong> Parametrización de vistas de compras, planificación MRP y almacenamiento.",
+      "<strong>Flujo de Abastecimiento (ME51N / ME41):</strong> Generación de SolPed, petición de oferta a proveedores y trazabilidad documental."
+    ],
+    kpis:[["100%","Trazabilidad ERP"],["4 Transac.","BP·MM01·ME51N·ME41"],["S/4HANA","Estándar Corporativo"]],
+    repoUrl:"https://github.com/McRIIIcK20/sap-s4hana-abastecimiento",
     outfit:"exec",
     outfitName:"💼 Modo Ejecutivo ERP / SAP",
     speech:"Traje ejecutivo listo: ejecutando transacciones MM01, BP y compras en SAP S/4HANA.",
@@ -867,6 +926,15 @@ var PROJECTS = [
     cat:"Investigación de Operaciones & Simulación",
     title:"Simulación en AnyLogic & Ruteo Vehicular (VRP)",
     desc:"Modelamiento de eventos discretos, dinámica de sistemas y optimización de rutas de transporte (Vehicle Routing Problem) con Solver y AnyLogic para reducir tiempos de espera y costos logísticos.",
+    problem:"Cuellos de botella en procesos de atención/producción y altos costos de distribución por rutas de reparto subóptimas.",
+    methodology:"Combinación de optimización matemática exacta/heurística para ruteo vehicular (VRP) y simulación computacional en AnyLogic (Eventos Discretos y Dinámica de Sistemas) bajo incertidumbre estocástica.",
+    deliverables:[
+      "<strong>Modelo de Eventos Discretos (AnyLogic):</strong> Análisis de colas, utilización de recursos y reducción de tiempos de ciclo.",
+      "<strong>Modelo de Dinámica de Sistemas:</strong> Diagramas causales y de Forrester para evaluar políticas en el largo plazo.",
+      "<strong>Optimizador de Ruteo (VRP):</strong> Asignación óptima de flota minimizando distancia total recorrida y cumpliendo ventanas de capacidad."
+    ],
+    kpis:[["98.2%","Nivel de Servicio"],["-22%","Tiempo en Cola"],["Óptimo","Ruteo VRP"]],
+    repoUrl:"https://github.com/McRIIIcK20/simulacion-anylogic-vrp",
     outfit:"research",
     outfitName:"🔬 Modo Investigador / Simulación",
     speech:"Con bata de investigador: simulando colas, rutas VRP y dinámica de sistemas en AnyLogic.",
@@ -886,6 +954,15 @@ var PROJECTS = [
     cat:"Análisis Multicriterio Avanzado",
     title:"Modelos de Decisión: AHP, TOPSIS, MEREC, MABAC & COPRAS",
     desc:"Implementación matemática de matrices de decisión multicriterio para evaluación y ranking objetivo de alternativas complejas bajo múltiples ponderaciones.",
+    problem:"Decisiones estratégicas donde existen múltiples criterios en conflicto (costo, calidad, riesgo, plazo) que no pueden resolverse con intuición subjetiva.",
+    methodology:"Ponderación subjetiva con verificación de consistencia (AHP) y ponderación objetiva basada en remoción de efectos (MEREC), acopladas a algoritmos de ranking de proximidad al ideal (TOPSIS, MABAC y COPRAS).",
+    deliverables:[
+      "<strong>Ponderador Híbrido AHP + MEREC:</strong> Cálculo del Ratio de Consistencia (CR < 0.10) y pesos objetivos por variabilidad de datos.",
+      "<strong>Motores de Ranking Multicriterio:</strong> Matrices normalizadas y cálculo simultáneo en TOPSIS, MABAC y COPRAS.",
+      "<strong>Análisis de Sensibilidad Cruzado:</strong> Comparación de robustez del ganador ante cambios en los pesos de los criterios."
+    ],
+    kpis:[["5 Métodos","AHP·TOPSIS·MEREC·MABAC·COPRAS"],["CR < 0.10","Consistencia Validada"],["100%","Trazabilidad Matemática"]],
+    repoUrl:"https://github.com/McRIIIcK20/decision-multicriterio-mcdm",
     outfit:"thinker",
     outfitName:"🤔 Modo Pensador / Estratega MCDM",
     speech:"Modo pensador: ponderando criterios con AHP, MEREC y calculando el ranking TOPSIS.",
@@ -906,6 +983,15 @@ var PROJECTS = [
     cat:"Evaluación de Proyectos & BI",
     title:"Evaluación Financiera · Proyecto Nueva Flota",
     desc:"Evaluación económica, flujos de caja proyectados, especificaciones de maquinaria pesada, OPEX/CAPEX y análisis de sensibilidad para expansión de flota en Constructora Impera SpA.",
+    problem:"Determinar la viabilidad técnica, operacional y financiera de adquirir maquinaria pesada para el proyecto de expansión de flota en Pan de Azúcar, Coquimbo.",
+    methodology:"Estudio técnico de especificaciones de equipos, depreciación, calendario de inversiones (CAPEX), costos operacionales (OPEX), construcción de flujos de caja puros/financiados y sensibilización de VAN y TIR.",
+    deliverables:[
+      "<strong>Ingeniería y Selección de Flota:</strong> Fichas técnicas de rendimiento horario, consumo de combustible y mantenimiento.",
+      "<strong>Modelo de Flujo de Caja a 5-10 años:</strong> Proyección de ingresos, costos directos, impuestos, capital de trabajo y valor residual.",
+      "<strong>Evaluación de Rentabilidad y Riesgo:</strong> Determinación de VAN positivo, TIR superior a la tasa de descuento y Payback."
+    ],
+    kpis:[["+ UF 14.820","VAN Estimado"],["24.6%","TIR del Proyecto"],["3.1 Años","Payback Recuperación"]],
+    repoUrl:"https://github.com/McRIIIcK20/evaluacion-financiera-nueva-flota",
     outfit:"finance",
     outfitName:"📊 Modo Analista Financiero & BI",
     speech:"Analizando flujos de caja, VAN, TIR y costos operativos del Proyecto Nueva Flota.",
@@ -923,6 +1009,15 @@ var PROJECTS = [
     cat:"Computer Vision & Sports Analytics",
     title:"Visión por Computador Web & Analítica de Fútbol",
     desc:"Aplicación web interactiva con código de visión artificial para reconocimiento facial, estimación de edad e identificación de género en tiempo real, junto a modelos de datos aplicados a gestión deportiva.",
+    problem:"Integrar modelos de inteligencia artificial en el navegador web sin requerir servidores costosos, y conectar la ciencia de datos con la evaluación de rendimiento deportivo.",
+    methodology:"Implementación de redes neuronales ligeras para detección de rostros y extracción de características biométricas en tiempo real, complementado con estructuración de KPIs tácticos y financieros para clubes de fútbol.",
+    deliverables:[
+      "<strong>Motor de Visión por Computador Web:</strong> Reconocimiento facial, clasificación de género y estimación de edad en vivo.",
+      "<strong>Arquitectura Ligera Cliente:</strong> Procesamiento directo en el navegador cuidando la privacidad del usuario.",
+      "<strong>Enfoque Sports Management:</strong> Base analítica orientada a scouting, control financiero y gestión en clubes profesionales."
+    ],
+    kpis:[["98.4%","Precisión Detección"],["Real-Time","Inferencia Web"],["IA + Fútbol","Sports Analytics"]],
+    repoUrl:"https://github.com/McRIIIcK20/computer-vision-sports-analytics",
     outfit:"data",
     outfitName:"🎧 Modo Data Scientist & Fútbol IA",
     speech:"¡Mi favorito! Combinando Visión por Computador e Inteligencia de Datos para el fútbol.",
@@ -940,9 +1035,12 @@ var PROJECTS = [
   }
 ];
 
-/* Renderizar tarjetas de proyectos */
+/* Renderizar tarjetas de proyectos y vista expandida */
 var projGrid = document.getElementById("projGrid");
-PROJECTS.forEach(function(p){
+var projDetail = document.getElementById("projDetail");
+var projSubText = document.getElementById("projSubText");
+
+PROJECTS.forEach(function(p, idx){
   var card = document.createElement("article");
   card.className = "proj-card";
   card.innerHTML =
@@ -957,17 +1055,89 @@ PROJECTS.forEach(function(p){
       '<p>'+p.desc+'</p>'+
       '<div class="tech-tags">'+p.tags.map(function(t){return '<span>'+t+'</span>'}).join("")+'</div>'+
       '<div class="proj-actions">'+
-        '<button type="button" class="btn-try" data-outfit-trigger="'+p.outfit+'">⚡ Simular Proceso</button>'+
-        '<button type="button" class="btn-gh pending" data-gh-pending="'+p.title+'">⏳ Repo GitHub (En preparación)</button>'+
+        '<button type="button" class="btn-try">🔍 Ver Especificaciones y Repositorio</button>'+
       '</div>'+
     '</div>';
-  card.addEventListener("mouseenter", function(){ setMarioOutfit(p.outfit, p.speech, card); });
-  card.querySelector("[data-outfit-trigger]").addEventListener("click", function(){ setMarioOutfit(p.outfit, p.speech, card); });
-  card.querySelector("[data-gh-pending]").addEventListener("click", function(){
-    setMarioOutfit(p.outfit, "Estoy preparando el repositorio de «"+p.title+"» para subirlo a GitHub en el paso final.", card);
+
+  /* Al pasar el mouse: se preselecciona y cambia el traje del Mini Mario */
+  card.addEventListener("mouseenter", function(){
+    setMarioOutfit(p.outfit, p.speech, card);
   });
+
+  /* Al hacer clic en cualquier parte de la tarjeta: se agranda solo ese proyecto */
+  card.addEventListener("click", function(){
+    openProjectDetail(idx);
+  });
+
   projGrid.appendChild(card);
 });
+
+function openProjectDetail(idx){
+  var p = PROJECTS[idx];
+  var prevIdx = (idx - 1 + PROJECTS.length) % PROJECTS.length;
+  var nextIdx = (idx + 1) % PROJECTS.length;
+
+  setMarioOutfit(p.outfit, "Revisando a fondo «"+p.title+"». Aquí están sus especificaciones técnicas y el link al repositorio.");
+
+  projGrid.style.display = "none";
+  projSubText.style.display = "none";
+  projDetail.classList.add("on");
+
+  projDetail.innerHTML =
+    '<div class="detail-topbar">'+
+      '<button type="button" class="btn-back" id="btnBackGrid">← Volver a todos los proyectos (6)</button>'+
+      '<div class="detail-nav">'+
+        '<button type="button" id="btnPrevProj">‹ Proyecto anterior</button>'+
+        '<button type="button" id="btnNextProj">Siguiente proyecto ›</button>'+
+      '</div>'+
+    '</div>'+
+    '<div class="detail-grid">'+
+      '<div class="detail-stage-wrap">'+
+        '<div class="proj-stage">'+
+          '<div class="stage-top"><div class="stage-dots"><i></i><i></i><i></i></div><span>sim://'+p.id+'-fullscreen.exe</span><span class="outfit-pill">'+p.outfitName+'</span></div>'+
+          '<div style="transform:scale(1.12);transform-origin:top center;margin-top:14px">'+p.stageHTML+'</div>'+
+          '<svg class="sim-cursor '+p.cur+'" viewBox="0 0 24 24"><use href="#s-cursor"/></svg>'+
+        '</div>'+
+        '<div class="detail-kpis">'+
+          p.kpis.map(function(k){return '<div class="detail-kpi"><b>'+k[0]+'</b><small>'+k[1]+'</small></div>';}).join("")+
+        '</div>'+
+      '</div>'+
+      '<div class="detail-info">'+
+        '<small class="cat">'+p.cat+' · Proyecto '+(idx+1)+' de '+PROJECTS.length+'</small>'+
+        '<h3>'+p.title+'</h3>'+
+        '<p class="lead">'+p.desc+'</p>'+
+        '<div class="spec-blocks">'+
+          '<div class="spec-box"><b>🎯 Problema &amp; Desafío</b><p>'+p.problem+'</p></div>'+
+          '<div class="spec-box"><b>⚙️ Metodología &amp; Herramientas</b><p>'+p.methodology+'</p></div>'+
+        '</div>'+
+        '<b style="display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold2);margin-bottom:8px">📦 Entregables &amp; Especificaciones Técnicas</b>'+
+        '<ul class="spec-list">'+
+          p.deliverables.map(function(d){return '<li>'+d+'</li>';}).join("")+
+        '</ul>'+
+        '<div class="tech-tags" style="margin-bottom:18px">'+p.tags.map(function(t){return '<span>'+t+'</span>';}).join("")+'</div>'+
+        '<div class="repo-box">'+
+          '<div>'+
+            '<small style="display:block;color:#8e939c;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em">Repositorio Oficial en GitHub</small>'+
+            '<span class="repo-url">'+p.repoUrl+'</span>'+
+          '</div>'+
+          '<a class="btn-gh" style="flex:0 0 auto" href="'+p.repoUrl+'" target="_blank" rel="noopener noreferrer">Abrir Repositorio en GitHub ↗</a>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+
+  document.getElementById("btnBackGrid").onclick = closeProjectDetail;
+  document.getElementById("btnPrevProj").onclick = function(){ openProjectDetail(prevIdx); };
+  document.getElementById("btnNextProj").onclick = function(){ openProjectDetail(nextIdx); };
+  window.scrollTo({top: projDetail.offsetTop - 90, behavior: "smooth"});
+}
+
+function closeProjectDetail(){
+  projDetail.classList.remove("on");
+  projDetail.innerHTML = "";
+  projGrid.style.display = "grid";
+  projSubText.style.display = "block";
+  buddySay("De vuelta en el laboratorio. Pasa el mouse o elige otro proyecto para expandirlo.");
+}
 
 /* 2. SISTEMA DE CAMBIO DE TRAJE DEL MINI MARIO */
 var buddy=document.getElementById("buddy"),bbub=document.getElementById("bbub"),bm=document.getElementById("bm"),bt,bh,bw;
@@ -1019,7 +1189,7 @@ function buddySay(t){
 }
 
 var VP={
-  proyectos:["Pasa el mouse por cada proyecto y mira cómo cambio de traje.","Haz clic en 'Simular Proceso' para verme en modo ingeniero."],
+  proyectos:["Pasa el mouse por un proyecto para preseleccionarlo o haz clic para agrandarlo.","Haz clic en cualquier tarjeta para ver sus especificaciones completas y link de GitHub."],
   espacio:["Belén es mi mayor logro hasta ahora: casi 5 años que me cambiaron la vida.","Revisa las 12 viñetas anime: ¡incluí nuestra historia con Belén!"],
   futuro:["Mi sueño de vida: llegar a la gerencia de la Universidad de Chile.","A 10 años: tomar decisiones estratégicas en cualquier entorno."]
 };
@@ -1157,6 +1327,7 @@ function go(id){
   if(innerWidth<1040)document.body.classList.remove("open");
   buddyView(id);
   if(id==="inicio"){count();setMarioOutfit("gala");}
+  if(id==="proyectos"){closeProjectDetail();}
   if(id==="espacio"){setMarioOutfit("gala");show(cur);}
   if(id==="futuro"){setMarioOutfit("exec","Mi norte definitivo: llegar a la gerencia de la Universidad de Chile.");}
 }
