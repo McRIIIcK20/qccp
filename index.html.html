@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QC&CP · Mario Andrés Coroseo Ramos | Portafolio & Historia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A;--panel:#121214;--panel2:#18181c;
+  --gold:#C9A24B;--gold2:#E8C877;--silver:#C0C4CC;--text:#F5F2EA;
+  --blueU:#1d4ed8;--redU:#dc2626;
+  --line:rgba(192,196,204,.14);--goldLine:rgba(201,162,75,.38);
+  color-scheme:dark;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:300 16px/1.7 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;margin:0;font-weight:700}
+.gold{background:linear-gradient(135deg,#C9A24B,#FFF1B8 50%,#C9A24B);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Navegación Lateral */
+#menuBtn{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:14px;z-index:40;background:#0a0a0acc;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:9px 16px;font:600 12px Inter,sans-serif;letter-spacing:.12em;cursor:pointer;backdrop-filter:blur(8px);transition:.25s}
+#menuBtn:hover{background:#C9A24B22;box-shadow:0 0 15px #C9A24B44}
+nav{position:fixed;top:0;left:0;bottom:0;width:270px;z-index:35;background:#070708;border-right:1px solid var(--goldLine);padding:calc(68px + env(safe-area-inset-top,0px)) 14px 20px;transform:translateX(-100%);transition:transform .45s cubic-bezier(.5,0,0,1);overflow-y:auto;display:flex;flex-direction:column}
+body.open nav{transform:none}
+nav .brand{font:700 26px 'Playfair Display',serif;margin:0 10px 4px;color:var(--gold2)}
+nav .brand-sub{font-size:11px;color:var(--silver);letter-spacing:.12em;text-transform:uppercase;margin:0 10px 20px;opacity:.8}
+nav button{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:none;border:0;color:var(--silver);font:500 14.5px Inter,sans-serif;padding:12px;border-radius:10px;cursor:pointer;border-left:2px solid transparent;transition:.25s;margin-bottom:4px}
+nav button:hover{color:var(--gold2);background:#ffffff08}
+nav button.on{color:var(--gold2);border-left-color:var(--gold);background:linear-gradient(90deg,#C9A24B1f,transparent)}
+nav button .ni{width:20px;height:20px;flex:0 0 auto}
+nav .nav-foot{margin-top:auto;padding:14px 10px 4px;border-top:1px solid var(--line);font-size:11.5px;color:#8e939c}
+
+main{transition:margin .45s cubic-bezier(.5,0,0,1)}
+@media(min-width:1040px){body.open main{margin-left:270px}}
+.view{display:none;min-height:100vh;padding:86px 22px 80px;animation:fade .6s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wrap{max-width:1080px;margin:0 auto;position:relative}
+.title{font-size:clamp(32px,5.5vw,54px);margin-bottom:8px}
+.sub{color:var(--silver);max-width:700px;margin:0 0 32px;font-size:16px}
+.rule{width:90px;height:3px;background:linear-gradient(90deg,#C9A24B,#E8C877);border-radius:3px;margin:14px 0 22px}
+.mini{position:absolute;right:0;top:-44px;width:54px;height:70px;pointer-events:none;animation:fl 6s ease-in-out infinite;filter:drop-shadow(0 0 10px #C9A24B88)}
+
+/* Portada Gala */
+#inicio{display:none;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+#inicio.on{display:flex}
+#inicio::before{content:"";position:absolute;width:72vmin;height:72vmin;background:var(--gold);opacity:.07;filter:blur(110px);border-radius:50%}
+.trophy{display:block;width:136px;height:178px;margin:0 auto 14px;animation:fl 6s ease-in-out infinite;filter:drop-shadow(0 0 26px #C9A24B88)}
+@keyframes fl{50%{transform:translateY(-14px)}}
+.hero h1{font-size:clamp(46px,9.5vw,92px);letter-spacing:-.02em;line-height:1}
+.hero h1 span{color:var(--gold)}
+.hero h2{font:italic 400 clamp(17px,3vw,26px) 'Playfair Display',serif;color:var(--silver);margin:8px 0 14px}
+.role-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--goldLine);background:#141416cc;padding:6px 16px;border-radius:999px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-top:8px}
+.cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.cta{background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;border:0;border-radius:999px;padding:13px 28px;font:600 13.5px Inter,sans-serif;letter-spacing:.08em;cursor:pointer;transition:.25s;box-shadow:0 6px 24px #C9A24B44}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px #E8C87766}
+.cta.sec{background:#121215;color:var(--gold2);border:1px solid var(--gold);box-shadow:none}
+.cta.sec:hover{background:#C9A24B18}
+.counters{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.counters div{border:1px solid var(--goldLine);background:#0d0d10cc;border-radius:12px;padding:10px 24px;min-width:128px}
+.counters b{display:block;font:700 38px/1.1 'Playfair Display',serif;color:var(--gold2)}
+.counters small{color:var(--silver);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
+
+/* Selector de Trajes del Mini Mario */
+.wardrobe-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:linear-gradient(145deg,#151519,#0d0d10);border:1px solid var(--goldLine);border-radius:14px;padding:12px 18px;margin-bottom:28px}
+.wardrobe-bar span{font-size:13px;color:var(--silver);font-weight:500}
+.wardrobe-bar span b{color:var(--gold2)}
+.outfit-btns{display:flex;gap:8px;flex-wrap:wrap}
+.outfit-btn{background:#0b0b0d;border:1px solid var(--line);color:var(--silver);padding:6px 12px;border-radius:999px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
+.outfit-btn:hover,.outfit-btn.on{border-color:var(--gold);color:#111;background:linear-gradient(135deg,#C9A24B,#E8C877)}
+
+/* Laboratorio de Proyectos (Grid & Simuladores) */
+.proj-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.proj-card{background:linear-gradient(160deg,#151519,#0c0c0e);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.35s;position:relative}
+.proj-card:hover,.proj-card.active-sim{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 14px 36px #000c,0 0 24px #C9A24B28}
+.proj-stage{position:relative;height:215px;background:#08080a;border-bottom:1px solid var(--line);padding:12px;overflow:hidden;font-family:'JetBrains Mono',monospace;user-select:none}
+.stage-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #ffffff12;font-size:10.5px;color:#8e939c}
+.stage-dots{display:flex;gap:5px}
+.stage-dots i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.stage-dots i:nth-child(1){background:#ff5f56}.stage-dots i:nth-child(2){background:#ffbd2e}.stage-dots i:nth-child(3){background:#27c93f}
+.outfit-pill{background:#C9A24B22;border:1px solid var(--gold);color:var(--gold2);padding:2px 8px;border-radius:999px;font:600 10px Inter,sans-serif}
+
+/* Cursor simulado dentro de cada proyecto */
+.sim-cursor{position:absolute;width:18px;height:18px;z-index:10;pointer-events:none;filter:drop-shadow(0 2px 4px #000)}
+.sim-cursor::after{content:"";position:absolute;left:-4px;top:-4px;width:22px;height:22px;border-radius:50%;border:2px solid var(--gold2);opacity:0;transform:scale(.4)}
+.Cursor-1{animation:cur1 6s infinite ease-in-out}
+.Cursor-2{animation:cur2 6.5s infinite ease-in-out}
+.Cursor-3{animation:cur3 7s infinite ease-in-out}
+.Cursor-4{animation:cur4 6s infinite ease-in-out}
+.Cursor-5{animation:cur5 6.2s infinite ease-in-out}
+.Cursor-6{animation:cur6 5.8s infinite ease-in-out}
+@keyframes cur1{0%,100%{left:78%;top:76%}25%{left:28%;top:42%}30%{left:28%;top:42%;transform:scale(.85)}55%{left:74%;top:36%}60%{left:74%;top:36%;transform:scale(.85)}80%{left:52%;top:75%}}
+@keyframes cur2{0%,100%{left:80%;top:78%}20%{left:24%;top:32%}45%{left:48%;top:54%}70%{left:78%;top:74%;transform:scale(.85)}}
+@keyframes cur3{0%,100%{left:18%;top:74%}35%{left:48%;top:74%;transform:scale(.85)}70%{left:76%;top:38%}}
+@keyframes cur4{0%,100%{left:25%;top:38%}30%{left:62%;top:38%;transform:scale(.85)}65%{left:75%;top:75%;transform:scale(.85)}}
+@keyframes cur5{0%,100%{left:22%;top:44%}35%{left:68%;top:44%;transform:scale(.85)}70%{left:50%;top:74%}}
+@keyframes cur6{0%,100%{left:30%;top:45%}40%{left:36%;top:40%;transform:scale(.88)}75%{left:78%;top:68%;transform:scale(.88)}}
+
+/* Componentes de las simulaciones UI */
+.ui-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px}
+.ui-box{background:#121318;border:1px solid #ffffff14;border-radius:6px;padding:7px}
+.ui-kpi{font-size:15px;font-weight:700;color:var(--gold2);display:block}
+.ui-bar{height:6px;background:#222;border-radius:4px;overflow:hidden;margin-top:4px}
+.ui-bar > span{display:block;height:100%;background:linear-gradient(90deg,#C9A24B,#27c93f);animation:barPulse 4s infinite alternate}
+@keyframes barPulse{0%{width:62%}100%{width:94%}}
+.ui-btn-sim{display:inline-block;margin-top:6px;padding:4px 9px;border-radius:4px;background:#C9A24B33;border:1px solid var(--gold);color:var(--gold2);font-size:10px;animation:btnFlash 3s infinite}
+@keyframes btnFlash{0%,80%,100%{background:#C9A24B22;color:var(--gold2)}90%{background:var(--gold2);color:#111}}
+.sap-step{display:flex;align-items:center;justify-content:space-between;background:#12141a;border:1px solid #ffffff14;padding:4px 8px;border-radius:4px;margin-bottom:4px;font-size:10.5px}
+.sap-step b{color:var(--gold2)}
+.sap-ok{color:#27c93f;font-weight:700;animation:blinkOk 3s infinite}
+@keyframes blinkOk{0%,45%{opacity:.25}50%,100%{opacity:1}}
+
+.proj-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.proj-body small{color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:600}
+.proj-body h3{font-size:21px;margin:4px 0 8px;color:var(--text)}
+.proj-body p{color:var(--silver);font-size:14px;margin:0 0 14px;flex:1}
+.tech-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tech-tags span{font-size:11px;background:#ffffff09;border:1px solid var(--line);color:var(--silver);padding:3px 9px;border-radius:6px}
+.proj-actions{display:flex;gap:10px;align-items:center;margin-top:auto}
+.btn-gh{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;text-decoration:none;font:600 12.5px Inter,sans-serif;padding:10px 14px;border-radius:9px;transition:.25s;cursor:pointer;border:0}
+.btn-gh:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-gh.pending{background:#18181f;color:var(--gold2);border:1px dashed var(--gold)}
+.btn-gh.pending:hover{background:#C9A24B22}
+.btn-try{background:#16161a;border:1px solid var(--goldLine);color:var(--gold2);padding:10px 12px;border-radius:9px;font:600 12px Inter,sans-serif;cursor:pointer;transition:.2s}
+.btn-try:hover{background:#C9A24B22}
+
+/* Espacio Unificado QC&CP (Sub-tabs) */
+.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.subtab{background:#121215;border:1px solid var(--line);color:var(--silver);padding:9px 18px;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer;transition:.25s}
+.subtab:hover{color:var(--gold2);border-color:var(--goldLine)}
+.subtab.on{background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;border-color:transparent}
+.subpane{display:none;animation:fade .45s ease}
+.subpane.on{display:block}
+
+/* Cards, Ficha y Timeline */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:linear-gradient(145deg,#141416,#0a0a0c);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.35s;position:relative}
+.card:hover{border-color:#C9A24B88;transform:translateY(-4px);box-shadow:0 10px 30px #C9A24B22}
+.card h3{font-size:21px;color:var(--text);margin-bottom:8px}
+.card p{margin:0;color:var(--silver);font-size:14.5px}
+svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
+.quote{font:italic 400 clamp(19px,3vw,25px)/1.5 'Playfair Display',serif;color:var(--gold2);border-left:3px solid var(--gold);padding-left:20px;margin:0 0 28px}
+
+/* Bloque Destacado: Belén · Mi Mayor Logro */
+.belen-showcase{margin-top:26px;background:linear-gradient(145deg,#1b1318 0%,#121016 55%,#1b160e 100%);border:2px solid var(--gold);border-radius:18px;padding:28px;position:relative;overflow:hidden;box-shadow:0 14px 38px #000c,0 0 28px #C9A24B28}
+.belen-showcase::before{content:"";position:absolute;right:-50px;top:-50px;width:220px;height:220px;background:radial-gradient(circle,#E8C87728,transparent 70%);pointer-events:none}
+.belen-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#C9A24B,#E8C877);color:#111;font:700 11px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+.belen-showcase h3{font-size:clamp(24px,3.6vw,32px);color:var(--gold2);margin-bottom:10px}
+.belen-showcase p{color:var(--text);font-size:15.2px;margin:0 0 12px;line-height:1.75}
+.belen-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.belen-pillar{background:#0b0b0ecc;border:1px solid var(--goldLine);border-radius:12px;padding:14px}
+.belen-pillar b{display:block;color:var(--gold2);font-size:13.5px;margin-bottom:4px}
+.belen-pillar span{color:var(--silver);font-size:13px;line-height:1.5;display:block}
+
+.split{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.fut{border:2px solid var(--gold);border-radius:14px;padding:22px;background:linear-gradient(180deg,#1b1b1b,#0a0a0a);box-shadow:0 0 30px #C9A24B33;position:relative;overflow:hidden}
+.fut::before{content:"";position:absolute;inset:-50% auto -50% -60%;width:40%;background:linear-gradient(90deg,transparent,#E8C87722,transparent);transform:rotate(20deg);animation:sh 5s infinite}
+@keyframes sh{to{left:140%}}
+.fut h3{text-align:center;font-size:30px;color:var(--gold2);letter-spacing:.1em;text-transform:uppercase}
+.fut .pos{text-align:center;color:var(--silver);border-bottom:1px solid #C9A24B44;padding-bottom:12px;margin-bottom:14px}
+.stats{display:flex;justify-content:space-around;margin-bottom:14px}
+.stats b{display:block;text-align:center;font:700 30px 'Playfair Display',serif;color:var(--gold)}
+.stats small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--silver)}
+.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #C9A24B1c;padding:6px 0;font-size:14px}
+.row span:first-child{color:var(--silver)}
+.row span:last-child{text-align:right;font-weight:600}
+
+.tl{position:relative;padding:10px 0 10px 34px;margin-left:8px}
+.tl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#ffffff18}
+.tl .fill{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(#C9A24B,#E8C877);box-shadow:0 0 12px #E8C877}
+.it{position:relative;margin-bottom:20px}
+.it::before{content:"";position:absolute;left:-41px;top:14px;width:14px;height:14px;border-radius:50%;background:var(--gold2);border:3px solid var(--gold);box-shadow:0 0 12px var(--gold2)}
+.it button{all:unset;display:block;width:100%;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-sizing:border-box}
+.it button:hover,.it.open button{border-color:#C9A24B88}
+.it small{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:11.5px;font-weight:600}
+.it h3{font-size:21px;margin:2px 0}
+.it .more{max-height:0;overflow:hidden;transition:max-height .5s ease;color:var(--silver);font-size:14.5px}
+.it.open .more{max-height:520px}
+.it .more p{margin:10px 0 0}
+.tag{display:inline-block;margin-top:10px;font-size:11.5px;color:#111;background:var(--gold2);border-radius:999px;padding:2px 12px;font-weight:600}
+
+/* Historias Carrusel Anime */
+#stories{max-width:980px;margin:0 auto}
+.viewport{overflow:hidden;border-radius:18px}
+.track{display:flex;transition:transform .85s cubic-bezier(.6,0,.2,1)}
+.slide{flex:0 0 100%;display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center;padding:6px}
+@media(max-width:760px){.slide{grid-template-columns:1fr}}
+.scene{position:relative;height:300px;border-radius:16px;overflow:hidden;border:1px solid #C9A24B66;box-shadow:inset 0 0 40px #000a}
+.scene::before{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg,rgba(232,200,119,.04) 0deg 4deg,transparent 4deg 14deg);pointer-events:none}
+.scene::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(transparent,#00000099)}
+.el{position:absolute;font-style:normal;line-height:1;overflow:visible}
+.slide:not(.act) .el{animation-play-state:paused}
+.a-bob{animation:bob 1.2s ease-in-out infinite alternate}
+.a-jump{animation:bob .6s ease-in infinite alternate;--h:-65px}
+.a-float{animation:bob 2.8s ease-in-out infinite alternate;--h:-14px}
+.a-walk{animation:walk 2.4s ease-in-out infinite alternate}
+.a-shake{animation:shk .25s ease-in-out infinite alternate}
+.a-spin{animation:spn 4s linear infinite}
+.a-pulse{animation:pls .8s ease-in-out infinite alternate}
+.a-fall{animation:fal 2.2s ease-in infinite}
+.a-wave{animation:wav 2.6s ease-in-out infinite alternate}
+.a-roll{animation:rol 2.4s ease-in-out infinite alternate}
+.a-sway{animation:swy .7s ease-in-out infinite alternate;transform-origin:50% 100%}
+.a-trip{animation:trp 2.4s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bob{to{transform:translateY(var(--h,-14px))}}
+@keyframes walk{from{transform:translateX(calc(var(--d,55px)*-1))}to{transform:translateX(var(--d,55px))}}
+@keyframes shk{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+@keyframes spn{to{transform:rotate(360deg)}}
+@keyframes pls{to{transform:scale(1.24)}}
+@keyframes fal{0%{transform:translateY(-20px);opacity:0}30%{opacity:1}100%{transform:translateY(85px) rotate(18deg);opacity:0}}
+@keyframes wav{from{transform:translate(-22px,0)}to{transform:translate(22px,-8px)}}
+@keyframes rol{from{transform:translateX(-65px) rotate(0)}to{transform:translateX(65px) rotate(540deg)}}
+@keyframes swy{from{transform:rotate(-7deg) translateY(0)}to{transform:rotate(7deg) translateY(-8px)}}
+@keyframes trp{0%,100%{transform:rotate(0)}35%{transform:rotate(-10deg)}65%{transform:rotate(62deg) translateY(14px)}85%{transform:rotate(62deg) translateY(14px)}}
+.cap{position:absolute;left:14px;bottom:10px;z-index:2;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);font-weight:600}
+.txt small{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:12px;font-weight:600}
+.txt h3{font-size:clamp(24px,3.8vw,34px);margin:4px 0 10px}
+.txt p{color:var(--silver);font-size:15.5px;margin:0}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
+.ctrl>button{background:none;border:1px solid var(--gold);color:var(--gold2);width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer}
+#dots{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+#dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:#ffffff30;cursor:pointer}
+#dots button.on{background:var(--gold2);box-shadow:0 0 8px var(--gold2)}
+.cnt{text-align:center;color:#8e939c;font-size:12.5px;margin-top:8px;letter-spacing:.1em}
+
+/* Tarjeta Destacada Meta de Vida: Universidad de Chile */
+.dream-card{margin-top:28px;background:linear-gradient(135deg,#0c1938 0%,#111827 55%,#1f1218 100%);border:2px solid var(--gold);border-radius:18px;padding:28px;position:relative;overflow:hidden;box-shadow:0 14px 40px #000c,0 0 30px #1d4ed833;text-align:left}
+.dream-card::before{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;background:radial-gradient(circle,#1d4ed844,transparent 70%);pointer-events:none}
+.dream-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#1d4ed8,#dc2626);color:#fff;font:700 11px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+.dream-card h3{font-size:clamp(24px,3.6vw,32px);color:var(--gold2);margin-bottom:10px}
+.dream-card p{color:var(--text);font-size:15.5px;margin:0;max-width:820px}
+.roadmap-tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+
+/* Personaje Mini Mario Anime & Trajes */
+#field{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.heroin{position:relative;z-index:2;max-width:780px;padding:0 14px}
+#mario{position:absolute;left:0;top:0;width:68px;height:118px;transform-origin:34px 118px;will-change:transform}
+#mario::after{content:"";position:absolute;left:8px;bottom:-5px;width:52px;height:10px;background:#000;border-radius:50%;filter:blur(3px);opacity:.7;z-index:-1}
+#mario svg,.bud svg{overflow:visible;width:68px;height:118px}
+#mario g,.bud g{transform-box:view-box}
+.lg,.ar{transition:transform .2s}
+.hair-front{animation:hairBreeze 2.4s ease-in-out infinite alternate;transform-origin:30px 6px}
+@keyframes hairBreeze{from{transform:rotate(-1.5deg)}to{transform:rotate(2deg)}}
+.walk .lgL{transform-origin:25px 66px;animation:sw .42s ease-in-out infinite alternate}
+.walk .lgR{transform-origin:35px 66px;animation:sw .42s ease-in-out infinite alternate-reverse}
+.walk .arL{transform-origin:15px 36px;animation:sw .42s ease-in-out infinite alternate-reverse}
+.walk .arR{transform-origin:45px 36px;animation:sw .42s ease-in-out infinite alternate}
+.kick .lgR{transform-origin:35px 66px;animation:kk .35s ease-out}
+.wave .arR{transform-origin:45px 36px;animation:wv .35s ease-in-out infinite alternate;transform:rotate(148deg)}
+@keyframes sw{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
+@keyframes kk{0%{transform:rotate(-38deg)}60%{transform:rotate(68deg)}100%{transform:rotate(0)}}
+@keyframes wv{from{transform:rotate(135deg)}to{transform:rotate(168deg)}}
+
+/* Visibilidad de Trajes en el SVG del Mini Mario */
+.gear{opacity:0;transition:opacity .28s ease;pointer-events:none}
+.mario-char[data-outfit="gala"] .g-gala,
+.mario-char[data-outfit="helmet"] .g-helmet,
+.mario-char[data-outfit="exec"] .g-exec,
+.mario-char[data-outfit="research"] .g-research,
+.mario-char[data-outfit="thinker"] .g-thinker,
+.mario-char[data-outfit="finance"] .g-finance,
+.mario-char[data-outfit="data"] .g-data{opacity:1}
+
+#ball2{position:absolute;left:0;top:0;will-change:transform}
+#bubble{position:absolute;transform:translateX(-50%);background:#F5F2EA;color:#111;font:600 12.5px Inter,sans-serif;padding:7px 14px;border-radius:14px;white-space:nowrap;opacity:0;transition:opacity .3s;box-shadow:0 4px 14px #0009}
+#bubble::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#F5F2EA}
+#bubble.on{opacity:1}
+
+/* Buddy Flotante Esquina Inferior Derecha */
+#buddy{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));width:88px;height:152px;z-index:30;pointer-events:none;display:none;transition:opacity .4s;transform-origin:100% 100%}
+#buddy.on{display:block}
+#buddy.hide{opacity:0}
+@media(max-width:600px){#buddy{transform:scale(.82)}}
+#bm{position:relative;width:88px;height:152px}
+.bud{position:absolute;left:0;top:0;width:68px;height:118px;transform-origin:0 0;transform:translateX(88px) scale(-1.26,1.26)}
+#bbub{position:absolute;right:0;bottom:156px;width:max-content;max-width:230px;background:#F5F2EA;color:#111;font:600 12.5px/1.38 Inter,sans-serif;padding:9px 14px;border-radius:14px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;box-shadow:0 6px 20px #000b;border:1.5px solid var(--gold)}
+#bbub::after{content:"";position:absolute;right:34px;bottom:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#F5F2EA}
+#bbub.on{opacity:1;transform:none}
+
+/* Footer Contacto */
+#contacto{border-top:1px solid #C9A24B66;background:#050506;padding:60px 22px 44px;text-align:center}
+#contacto h3{font-size:clamp(28px,4.8vw,42px)}
+#contacto .grid{margin:28px auto;max-width:960px;text-align:left}
+#contacto .card{display:block;text-decoration:none;color:inherit}
+#contacto small{display:block;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:11px;font-weight:600;margin-bottom:6px}
+#contacto b{font:600 15.5px/1.4 Inter,sans-serif;color:var(--text);word-break:break-word}
+.credits{color:#8e939c;font-size:13px;line-height:1.9;margin-top:34px;padding-top:24px;border-top:1px solid #C9A24B33}
+</style>
+</head>
+<body>
+
+<!-- LIBRERÍA DE SÍMBOLOS SVG ANIME & ICONOS -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6414"/><stop offset=".35" stop-color="#F3DC9B"/><stop offset=".7" stop-color="#C9A24B"/><stop offset="1" stop-color="#6b4a0c"/></linearGradient>
+    <linearGradient id="gBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5e430c"/><stop offset=".4" stop-color="#E0BC68"/><stop offset=".75" stop-color="#A9812F"/><stop offset="1" stop-color="#4a3208"/></linearGradient>
+    <radialGradient id="gBall" cx=".36" cy=".3" r=".85"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".25" stop-color="#E8C877"/><stop offset=".55" stop-color="#C9A24B"/><stop offset=".85" stop-color="#8a6414"/><stop offset="1" stop-color="#4a3208"/></radialGradient>
+    <linearGradient id="gSkin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE1C6"/><stop offset="1" stop-color="#E5B289"/></linearGradient>
+    <linearGradient id="gHair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B201A"/><stop offset="1" stop-color="#0E0A08"/></linearGradient>
+    <linearGradient id="gEye" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E140C"/><stop offset=".55" stop-color="#7A5220"/><stop offset="1" stop-color="#E8C877"/></linearGradient>
+    <clipPath id="cBall"><circle cx="100" cy="100" r="80"/></clipPath>
+  </defs>
+
+  <!-- Trofeo Balón de Oro -->
+  <symbol id="bd" viewBox="0 0 200 260">
+    <ellipse cx="100" cy="249" rx="64" ry="8" fill="#000" opacity=".55"/>
+    <path d="M56 218h88l8 18H48z" fill="url(#gGold)"/>
+    <rect x="46" y="236" width="108" height="11" rx="4" fill="url(#gBase)"/>
+    <path d="M72 202h56l4 16H68z" fill="url(#gBase)"/>
+    <path d="M90 180h20l3 22H87z" fill="url(#gGold)"/>
+    <ellipse cx="100" cy="181" rx="26" ry="7" fill="url(#gBase)"/>
+    <circle cx="100" cy="100" r="80" fill="url(#gBall)"/>
+    <g clip-path="url(#cBall)">
+      <path d="M100 78V45M120.9 93.2L152.3 83M112.9 117.8l19.4 26.7M87.1 117.8L67.7 144.5M79.1 93.2L47.7 83M100 45L57.7 41.8M100 45l42.3-3.2M152.3 83l-10-41.2M152.3 83l16.2 39.2M132.3 144.5l36.2-22.3M132.3 144.5L100 172M67.7 144.5L100 172M67.7 144.5L31.5 122.2M47.7 83l-16.2 39.2M47.7 83l10-41.2" stroke="#5a3f0a" stroke-width="2.4" fill="none"/>
+      <polygon points="100,78 120.9,93.2 112.9,117.8 87.1,117.8 79.1,93.2" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+      <polygon points="132.3,55.5 126.2,36.5 142.3,24.8 158.5,36.5 152.3,55.5" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+      <polygon points="152.3,117 168.5,105.2 184.6,117 178.5,136 158.5,136" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+      <polygon points="100,155 116.2,166.7 110,185.8 90,185.8 83.8,166.7" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+      <polygon points="47.7,117 41.5,136 21.5,136 15.4,117 31.5,105.2" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+      <polygon points="67.7,55.5 47.7,55.5 41.5,36.5 57.7,24.8 73.8,36.5" fill="#7a5710" stroke="#3d2a06" stroke-width="2"/>
+    </g>
+    <ellipse cx="70" cy="58" rx="28" ry="14" transform="rotate(-35 70 58)" fill="#fff" opacity=".38"/>
+    <circle cx="100" cy="100" r="79" fill="none" stroke="#fff3c4" stroke-opacity=".45" stroke-width="2"/>
+  </symbol>
+
+  <!-- Personajes Anime para las Historias -->
+  <symbol id="s-kid" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="59" rx="14" ry="3.5" fill="#000" opacity=".45"/>
+    <rect x="23" y="43" width="7" height="14" rx="3" fill="#181818" stroke="#C9A24B" stroke-width=".8"/>
+    <rect x="34" y="43" width="7" height="14" rx="3" fill="#181818" stroke="#C9A24B" stroke-width=".8"/>
+    <ellipse cx="26" cy="57" rx="5" ry="2.6" fill="#E8C877"/>
+    <ellipse cx="38" cy="57" rx="5" ry="2.6" fill="#E8C877"/>
+    <rect x="13" y="28" width="7" height="15" rx="3.5" fill="url(#gSkin)"/>
+    <rect x="44" y="28" width="7" height="15" rx="3.5" fill="url(#gSkin)"/>
+    <path d="M20 26h24l2 19H18z" fill="var(--c,#C9A24B)" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M27 26l5 6 5-6" fill="none" stroke="#FFF1B8" stroke-width="1.3"/>
+    <circle cx="20" cy="16" r="2.6" fill="url(#gSkin)"/>
+    <circle cx="44" cy="16" r="2.6" fill="url(#gSkin)"/>
+    <path d="M20 12c0-7 24-7 24 0v5c0 7-5 11-12 11s-12-4-12-11z" fill="url(#gSkin)"/>
+    <ellipse cx="26.5" cy="16.5" rx="2.7" ry="3.3" fill="url(#gEye)"/>
+    <ellipse cx="37.5" cy="16.5" rx="2.7" ry="3.3" fill="url(#gEye)"/>
+    <path d="M23.5 14q3-2 6 0M34.5 14q3-2 6 0" stroke="#140d08" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <circle cx="25.5" cy="15.2" r="1.1" fill="#fff"/>
+    <circle cx="36.5" cy="15.2" r="1.1" fill="#fff"/>
+    <ellipse cx="22.5" cy="19.5" rx="2.2" ry="1" fill="#f08070" opacity=".45"/>
+    <ellipse cx="41.5" cy="19.5" rx="2.2" ry="1" fill="#f08070" opacity=".45"/>
+    <path d="M29 21.5q3 2.6 6 0" stroke="#7a3b2b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M17 15C16 6 24 2 32 2s16 4 15 13c-2-3-4-4-6-3-1 3-3 5-5 2-2 3-5 4-7 1-3 3-6 2-8-1-2 1-3 2-4 1z" fill="url(#gHair)"/>
+    <path d="M25 2l-5-3 3 5M32 1l2-4 2 4M39 3l6-2-3 5" fill="#18110c"/>
+  </symbol>
+
+  <!-- Símbolo Anime de Belén -->
+  <symbol id="s-belen" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="59" rx="14" ry="3.5" fill="#000" opacity=".45"/>
+    <!-- Cabello largo atrás -->
+    <path d="M15 16c-2 12-3 26 2 32h30c5-6 4-20 2-32z" fill="#1c120d"/>
+    <rect x="24" y="44" width="6.5" height="13" rx="3" fill="url(#gSkin)"/>
+    <rect x="33.5" y="44" width="6.5" height="13" rx="3" fill="url(#gSkin)"/>
+    <ellipse cx="27" cy="57" rx="4.5" ry="2.4" fill="#E8C877"/>
+    <ellipse cx="37" cy="57" rx="4.5" ry="2.4" fill="#E8C877"/>
+    <rect x="14" y="28" width="6.5" height="15" rx="3.2" fill="url(#gSkin)"/>
+    <rect x="43.5" y="28" width="6.5" height="15" rx="3.2" fill="url(#gSkin)"/>
+    <!-- Vestido elegante dorado/vino -->
+    <path d="M21 26h22l4 20H17z" fill="#c94b6b" stroke="#E8C877" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M27 26l5 5 5-5" fill="none" stroke="#FFF1B8" stroke-width="1.3"/>
+    <path d="M20 12c0-7 24-7 24 0v5c0 7-5 11-12 11s-12-4-12-11z" fill="url(#gSkin)"/>
+    <ellipse cx="26.5" cy="16.5" rx="2.8" ry="3.4" fill="url(#gEye)"/>
+    <ellipse cx="37.5" cy="16.5" rx="2.8" ry="3.4" fill="url(#gEye)"/>
+    <path d="M23.5 13.5q3-2 6 0M34.5 13.5q3-2 6 0" stroke="#140d08" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <circle cx="25.5" cy="15.2" r="1.1" fill="#fff"/>
+    <circle cx="36.5" cy="15.2" r="1.1" fill="#fff"/>
+    <ellipse cx="22.5" cy="19.5" rx="2.5" ry="1.2" fill="#ff7b8b" opacity=".55"/>
+    <ellipse cx="41.5" cy="19.5" rx="2.5" ry="1.2" fill="#ff7b8b" opacity=".55"/>
+    <path d="M29 21.5q3 2.8 6 0" stroke="#9e3b4b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M16 16C16 5 24 2 32 2s16 3 16 14c-3-4-6-5-9-3-3 2-5 2-7 0-3 2-6 1-9-1-2 1-5 2-7 4z" fill="url(#gHair)"/>
+  </symbol>
+
+  <!-- Símbolo de Cartas Selladas -->
+  <symbol id="s-letter" viewBox="0 0 64 64">
+    <rect x="8" y="16" width="48" height="34" rx="4" fill="#F5F2EA" stroke="#C9A24B" stroke-width="2.2"/>
+    <path d="M10 18l22 17 22-17" fill="none" stroke="#C9A24B" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M32 39s-7-4.5-7-9a4 4 0 0 1 7-2.5A4 4 0 0 1 39 30c0 4.5-7 9-7 9z" fill="#dc2626"/>
+  </symbol>
+
+  <symbol id="s-kids" viewBox="0 0 64 64">
+    <use href="#s-kid"/>
+    <rect x="35" y="10.5" width="6.5" height="3" rx="1" fill="#F5F2EA" stroke="#c96b5b" stroke-width=".7" transform="rotate(-8 38 12)"/>
+    <path d="M19 13h26l-1.5 6.5c-.4 1.5-2 2.3-4.5 2.3h-4c-1.5 0-2.5-.8-3-2-.5 1.2-1.5 2-3 2h-4c-2.5 0-4.1-.8-4.5-2.3z" fill="#0c0c0f" stroke="#E8C877" stroke-width="1.3"/>
+    <path d="M22 14.5l3 4.5M26 14.5l2 3M36 14.5l3 4.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+  </symbol>
+
+  <symbol id="s-baby" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="58" rx="15" ry="4" fill="#000" opacity=".4"/>
+    <ellipse cx="32" cy="46" rx="15" ry="12" fill="#F5F2EA" stroke="#E8C877" stroke-width="1.4"/>
+    <path d="M21 41q11 8 22 0" fill="none" stroke="#C9A24B" stroke-width="1.2" opacity=".7"/>
+    <circle cx="32" cy="24" r="15" fill="url(#gSkin)"/>
+    <ellipse cx="26" cy="25.5" rx="3" ry="3.6" fill="url(#gEye)"/>
+    <ellipse cx="38" cy="25.5" rx="3" ry="3.6" fill="url(#gEye)"/>
+    <circle cx="24.8" cy="24" r="1.3" fill="#fff"/>
+    <circle cx="36.8" cy="24" r="1.3" fill="#fff"/>
+    <ellipse cx="21" cy="28.5" rx="2.6" ry="1.2" fill="#ff7b7b" opacity=".5"/>
+    <ellipse cx="43" cy="28.5" rx="2.6" ry="1.2" fill="#ff7b7b" opacity=".5"/>
+    <circle cx="32" cy="31" r="2.8" fill="#6fb7e8" stroke="#F5F2EA" stroke-width="1.2"/>
+    <path d="M24 11c4-5 12-5 16 0-3-1-5 1-8 3-2-3-5-4-8-3z" fill="url(#gHair)"/>
+    <circle cx="17" cy="44" r="4" fill="url(#gSkin)"/>
+    <circle cx="47" cy="44" r="4" fill="url(#gSkin)"/>
+  </symbol>
+
+  <!-- Símbolos de Historias y Aventuras -->
+  <symbol id="s-surf" viewBox="0 0 64 64">
+    <path d="M8 52C22 14 44 6 56 10c4 12-4 34-48 42z" fill="#E8C877" stroke="#111" stroke-width="2"/>
+    <path d="M12 48L52 14" stroke="#dc2626" stroke-width="3"/>
+    <path d="M20 42L46 20" stroke="#1d4ed8" stroke-width="2"/>
+  </symbol>
+  <symbol id="s-heli" viewBox="0 0 64 64">
+    <path d="M6 12h52" stroke="#E8C877" stroke-width="3" stroke-linecap="round"/>
+    <rect x="30" y="12" width="4" height="7" fill="#C0C4CC"/>
+    <path d="M18 26c0-6 8-9 18-9h10c6 0 10 5 10 11s-4 9-12 9H24l-14-5v-6l8 2z" fill="#dc2626" stroke="#F5F2EA" stroke-width="1.8"/>
+    <path d="M36 20h14c3 0 5 3 5 6h-19z" fill="#7fc4ff"/>
+    <path d="M22 37v6M42 37v6M16 43h32l4-3" stroke="#C0C4CC" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="s-boat" viewBox="0 0 64 64">
+    <path d="M6 38h52l-8 14H14z" fill="#dc2626" stroke="#F5F2EA" stroke-width="2"/>
+    <path d="M18 38l6-12h16l6 12" fill="#F5F2EA" opacity=".9"/>
+    <circle cx="24" cy="34" r="3" fill="#E8C877"/><circle cx="32" cy="34" r="3" fill="#E8C877"/><circle cx="40" cy="34" r="3" fill="#E8C877"/>
+  </symbol>
+  <symbol id="s-tent" viewBox="0 0 64 64">
+    <path d="M6 52L32 14l26 38z" fill="#C9A24B" stroke="#F5F2EA" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M32 14v38" stroke="#111" stroke-width="2"/>
+    <path d="M22 52l10-18 10 18z" fill="#1a1a22"/>
+  </symbol>
+  <symbol id="s-food" viewBox="0 0 64 64">
+    <rect x="14" y="20" width="36" height="34" rx="8" fill="#dc2626" stroke="#E8C877" stroke-width="2"/>
+    <path d="M24 20v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#E8C877" stroke-width="3"/>
+    <circle cx="32" cy="37" r="8" fill="#F5F2EA"/>
+    <path d="M28 37h8M32 33v8" stroke="#dc2626" stroke-width="2.5"/>
+  </symbol>
+  <symbol id="s-sun" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="14" fill="#ff9f1c" stroke="#FFF1B8" stroke-width="2"/>
+    <path d="M32 6v8M32 50v8M6 32h8M50 32h8M14 14l6 6M44 44l6 6M50 14l-6 6M20 44l-6 6" stroke="#E8C877" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Otros iconos -->
+  <symbol id="s-bed" viewBox="0 0 64 64"><rect x="4" y="30" width="56" height="16" rx="3" fill="#2d2d3d" stroke="#C9A24B" stroke-width="2"/><rect x="4" y="20" width="6" height="38" rx="2" fill="#C9A24B"/><rect x="54" y="34" width="6" height="24" rx="2" fill="#C9A24B"/><rect x="12" y="23" width="18" height="9" rx="4" fill="#F5F2EA"/><rect x="30" y="30" width="24" height="14" fill="#C0C4CC" opacity=".8"/></symbol>
+  <symbol id="s-stand" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="5" rx="2" fill="#8a5f35"/><rect x="16" y="23" width="32" height="29" rx="2" fill="#6b4a2a" stroke="#C9A24B"/><rect x="20" y="28" width="24" height="9" fill="#4a321c"/><circle cx="32" cy="32.5" r="2" fill="#E8C877"/><rect x="18" y="52" width="4" height="8" fill="#6b4a2a"/><rect x="42" y="52" width="4" height="8" fill="#6b4a2a"/></symbol>
+  <symbol id="s-star" viewBox="0 0 64 64"><path d="M32 4l5 22 22 6-22 6-5 22-5-22-22-6 22-6z" fill="#E8C877"/></symbol>
+  <symbol id="s-bubble" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="#C0C4CC22" stroke="#C0C4CC" stroke-width="2"/><circle cx="24" cy="24" r="5" fill="#fff" opacity=".7"/></symbol>
+  <symbol id="s-bottle" viewBox="0 0 64 64"><rect x="26" y="6" width="12" height="10" rx="2" fill="#C9A24B"/><rect x="22" y="16" width="20" height="40" rx="6" fill="#6fb7e8" opacity=".85" stroke="#C0C4CC" stroke-width="2"/><rect x="26" y="26" width="12" height="14" rx="2" fill="#F5F2EA" opacity=".8"/></symbol>
+  <symbol id="s-spot" viewBox="0 0 64 64"><path d="M26 8h12l22 56H4z" fill="#E8C877" opacity=".26"/><rect x="22" y="2" width="20" height="9" rx="3" fill="#C0C4CC"/></symbol>
+  <symbol id="s-note" viewBox="0 0 64 64"><path d="M24 46V14l26-6v32" fill="none" stroke="#E8C877" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="48" r="7" fill="#E8C877"/><circle cx="45" cy="42" r="7" fill="#E8C877"/></symbol>
+  <symbol id="s-school" viewBox="0 0 64 64"><path d="M6 28L32 10l26 18z" fill="#C9A24B"/><rect x="10" y="28" width="44" height="28" fill="#2a2a2a" stroke="#C9A24B" stroke-width="2"/><rect x="26" y="38" width="12" height="18" fill="#C9A24B"/><rect x="14" y="34" width="8" height="8" fill="#E8C877"/><rect x="42" y="34" width="8" height="8" fill="#E8C877"/></symbol>
+  <symbol id="s-band" viewBox="0 0 64 64"><g transform="rotate(-30 32 32)"><rect x="4" y="22" width="56" height="20" rx="10" fill="#E7B98F" stroke="#c0916a" stroke-width="2"/><rect x="22" y="24" width="20" height="16" fill="#F5F2EA"/></g></symbol>
+  <symbol id="s-ball" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#F5F2EA" stroke="#111" stroke-width="2"/><polygon points="32,20 43,28 39,41 25,41 21,28" fill="#111"/><path d="M32 20V5M43 28l14-5M39 41l8 12M25 41l-8 12M21 28L7 23" stroke="#111" stroke-width="2"/></symbol>
+  <symbol id="s-stadium" viewBox="0 0 64 64"><path d="M4 50V30q28-24 56 0v20z" fill="#1f3a22" stroke="#C0C4CC" stroke-width="2"/><ellipse cx="32" cy="50" rx="28" ry="7" fill="#2e5a34"/><path d="M12 34q20-14 40 0M18 42q14-9 28 0" stroke="#C0C4CC" stroke-width="2" fill="none"/></symbol>
+  <symbol id="s-clock" viewBox="0 0 64 64"><circle cx="32" cy="36" r="22" fill="#111" stroke="#C0C4CC" stroke-width="3"/><rect x="28" y="4" width="8" height="7" fill="#C0C4CC"/><path d="M32 36V22M32 36l9 6" stroke="#E8C877" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="s-doc" viewBox="0 0 64 64"><rect x="12" y="4" width="40" height="56" rx="4" fill="#F5F2EA"/><path d="M20 16h24M20 26h24M20 36h24M20 46h14" stroke="#555" stroke-width="3"/></symbol>
+  <symbol id="s-lens" viewBox="0 0 64 64"><circle cx="26" cy="26" r="16" fill="#C0C4CC33" stroke="#E8C877" stroke-width="5"/><path d="M38 38l20 20" stroke="#E8C877" stroke-width="7" stroke-linecap="round"/></symbol>
+  <symbol id="s-drop" viewBox="0 0 64 64"><path d="M32 4C32 4 12 30 12 42a20 20 0 0 0 40 0C52 30 32 4 32 4z" fill="#6fb7e8"/><ellipse cx="25" cy="42" rx="4" ry="7" fill="#fff" opacity=".5"/></symbol>
+  <symbol id="s-heart" viewBox="0 0 64 64"><path d="M32 56S6 40 6 22A13 13 0 0 1 32 16a13 13 0 0 1 26 6c0 18-26 34-26 34z" fill="#E8C877"/></symbol>
+  <symbol id="s-bball" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#d9822b" stroke="#111" stroke-width="2"/><path d="M6 32h52M32 6v52M14 12q14 20 0 40M50 12q-14 20 0 40" stroke="#111" stroke-width="2" fill="none"/></symbol>
+  <symbol id="s-leg" viewBox="0 0 64 64"><path d="M26 4h14l-2 28 10 24H34L26 38z" fill="#E7B98F"/><circle cx="33" cy="34" r="8" fill="#e05a4a" opacity=".85"/><circle cx="36" cy="52" r="5" fill="#e05a4a" opacity=".75"/></symbol>
+  <symbol id="s-burst" viewBox="0 0 64 64"><path d="M32 2l7 16 17-6-8 15 12 10-17 1 2 17-13-12-13 12 2-17-17-1 12-10-8-15 17 6z" fill="#E8C877"/></symbol>
+  <symbol id="s-wave" viewBox="0 0 64 64"><path d="M0 36q8-14 16 0t16 0 16 0 16 0v28H0z" fill="#2a78c4"/><path d="M0 44q8-10 16 0t16 0 16 0 16 0" stroke="#7fc4ff" stroke-width="3" fill="none"/></symbol>
+  <symbol id="s-buoy" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#E8C877" stroke-width="12"/><circle cx="32" cy="32" r="22" fill="none" stroke="#F5F2EA" stroke-width="12" stroke-dasharray="17 17"/></symbol>
+  <symbol id="s-peak" viewBox="0 0 64 64"><path d="M2 58L24 16l12 20 8-10 18 32z" fill="#3a4658" stroke="#C0C4CC" stroke-width="2"/><path d="M24 16l-7 12 7-4 5 6z" fill="#F5F2EA"/></symbol>
+  <symbol id="s-compass" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#111" stroke="#C9A24B" stroke-width="3"/><path d="M32 12l7 20-7 20-7-20z" fill="#E8C877"/><path d="M32 12l7 20H25z" fill="#C0C4CC"/></symbol>
+  <symbol id="s-boot" viewBox="0 0 64 64"><path d="M20 6h16v26l16 8q8 4 8 10v8H14V6z" fill="#7a4a24" stroke="#C9A24B" stroke-width="2"/><path d="M14 52h46" stroke="#111" stroke-width="5"/></symbol>
+  <symbol id="s-bike" viewBox="0 0 64 64"><circle cx="14" cy="42" r="12" fill="none" stroke="#C0C4CC" stroke-width="3"/><circle cx="50" cy="42" r="12" fill="none" stroke="#C0C4CC" stroke-width="3"/><path d="M14 42l14-18h14l8 18M28 24l8 18H14M24 18h8" stroke="#E8C877" stroke-width="3" fill="none"/></symbol>
+  <symbol id="s-skate" viewBox="0 0 64 64"><path d="M10 10h22v22l20 8v10H10z" fill="#C9A24B" stroke="#111" stroke-width="2"/><circle cx="18" cy="54" r="5" fill="#C0C4CC"/><circle cx="42" cy="54" r="5" fill="#C0C4CC"/></symbol>
+  <symbol id="s-car" viewBox="0 0 64 64"><path d="M4 44v-8l8-3 10-10h22l10 10 6 3v8z" fill="var(--c,#C0C4CC)" stroke="#111" stroke-width="2"/><path d="M24 25h10v8H18zM38 25h6l6 8H38z" fill="#6fb7e8" opacity=".8"/><circle cx="18" cy="46" r="7" fill="#111" stroke="#C0C4CC" stroke-width="2"/><circle cx="48" cy="46" r="7" fill="#111" stroke="#C0C4CC" stroke-width="2"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 64 64"><path d="M32 6l28 50H4z" fill="#E8C877" stroke="#111" stroke-width="3" stroke-linejoin="round"/><path d="M32 22v16" stroke="#111" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="46" r="3" fill="#111"/></symbol>
+  <symbol id="s-home" viewBox="0 0 64 64"><path d="M6 30L32 8l26 22v26H6z" fill="#2a2a2a" stroke="#C9A24B" stroke-width="3"/><rect x="26" y="36" width="12" height="20" fill="#C9A24B"/></symbol>
+  <symbol id="s-book" viewBox="0 0 64 64"><path d="M6 12q14-4 26 4 12-8 26-4v40q-14-4-26 4-12-8-26-4z" fill="#2a2a2a" stroke="#C9A24B" stroke-width="3"/><path d="M32 16v40" stroke="#C9A24B" stroke-width="3"/></symbol>
+  <symbol id="s-arrow" viewBox="0 0 64 64"><path d="M8 32h42M34 14l18 18-18 18" stroke="#E8C877" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-shield" viewBox="0 0 64 64"><path d="M32 4l22 8v18c0 16-10 26-22 30C20 56 10 46 10 30V12z" fill="#2a2a2a" stroke="#C9A24B" stroke-width="3"/><path d="M32 16v36" stroke="#E8C877" stroke-width="3"/></symbol>
+  <symbol id="s-code" viewBox="0 0 64 64"><path d="M22 18L8 32l14 14M42 18l14 14-14 14M36 12l-8 40" stroke="#E8C877" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-cursor" viewBox="0 0 24 24"><path d="M4 2l16 10-7 2 4 7-3 1-4-7-6 5z" fill="#FFF1B8" stroke="#111" stroke-width="1.6"/></symbol>
+</svg>
+
+<button id="menuBtn" aria-label="Abrir menú">☰ MENÚ</button>
+<nav id="nav">
+  <div class="brand">QC&amp;CP</div>
+  <div class="brand-sub">Portafolio &amp; Esencia</div>
+  <div id="navItems"></div>
+  <div class="nav-foot">Mario Andrés Coroseo Ramos<br>Ing. Civil Industrial · UCN</div>
+</nav>
+
+<main>
+<!-- 1. INICIO (PORTADA EJECUTIVA + BALÓN DE ORO) -->
+<section class="view hero on" id="inicio">
+  <div id="field">
+    <div id="bubble"></div>
+    <!-- MINI MARIO ANIME MULTITRAJE -->
+    <div id="mario" class="mario-char" data-outfit="gala">
+      <svg viewBox="0 0 68 118">
+        <!-- Pierna Izquierda -->
+        <g class="lgL lg">
+          <path d="M22 66h10l-1 13h-8z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1"/>
+          <rect x="23" y="79" width="7.5" height="9" rx="2.5" fill="url(#gSkin)"/>
+          <rect x="23" y="86" width="7.5" height="10" rx="2" fill="#151515" stroke="#E8C877" stroke-width=".9"/>
+          <path d="M19 98c0-3 4-4 11-4s5 4 5 5H19z" fill="#F5F2EA" stroke="#C9A24B" stroke-width="1"/>
+        </g>
+        <!-- Pierna Derecha -->
+        <g class="lgR lg">
+          <path d="M35 66h10l-1 13h-8z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1"/>
+          <rect x="36" y="79" width="7.5" height="9" rx="2.5" fill="url(#gSkin)"/>
+          <rect x="36" y="86" width="7.5" height="10" rx="2" fill="#151515" stroke="#E8C877" stroke-width=".9"/>
+          <path d="M34 98c0-3 4-4 11-4s5 4 5 5H34z" fill="#E8C877" stroke="#5a3f0a" stroke-width="1"/>
+        </g>
+
+        <!-- Brazo Izquierdo -->
+        <g class="arL ar">
+          <rect x="11" y="34" width="8" height="22" rx="4" fill="url(#gSkin)"/>
+          <path d="M10 32h10l-1 10h-8z" fill="#111" stroke="#C9A24B" stroke-width="1"/>
+          <circle cx="15" cy="57" r="3.6" fill="url(#gSkin)"/>
+          <g class="gear g-helmet"><rect x="3" y="52" width="12" height="15" rx="2" fill="#1e293b" stroke="#E8C877" stroke-width="1.2"/><line x1="6" y1="56" x2="12" y2="56" stroke="#38bdf8" stroke-width="1.2"/><line x1="6" y1="60" x2="11" y2="60" stroke="#E8C877" stroke-width="1.2"/></g>
+          <g class="gear g-exec"><rect x="3" y="54" width="13" height="14" rx="2" fill="#F5F2EA" stroke="#C9A24B" stroke-width="1"/><line x1="6" y1="58" x2="13" y2="58" stroke="#333" stroke-width="1"/><line x1="6" y1="62" x2="11" y2="62" stroke="#C9A24B" stroke-width="1"/></g>
+        </g>
+
+        <!-- TORSO BASE (#10 Gala) -->
+        <path d="M18 32h31l-2.5 36h-26z" fill="#0d0d0d" stroke="#C9A24B" stroke-width="1.8" stroke-linejoin="round"/>
+        <g class="gear g-gala">
+          <path d="M27 32l6.5 8 6.5-8" fill="none" stroke="#E8C877" stroke-width="1.6"/>
+          <text x="33.5" y="56" text-anchor="middle" font-size="14" fill="#E8C877" font-family="Playfair Display,serif" font-weight="700">10</text>
+        </g>
+
+        <!-- TRAJE 1: CASCO & CHALECO TERRENO -->
+        <g class="gear g-helmet">
+          <path d="M18 32h31l-2 34H20z" fill="#d97706" stroke="#FFF1B8" stroke-width="1.2"/>
+          <rect x="19" y="44" width="29" height="4" fill="#FFF1B8"/>
+          <rect x="19" y="54" width="29" height="4" fill="#FFF1B8"/>
+          <rect x="25" y="32" width="4" height="34" fill="#FFF1B8"/>
+          <rect x="38" y="32" width="4" height="34" fill="#FFF1B8"/>
+        </g>
+
+        <!-- TRAJE 2: EJECUTIVO SAP / CORPORATIVO -->
+        <g class="gear g-exec">
+          <path d="M18 32h31l-2.5 36h-26z" fill="#161922" stroke="#C9A24B" stroke-width="1.5"/>
+          <polygon points="28,32 39,32 33.5,48" fill="#F5F2EA"/>
+          <polygon points="32,35 35,35 36,54 33.5,58 31,54" fill="#C9A24B"/>
+          <rect x="38" y="42" width="6" height="4" rx="1" fill="#E8C877"/>
+        </g>
+
+        <!-- TRAJE 3: INVESTIGADOR / BATA LAB -->
+        <g class="gear g-research">
+          <path d="M17 32h33l-1.5 37h-30z" fill="#F5F2EA" stroke="#C0C4CC" stroke-width="1.4"/>
+          <path d="M28 32l5.5 14L39 32" fill="#1e293b"/>
+          <line x1="33.5" y1="46" x2="33.5" y2="68" stroke="#C0C4CC" stroke-width="1.2"/>
+          <rect x="37" y="43" width="6" height="7" fill="none" stroke="#64748b" stroke-width="1"/>
+          <line x1="39" y1="40" x2="39" y2="44" stroke="#ef4444" stroke-width="1.5"/>
+          <line x1="41" y1="40" x2="41" y2="44" stroke="#3b82f6" stroke-width="1.5"/>
+        </g>
+
+        <!-- TRAJE 4: PENSADOR / ESTRATEGA MCDM -->
+        <g class="gear g-thinker">
+          <path d="M18 32h31l-2.5 36h-26z" fill="#1f1610" stroke="#C9A24B" stroke-width="1.5"/>
+          <rect x="27" y="29" width="13" height="6" rx="2" fill="#C9A24B"/>
+          <path d="M26 32l7.5 16L41 32" fill="none" stroke="#E8C877" stroke-width="1.4"/>
+        </g>
+
+        <!-- TRAJE 5: ANALISTA FINANCIERO / BI -->
+        <g class="gear g-finance">
+          <path d="M18 32h31l-2.5 36h-26z" fill="#0f172a" stroke="#E8C877" stroke-width="1.5"/>
+          <polygon points="28,32 39,32 33.5,45" fill="#F5F2EA"/>
+          <polygon points="32,34 35,34 35.5,52 33.5,55 31.5,52" fill="#22c55e"/>
+        </g>
+
+        <!-- TRAJE 6: DATA SCIENTIST & FÚTBOL ANALYTICS -->
+        <g class="gear g-data">
+          <path d="M17 32h33l-2 36H19z" fill="#111827" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="33.5" y="53" text-anchor="middle" font-size="9" fill="#38bdf8" font-family="JetBrains Mono,monospace" font-weight="700">&lt;AI/&gt;</text>
+        </g>
+
+        <!-- Brazo Derecho -->
+        <g class="arR ar">
+          <rect x="48" y="34" width="8" height="22" rx="4" fill="url(#gSkin)"/>
+          <path d="M47 32h10l-1 10h-8z" fill="#111" stroke="#C9A24B" stroke-width="1"/>
+          <circle cx="52" cy="57" r="3.6" fill="url(#gSkin)"/>
+        </g>
+
+        <!-- Cuello y Cabeza Anime -->
+        <rect x="30" y="27" width="7" height="6" rx="2" fill="url(#gSkin)"/>
+        <path d="M19 14c0-9 29-9 29 0v6c0 8-6 12-14.5 12S19 28 19 20z" fill="url(#gSkin)"/>
+        <circle cx="19" cy="19" r="3" fill="url(#gSkin)"/>
+        <circle cx="48" cy="19" r="3" fill="url(#gSkin)"/>
+        <path d="M40.5 11.5l2.5-2.5" stroke="#c96b5b" stroke-width="1.3" stroke-linecap="round"/>
+        <ellipse cx="27.5" cy="18.5" rx="3.1" ry="3.8" fill="#fff"/>
+        <ellipse cx="39.5" cy="18.5" rx="3.1" ry="3.8" fill="#fff"/>
+        <ellipse cx="28" cy="18.8" rx="2.3" ry="3.1" fill="url(#gEye)"/>
+        <ellipse cx="39" cy="18.8" rx="2.3" ry="3.1" fill="url(#gEye)"/>
+        <circle cx="26.8" cy="17.2" r="1.1" fill="#fff"/>
+        <circle cx="37.8" cy="17.2" r="1.1" fill="#fff"/>
+        <path d="M24 14.5q3.5-2 7 0M36 14.5q3.5-2 7 0" stroke="#1a110b" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+        <path d="M30 24.8q3.5 3 7 0" stroke="#7a3b2b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+        <!-- Lentes -->
+        <g class="gear g-research g-thinker g-finance">
+          <rect x="23" y="15.5" width="9" height="6" rx="1.5" fill="#38bdf822" stroke="#E8C877" stroke-width="1.3"/>
+          <rect x="35" y="15.5" width="9" height="6" rx="1.5" fill="#38bdf822" stroke="#E8C877" stroke-width="1.3"/>
+          <line x1="32" y1="18" x2="35" y2="18" stroke="#E8C877" stroke-width="1.3"/>
+        </g>
+
+        <!-- Visor / Audífonos -->
+        <g class="gear g-data">
+          <path d="M17 18a16.5 16.5 0 0 1 33 0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+          <rect x="15" y="15" width="4" height="8" rx="2" fill="#0284c7" stroke="#E8C877" stroke-width="1"/>
+          <rect x="48" y="15" width="4" height="8" rx="2" fill="#0284c7" stroke="#E8C877" stroke-width="1"/>
+          <rect x="23" y="15.5" width="21" height="5.5" rx="2" fill="#22c55e44" stroke="#38bdf8" stroke-width="1.2"/>
+        </g>
+
+        <!-- Cabello Anime -->
+        <g class="hair-front">
+          <path d="M16 17C14 6 23 1 33.5 1S53 6 51 17c-2-4-4-5-6-3-1 4-3 6-5 2-2 4-6 5-8 1-3 4-6 3-9-1-2 1-4 3-7 1z" fill="url(#gHair)"/>
+          <path d="M24 2l-6-4 3 6M33.5 0l2-5 2 5M42 2l7-3-4 6" fill="#18110c"/>
+        </g>
+
+        <!-- Casco -->
+        <g class="gear g-helmet">
+          <path d="M17 13c0-9 33-9 33 0z" fill="#E8C877" stroke="#8a6414" stroke-width="1.5"/>
+          <rect x="15" y="12" width="37" height="3" rx="1.5" fill="#C9A24B"/>
+          <circle cx="33.5" cy="8" r="3" fill="#FFF1B8" stroke="#111" stroke-width="1"/>
+        </g>
+
+        <g class="gear g-thinker">
+          <text x="54" y="8" font-size="11" fill="#E8C877" font-weight="700">∑</text>
+        </g>
+      </svg>
+    </div>
+    <svg id="ball2" viewBox="0 0 64 64" width="26" height="26"><use href="#s-ball"/></svg>
+  </div>
+
+  <div class="heroin">
+    <svg class="trophy" viewBox="0 0 200 260"><use href="#bd"/></svg>
+    <h1>QC<span>&amp;</span>CP</h1>
+    <h2>¿Quién soy, Cómo, Cuándo y Por qué?</h2>
+    <div style="letter-spacing:.2em;text-transform:uppercase;font-size:14.5px;font-weight:600">Mario Andrés Coroseo Ramos</div>
+    <div class="role-badge">⚡ Ingeniería Civil Industrial · UCN Coquimbo</div>
+
+    <div class="counters">
+      <div><b data-n="age">0</b><small>Años de historia</small></div>
+      <div><b>6</b><small>Proyectos &amp; Sistemas</small></div>
+      <div><b>#10</b><small>Visión &amp; Analítica</small></div>
+    </div>
+
+    <div class="cta-group">
+      <button class="cta" data-go="proyectos">EXPLORAR LABORATORIO DE PROYECTOS</button>
+      <button class="cta sec" data-go="espacio">MI HISTORIA (ESPACIO QC&amp;CP)</button>
+    </div>
+  </div>
+</section>
+
+<!-- 2. LABORATORIO DE PROYECTOS E INGENIERÍA -->
+<section class="view" id="proyectos">
+  <div class="wrap">
+    <h2 class="title gold">Laboratorio de Proyectos e Ingeniería</h2>
+    <div class="rule"></div>
+    <p class="sub">Complemento interactivo a mi CV. Pasa el cursor o haz clic en <b>“Simular Proceso”</b> en cada proyecto para ver la interfaz animada en acción y cómo mi avatar cambia de rol profesional.</p>
+
+    <div class="wardrobe-bar">
+      <span>👔 <b>Modo actual de Mini Mario:</b> <em id="outfitLabel" style="color:var(--text);font-style:normal">Gala Balón de Oro (#10)</em></span>
+      <div class="outfit-btns">
+        <button class="outfit-btn on" data-set-outfit="gala">⚽ #10 Gala</button>
+        <button class="outfit-btn" data-set-outfit="helmet">⛑️ Terreno / Activos</button>
+        <button class="outfit-btn" data-set-outfit="exec">💼 Ejecutivo SAP</button>
+        <button class="outfit-btn" data-set-outfit="research">🔬 Investigador Sim</button>
+        <button class="outfit-btn" data-set-outfit="thinker">🤔 Pensador MCDM</button>
+        <button class="outfit-btn" data-set-outfit="finance">📊 Financiero BI</button>
+        <button class="outfit-btn" data-set-outfit="data">🎧 Data &amp; Fútbol IA</button>
+      </div>
+    </div>
+
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<!-- 3. EL ESPACIO QC&CP -->
+<section class="view" id="espacio">
+  <div class="wrap">
+    <h2 class="title gold">El Espacio QC&amp;CP · Mi Esencia</h2>
+    <div class="rule"></div>
+    <p class="sub">Detrás del ingeniero hay una historia de esfuerzo familiar, resiliencia, amor profundo y pasión por el fútbol bien jugado. Explora cada dimensión en un solo lugar.</p>
+
+    <div class="subtabs" id="subtabs">
+      <button class="subtab on" data-sub="sp-quien">🛡️ Quién Soy &amp; Por Qué</button>
+      <button class="subtab" data-sub="sp-como">⚽ Cómo Juego &amp; Pienso (#10)</button>
+      <button class="subtab" data-sub="sp-cuando">⏳ Línea de Tiempo (Cuándo)</button>
+      <button class="subtab" data-sub="sp-historias">📖 Viñetas Anime (12 Historias)</button>
+    </div>
+
+    <!-- SUBPANE 1: QUIÉN SOY & POR QUÉ + BELÉN COMO MAYOR LOGRO -->
+    <div class="subpane on" id="sp-quien">
+      <p class="quote">“Creo en las cosas sencillas: cada detalle en algún progreso es un gran paso en mi vida.”</p>
+      <p class="sub">Crecí en Tierras Blancas sin grandes posesiones ni riquezas materiales, pero con el deseo inquebrantable de surgir y sacar adelante a mis padres (Rubén y Jessica) y a mi familia, que me sostuvieron cuando me enfermé a los 18 años.</p>
+      <div class="grid" style="margin-bottom:28px">
+        <div class="card"><svg class="ico" viewBox="0 0 64 64"><use href="#s-shield"/></svg><h3>Sentido del Honor</h3><p>Mi principal valor: no defraudar a quienes confían en mí ni hacer jamás algo a espaldas de la gente que tiene valor en mi vida.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 64 64"><use href="#s-heart"/></svg><h3>Devolver la Mano</h3><p>El agradecimiento como motor de vida: retribuir con hechos el sacrificio constante de mis padres y de mi familia.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 64 64"><use href="#s-star"/></svg><h3>Confianza de Buena Fe</h3><p>Creo en la gente antes que desconfiar: para mí toda persona es inocente hasta que demuestre lo contrario.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 64 64"><use href="#s-compass"/></svg><h3>Autocrítica Real</h3><p>Cometo errores como todo ser humano, pero tengo la madurez para identificarlos, dar la cara y asumir mi responsabilidad sin excusas.</p></div>
+      </div>
+
+      <!-- SECCIÓN ESPECIAL Y RIGUROSA: BELÉN, MI MAYOR LOGRO HASTA AHORA -->
+      <div class="belen-showcase">
+        <div class="belen-badge">👑 Mi Mayor Logro Hasta Ahora · Casi 5 Años de Historia</div>
+        <h3>Belén: El corazón que me enseñó a amar, sanar y ser mejor hombre</h3>
+        <p>Si miro todo mi camino hasta hoy, <b>Belén significa mi mayor logro hasta ahora</b>. Con ella construí una relación de casi cinco años; fue la primera en muchísimas cosas en mi vida y la primera persona en entrar tan a fondo en mi corazón. Pasamos literalmente de todo juntos —desde nuestras salidas, cumpleaños, tardes de playa en La Serena y risas cotidianas, hasta sostenernos después de que mi salud cambió a los 18 años—, convirtiéndose en la persona que mejor me conoce en el mundo.</p>
+        <p>Yo siempre fui de pensar de forma rígida que <i>“si alguien se equivoca una vez, ya nunca vuelvo a tener la misma confianza”</i>. Sin embargo, la vida me puso frente al espejo: por inmadurez y por mis propios bloqueos emocionales y apego evitativo, fui yo quien se equivocó con ella y provocó una fractura dolorosa que nos mantuvo distanciados durante meses. Ese proceso me obligó a mirarme por dentro sin filtros, reconocer mi culpa, madurar de verdad y escribirle a corazón abierto.</p>
+        <p style="margin-bottom:0">Contra mi propio esquema mental de desconfianza, <b>Belén me demostró la grandeza del amor real</b>: valoró mi honestidad al asumir mi responsabilidad, nos leímos en paz a través de cartas que sanaron heridas profundas y, aun con mis errores, me recibe y me ama. Haber tocado un corazón tan noble, aprender a pedir perdón desde la humildad y seguir contando con su amor y su luz es el trofeo más valioso de mi vida.</p>
+
+        <div class="belen-pillars">
+          <div class="belen-pillar">
+            <b>✨ La Primera en Todo</b>
+            <span>Casi 5 años de complicidad absoluta; la primera en entrar hasta el fondo de mi corazón y conocer cada rincón de quien soy.</span>
+          </div>
+          <div class="belen-pillar">
+            <b>🪞 Espejo de Madurez</b>
+            <span>Por ella enfrenté mi inmadurez y mi apego evitativo, aprendiendo a asumir mis errores de frente y sin excusas.</span>
+          </div>
+          <div class="belen-pillar">
+            <b>💌 Perdón y Amor Real</b>
+            <span>Rompió mi creencia de que tras un error todo se pierde: me enseñó que el amor verdadero escucha, sana y vuelve a abrazar.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBPANE 2: CÓMO JUEGO Y CÓMO PIENSO -->
+    <div class="subpane" id="sp-como">
+      <div class="split">
+        <div class="fut">
+          <h3>Mario</h3><div class="pos">Mediocampista #10 · Ingeniero Analítico</div>
+          <div class="stats"><div><b>99</b><small>Visión</small></div><div><b>95</b><small>Pase</small></div><div><b>92</b><small>Analítica</small></div></div>
+          <div class="row"><span>Estilo en cancha</span><span>Simple, pulcro, al toque</span></div>
+          <div class="row"><span>Perfil técnico</span><span>Ambos pies · Pausa tipo Riquelme</span></div>
+          <div class="row"><span>Referentes</span><span>Charles Aránguiz · Cristiano · Chelo Díaz</span></div>
+          <div class="row"><span>Stack Ingeniería</span><span>Excel · Solver · SAP · AnyLogic · Python</span></div>
+          <div class="row"><span>Pasión</span><span>Universidad de Chile</span></div>
+        </div>
+        <div>
+          <p style="font-size:18px;margin-top:0">En cancha de 11 juego al medio: más cabeza y lectura de espacios que correr sin sentido, con buena técnica en ambos pies al estilo de Román Riquelme.</p>
+          <p class="sub" style="margin-bottom:18px">Prefiero dar el pase filtrado antes que hacer un gol feo de rebote. De Charles Aránguiz y Cristiano Ronaldo tomo la disciplina silenciosa y la capacidad de entender cada momento del partido.</p>
+          <p class="sub">Esa misma filosofía la aplico en la Ingeniería Civil Industrial: procesos limpios, decisiones respaldadas por modelos matemáticos y trabajo en equipo para que toda la organización juegue mejor.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBPANE 3: CUÁNDO (LÍNEA DE TIEMPO) -->
+    <div class="subpane" id="sp-cuando">
+      <p class="sub">Desde el Hospital de Coquimbo el 21 de noviembre de 2002 hasta mi formación como Ingeniero Civil Industrial. Haz clic en cada hito para desplegar su historia.</p>
+      <div class="tl" id="tl"><div class="fill"></div></div>
+    </div>
+
+    <!-- SUBPANE 4: HISTORIAS ANIME (LAS 12 COMPLETAS INCLUYENDO BELÉN) -->
+    <div class="subpane" id="sp-historias">
+      <div id="stories">
+        <div class="viewport"><div class="track" id="track"></div></div>
+        <div class="ctrl">
+          <button id="prev" aria-label="Anterior">‹</button>
+          <div id="dots"></div>
+          <button id="next" aria-label="Siguiente">›</button>
+        </div>
+        <div class="cnt" id="cnt"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HACIA DÓNDE VOY (VISIÓN PROFESIONAL & SUEÑO AZUL AZUL) -->
+<section class="view" id="futuro">
+  <div class="wrap" style="text-align:center">
+    <h2 class="title gold">Hacia dónde voy</h2>
+    <div class="rule" style="margin:18px auto"></div>
+    <p style="font-size:19px;max-width:780px;margin:0 auto 18px">Aquel niño de Tierras Blancas hoy está en 5° año de Ingeniería Civil Industrial en la UCN. Uno la rigurosidad cuantitativa con la pasión de quien vive, analiza y siente cada detalle.</p>
+    <p class="sub" style="margin:0 auto 30px">Quiero que mi camino profesional tenga números sólidos y también alma: que conserve mi honor intacto y que haga sentir profundamente orgullosos a mis padres y a Belén.</p>
+
+    <div class="grid" style="text-align:left;margin-top:26px">
+      <div class="card">
+        <span class="roadmap-tag">Horizonte · 1 Año</span>
+        <h3>El Primer Paso Profesional</h3>
+        <p>Con el horizonte abierto al aprendizaje práctico: cerrar mi etapa universitaria e iniciar mi camino en el mundo laboral con humildad, absorbiendo experiencia real en terreno y descubriendo en la cancha profesional dónde puedo aportar mi máximo valor.</p>
+      </div>
+      <div class="card">
+        <span class="roadmap-tag">Horizonte · 5 Años</span>
+        <h3>Especialización Continua</h3>
+        <p>Especializarme profundamente en un área clave de la ingeniería que me permita seguir formándome como profesional, dominando herramientas avanzadas y entregando estabilidad y orgullo a mis padres y a mi familia.</p>
+      </div>
+      <div class="card">
+        <span class="roadmap-tag">Horizonte · 10 Años</span>
+        <h3>Maestría en Toma de Decisiones</h3>
+        <p>Obtener la capacidad, madurez y experiencia integral para desarrollar cualquier tipo de decisiones estratégicas, analizando rigurosamente cada área de un entorno, empresa o contexto en cualquier ámbito.</p>
+      </div>
+    </div>
+
+    <!-- META DE VIDA / NORTE DEFINITIVO: CLUB UNIVERSIDAD DE CHILE -->
+    <div class="dream-card">
+      <div class="dream-badge">💙❤️ Meta de Vida · Mi Norte Definitivo</div>
+      <h3>Gerencia y Administradora del Club Universidad de Chile</h3>
+      <p>Más allá de cualquier plazo fijo, mi meta de vida a futuro —donde sería completamente feliz— es llegar a la <b>gerencia o trabajar en la administradora del Club Universidad de Chile</b>. Mi sueño máximo es poner toda mi formación en Ingeniería Civil Industrial, ciencia de datos, planificación financiera y análisis riguroso al servicio del club de mis amores, demostrando que la pasión del hincha y la excelencia ejecutiva pueden caminar juntas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CONTACTO -->
+<footer id="contacto">
+  <div class="wrap">
+    <h3 class="gold">Conectemos</h3>
+    <p style="color:var(--silver);max-width:560px;margin:10px auto 0">Si buscas a alguien con rigor analítico, sentido del honor y hambre por surgir, conversemos.</p>
+    <div class="grid">
+      <a class="card" href="tel:+56961369265"><small>Teléfono</small><b>+56 9 6136 9265</b></a>
+      <a class="card" href="mailto:m.coroseo.ramos@gmail.com"><small>Correo</small><b>m.coroseo.ramos@gmail.com</b></a>
+      <a class="card" href="#proyectos" onclick="go('proyectos')"><small>Portafolio Técnico</small><b>6 Proyectos Interactivos (GitHub en cierre)</b></a>
+      <div class="card"><small>Ubicación &amp; Casa de Estudios</small><b>Coquimbo, Chile · ICI UCN</b></div>
+    </div>
+    <div class="credits">
+      <b style="font:700 22px 'Playfair Display',serif;color:var(--gold2)">QC&amp;CP</b><br>
+      © <span id="yr"></span> Mario Andrés Coroseo Ramos. Todos los derechos reservados.<br>
+      Historia, diseño y desarrollo web: Mario Andrés Coroseo Ramos
+    </div>
+  </div>
+</footer>
+</main>
+
+<!-- BUDDY FLOTANTE -->
+<div id="buddy"><div id="bbub"></div><div id="bm"></div></div>
+
+<script>
+/* 1. DATOS DEL LABORATORIO DE PROYECTOS */
+var PROJECTS = [
+  {
+    id:"activos",
+    cat:"Ingeniería de Mantenimiento & Minería",
+    title:"Sistema de Gestión de Activos · Chancador Primario",
+    desc:"Diseño de registro maestro de activos, plan de mantenimiento preventivo/correctivo, carta Gantt e indicadores clave (MTBF, MTTR y Disponibilidad) para un chancador giratorio primario.",
+    outfit:"helmet",
+    outfitName:"⛑️ Modo Terreno / Ejecución Minera",
+    speech:"¡Casco puesto! Aquí controlo MTBF, MTTR y disponibilidad del chancador primario.",
+    tags:["Gestión de Activos","MTBF / MTTR","Confiabilidad","Excel Avanzado"],
+    cur:"Cursor-1",
+    stageHTML:
+      '<div class="ui-grid">'+
+        '<div class="ui-box"><small style="color:#8e939c">DISPONIBILIDAD</small><span class="ui-kpi">94.8%</span><div class="ui-bar"><span></span></div></div>'+
+        '<div class="ui-box"><small style="color:#8e939c">MTBF / MTTR</small><span class="ui-kpi">142h / 4.2h</span><span class="ui-btn-sim">✓ OT Preventiva</span></div>'+
+      '</div>'+
+      '<div class="ui-box" style="margin-top:8px;font-size:10px;color:#C0C4CC">⚙ Activo: <b>CH-GIR-001 (Chancador Primario)</b> · Estado: <span style="color:#27c93f">OPERATIVO</span></div>'
+  },
+  {
+    id:"sap",
+    cat:"ERP & Cadena de Abastecimiento",
+    title:"Flujos de Compras y Materiales en SAP S/4HANA",
+    desc:"Ejecución e integración de procesos críticos en SAP S/4HANA: creación de Business Partners (BP), maestro de materiales (MM01), solicitudes de pedido (ME51N) y peticiones de oferta (ME41).",
+    outfit:"exec",
+    outfitName:"💼 Modo Ejecutivo ERP / SAP",
+    speech:"Traje ejecutivo listo: ejecutando transacciones MM01, BP y compras en SAP S/4HANA.",
+    tags:["SAP S/4HANA","MM01 & BP","Procurement","Supply Chain"],
+    cur:"Cursor-2",
+    stageHTML:
+      '<div class="sap-step"><span>1. Transacción <b>BP</b> · Proveedor</span><span class="sap-ok">✓ CREADO</span></div>'+
+      '<div class="sap-step"><span>2. Transacción <b>MM01</b> · Material</span><span class="sap-ok" style="animation-delay:.8s">✓ ACTIVO</span></div>'+
+      '<div class="sap-step"><span>3. Solicitud Pedido <b>ME51N / ME41</b></span><span class="ui-btn-sim">Liberar OC</span></div>'
+  },
+  {
+    id:"anylogic",
+    cat:"Investigación de Operaciones & Simulación",
+    title:"Simulación en AnyLogic & Ruteo Vehicular (VRP)",
+    desc:"Modelamiento de eventos discretos, dinámica de sistemas y optimización de rutas de transporte (Vehicle Routing Problem) con Solver y AnyLogic para reducir tiempos de espera y costos logísticos.",
+    outfit:"research",
+    outfitName:"🔬 Modo Investigador / Simulación",
+    speech:"Con bata de investigador: simulando colas, rutas VRP y dinámica de sistemas en AnyLogic.",
+    tags:["AnyLogic","Simulación Discreta","Dinámica de Sistemas","VRP Solver"],
+    cur:"Cursor-3",
+    stageHTML:
+      '<svg viewBox="0 0 260 95" style="width:100%;height:92px;background:#0d1017;border-radius:6px;border:1px solid #ffffff14">'+
+        '<path d="M22 70 Q90 15 150 55 T238 28" fill="none" stroke="#C9A24B" stroke-width="2" stroke-dasharray="4 4"/>'+
+        '<circle cx="22" cy="70" r="6" fill="#27c93f"/><circle cx="150" cy="55" r="6" fill="#E8C877"/><circle cx="238" cy="28" r="6" fill="#38bdf8"/>'+
+        '<circle cx="22" cy="70" r="4" fill="#fff"><animateMotion dur="3.5s" repeatCount="indefinite" path="M0 0 Q68 -55 128 -15 T216 -42"/></circle>'+
+        '<text x="12" y="20" fill="#8e939c" font-size="9">Simulación Activa · Tasa Servicio: 98.2%</text>'+
+      '</svg>'+
+      '<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px"><span style="color:#8e939c">Ruta Óptima VRP</span><span class="ui-btn-sim">▶ Run AnyLogic</span></div>'
+  },
+  {
+    id:"mcdm",
+    cat:"Análisis Multicriterio Avanzado",
+    title:"Modelos de Decisión: AHP, TOPSIS, MEREC, MABAC & COPRAS",
+    desc:"Implementación matemática de matrices de decisión multicriterio para evaluación y ranking objetivo de alternativas complejas bajo múltiples ponderaciones.",
+    outfit:"thinker",
+    outfitName:"🤔 Modo Pensador / Estratega MCDM",
+    speech:"Modo pensador: ponderando criterios con AHP, MEREC y calculando el ranking TOPSIS.",
+    tags:["AHP & TOPSIS","MEREC","MABAC & COPRAS","Toma de Decisiones"],
+    cur:"Cursor-4",
+    stageHTML:
+      '<div class="ui-box" style="margin-bottom:6px">'+
+        '<div style="display:flex;justify-content:space-between;font-size:10px"><span>Alternativa A1 (Score TOPSIS)</span><b style="color:#27c93f">0.892 ★ #1</b></div>'+
+        '<div class="ui-bar"><span style="width:89%"></span></div>'+
+      '</div>'+
+      '<div class="ui-box">'+
+        '<div style="display:flex;justify-content:space-between;font-size:10px"><span>Alternativa A2 (MABAC / COPRAS)</span><b style="color:#E8C877">0.741 · #2</b></div>'+
+        '<div class="ui-bar"><span style="width:74%;animation:none"></span></div>'+
+      '</div>'
+  },
+  {
+    id:"finanzas",
+    cat:"Evaluación de Proyectos & BI",
+    title:"Evaluación Financiera · Proyecto Nueva Flota",
+    desc:"Evaluación económica, flujos de caja proyectados, especificaciones de maquinaria pesada, OPEX/CAPEX y análisis de sensibilidad para expansión de flota en Constructora Impera SpA.",
+    outfit:"finance",
+    outfitName:"📊 Modo Analista Financiero & BI",
+    speech:"Analizando flujos de caja, VAN, TIR y costos operativos del Proyecto Nueva Flota.",
+    tags:["Evaluación de Inversiones","Flujo de Caja","Power BI","Excel Financiero"],
+    cur:"Cursor-5",
+    stageHTML:
+      '<div class="ui-grid">'+
+        '<div class="ui-box"><small style="color:#8e939c">VAN PROYECTO</small><span class="ui-kpi" style="color:#27c93f">+ UF 14.820</span><small style="color:#27c93f;font-size:9px">▲ Rentable</small></div>'+
+        '<div class="ui-box"><small style="color:#8e939c">TIR / PAYBACK</small><span class="ui-kpi">24.6%</span><small style="color:#C0C4CC;font-size:9px">Recup: 3.1 años</small></div>'+
+      '</div>'+
+      '<div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;color:#8e939c">Escenario Sensibilidad:</span><span class="ui-btn-sim">Simular CAPEX</span></div>'
+  },
+  {
+    id:"cvfutbol",
+    cat:"Computer Vision & Sports Analytics",
+    title:"Visión por Computador Web & Analítica de Fútbol",
+    desc:"Aplicación web interactiva con código de visión artificial para reconocimiento facial, estimación de edad e identificación de género en tiempo real, junto a modelos de datos aplicados a gestión deportiva.",
+    outfit:"data",
+    outfitName:"🎧 Modo Data Scientist & Fútbol IA",
+    speech:"¡Mi favorito! Combinando Visión por Computador e Inteligencia de Datos para el fútbol.",
+    tags:["Computer Vision","JavaScript / Python","Reconocimiento Facial","Fútbol Data"],
+    cur:"Cursor-6",
+    stageHTML:
+      '<div style="display:flex;gap:10px;align-items:center;background:#0e131d;border:1px solid #38bdf844;padding:8px;border-radius:6px">'+
+        '<div style="width:54px;height:54px;border:2px dashed #22c55e;border-radius:6px;display:grid;place-items:center;position:relative"><span style="font-size:9px;color:#22c55e">FACE ID</span></div>'+
+        '<div style="font-size:10px;line-height:1.5">'+
+          '<div>Rostro: <b style="color:#22c55e">Detectado (98.4%)</b></div>'+
+          '<div>Edad est.: <b style="color:#E8C877">23 años</b> · Género: <b>M</b></div>'+
+          '<span class="ui-btn-sim">⚡ Analizar Frame</span>'+
+        '</div>'+
+      '</div>'
+  }
+];
+
+/* Renderizar tarjetas de proyectos */
+var projGrid = document.getElementById("projGrid");
+PROJECTS.forEach(function(p){
+  var card = document.createElement("article");
+  card.className = "proj-card";
+  card.innerHTML =
+    '<div class="proj-stage">'+
+      '<div class="stage-top"><div class="stage-dots"><i></i><i></i><i></i></div><span>sim://'+p.id+'.exe</span><span class="outfit-pill">'+p.outfitName.split(" ")[0]+' Rol</span></div>'+
+      p.stageHTML+
+      '<svg class="sim-cursor '+p.cur+'" viewBox="0 0 24 24"><use href="#s-cursor"/></svg>'+
+    '</div>'+
+    '<div class="proj-body">'+
+      '<small>'+p.cat+'</small>'+
+      '<h3>'+p.title+'</h3>'+
+      '<p>'+p.desc+'</p>'+
+      '<div class="tech-tags">'+p.tags.map(function(t){return '<span>'+t+'</span>'}).join("")+'</div>'+
+      '<div class="proj-actions">'+
+        '<button type="button" class="btn-try" data-outfit-trigger="'+p.outfit+'">⚡ Simular Proceso</button>'+
+        '<button type="button" class="btn-gh pending" data-gh-pending="'+p.title+'">⏳ Repo GitHub (En preparación)</button>'+
+      '</div>'+
+    '</div>';
+  card.addEventListener("mouseenter", function(){ setMarioOutfit(p.outfit, p.speech, card); });
+  card.querySelector("[data-outfit-trigger]").addEventListener("click", function(){ setMarioOutfit(p.outfit, p.speech, card); });
+  card.querySelector("[data-gh-pending]").addEventListener("click", function(){
+    setMarioOutfit(p.outfit, "Estoy preparando el repositorio de «"+p.title+"» para subirlo a GitHub en el paso final.", card);
+  });
+  projGrid.appendChild(card);
+});
+
+/* 2. SISTEMA DE CAMBIO DE TRAJE DEL MINI MARIO */
+var buddy=document.getElementById("buddy"),bbub=document.getElementById("bbub"),bm=document.getElementById("bm"),bt,bh,bw;
+var marioHome=document.getElementById("mario");
+var bud=marioHome.cloneNode(true);
+bud.removeAttribute("id");
+bud.className="bud mario-char";
+bud.setAttribute("data-outfit","gala");
+bm.appendChild(bud);
+
+var OUTFIT_NAMES = {
+  gala:"Gala Balón de Oro (#10)",
+  helmet:"Terreno / Casco Minero (Gestión de Activos)",
+  exec:"Ejecutivo SAP S/4HANA",
+  research:"Investigador / Simulación AnyLogic",
+  thinker:"Pensador / Decisiones Multicriterio",
+  finance:"Analista Financiero & BI",
+  data:"Data Scientist & Visión por Computador"
+};
+
+function setMarioOutfit(outfit, customSpeech, activeCard){
+  marioHome.setAttribute("data-outfit", outfit);
+  bud.setAttribute("data-outfit", outfit);
+  var lbl = document.getElementById("outfitLabel");
+  if(lbl) lbl.textContent = OUTFIT_NAMES[outfit] || outfit;
+  document.querySelectorAll(".outfit-btn").forEach(function(b){
+    b.classList.toggle("on", b.dataset.setOutfit === outfit);
+  });
+  document.querySelectorAll(".proj-card").forEach(function(c){
+    c.classList.toggle("active-sim", c === activeCard);
+  });
+  if(customSpeech) buddySay(customSpeech);
+}
+
+document.querySelectorAll("[data-set-outfit]").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var o = btn.dataset.setOutfit;
+    var p = PROJECTS.find(function(x){return x.outfit===o;});
+    setMarioOutfit(o, p ? p.speech : "¡Listo con mi uniforme #10 de gala!");
+  });
+});
+
+function buddySay(t){
+  bbub.textContent=t;
+  bbub.classList.add("on");
+  bud.classList.add("wave");
+  clearTimeout(bw);bw=setTimeout(function(){bud.classList.remove("wave")},2200);
+  clearTimeout(bh);bh=setTimeout(function(){bbub.classList.remove("on")},6500);
+}
+
+var VP={
+  proyectos:["Pasa el mouse por cada proyecto y mira cómo cambio de traje.","Haz clic en 'Simular Proceso' para verme en modo ingeniero."],
+  espacio:["Belén es mi mayor logro hasta ahora: casi 5 años que me cambiaron la vida.","Revisa las 12 viñetas anime: ¡incluí nuestra historia con Belén!"],
+  futuro:["Mi sueño de vida: llegar a la gerencia de la Universidad de Chile.","A 10 años: tomar decisiones estratégicas en cualquier entorno."]
+};
+
+function buddyView(id){
+  clearInterval(bt);
+  buddy.classList.toggle("on",id!=="inicio");
+  if(id==="inicio"){bbub.classList.remove("on");return;}
+  var L=VP[id];
+  if(L){
+    var i=0;buddySay(L[0]);
+    bt=setInterval(function(){i=(i+1)%L.length;buddySay(L[i])},8500);
+  }
+}
+addEventListener("scroll",function(){
+  buddy.classList.toggle("hide",document.getElementById("contacto").getBoundingClientRect().top<innerHeight-40);
+});
+
+/* 3. MENÚ DE NAVEGACIÓN PRINCIPAL */
+var views=[
+  ["inicio","star","Inicio (Gala)"],
+  ["proyectos","code","Laboratorio de Proyectos"],
+  ["espacio","shield","El Espacio QC&CP"],
+  ["futuro","arrow","Hacia dónde voy"]
+];
+var navItems=document.getElementById("navItems");
+views.forEach(function(v){
+  var b=document.createElement("button");
+  b.dataset.v=v[0];
+  b.innerHTML="<svg class='ni' viewBox='0 0 64 64'><use href='#s-"+v[1]+"'/></svg>"+v[2];
+  navItems.appendChild(b);
+});
+
+/* Sub-tabs dentro de El Espacio QC&CP */
+document.getElementById("subtabs").addEventListener("click", function(e){
+  var b = e.target.closest(".subtab");
+  if(!b) return;
+  document.querySelectorAll(".subtab").forEach(function(x){x.classList.toggle("on", x===b)});
+  document.querySelectorAll(".subpane").forEach(function(p){p.classList.toggle("on", p.id===b.dataset.sub)});
+  if(b.dataset.sub==="sp-historias") show(cur);
+});
+
+/* 4. LÍNEA DE TIEMPO Y LAS 12 VIÑETAS ANIME COMPLETADAS */
+var T=[
+  ["2002","El primer llanto","Hospital de Coquimbo · 21 de noviembre","Llegué al mundo un 21 de noviembre en Coquimbo. Fui un bebé tranquilo y travieso a la vez, tierno, sensible y de lágrima fácil: parecía llorar por todo. Ya se notaba un corazón que lo siente todo.","Origen"],
+  ["Infancia","Los pamperitos","Jardín Grillitos de San Ramón, Tierras Blancas","En el jardín, mi hermano Jonathan y yo éramos los pamperitos: mi mamá Jessica nos mandaba siempre bañados y perfumados con colonia de bebé. Guardo el cariño de las tías y una pequeña marca en la frente.","Hito"],
+  ["Kinder","Un bailarín con parche","Colegio del Alba de Coquimbo","La noche antes de bailar música de los 80, saltando de cama en cama con mi hermano caí de cabeza contra un velador: sangre, puntos en la posta y una cicatriz sobre la ceja. Al día siguiente bailé al centro con mi traje azul brillante y los lentes mineros de mi papá.","Hito"],
+  ["Primaria","El mejor compañero","Colegio del Alba · hasta 5° básico","Allí nacieron amistades que duran hasta hoy, como Cristóbal Cisternas, con quien competí sanamente por el primer lugar del curso. Año tras año mis compañeros me eligieron mejor compañero.","Reconocimiento"],
+  ["Niñez","Independiente Junior","Club de apoderados","Un club levantado por los apoderados donde salimos campeones de varias competiciones con un equipazo. Incluso me tocó ponerme los guantes de arquero cuando faltaba uno.","Fútbol"],
+  ["6° básico","El todoterreno y Yuyín","Colegio Miguel de Cervantes, Tierras Blancas","Participé en todo: fútbol, básquet, vóley, atletismo, fotografía y olimpiadas de matemáticas. Entre tantas caídas, rodilla dislocada y un esguince crónico por seguir jugando, en mi familia me apodaron Yuyín.","Hito"],
+  ["17 años","Las pruebas y el clic analítico","La Serena · La U · Coquimbo · Santiago","Probé suerte en La Serena, la U y Coquimbo con pocos minutos. En Santiago quedé seleccionado, pero sin familia allá donde alojarme debí desistir. Ese dolor transformó mi pasión en análisis táctico profundo.","Fútbol"],
+  ["18 años","El susto de la biopsia","Al cerrar 4° medio","Por estrés e inflamación severa terminé en la clínica con mesalazina y una biopsia. Al leer mal el informe creí ver 'se detecta neoplasia maligna' y lloré desconsolado, hasta que mi familia leyó en voz alta: 'NO se detecta neoplasia maligna'. Volví a nacer.","Superación"],
+  ["Aventuras","Rescate en el mar y Laguna El Cepo","4 horas en el océano y trekking extremo","Surfeando en verano el mar se embraveció y estuve 4 horas adentro hasta que 5 salvavidas, un bote y un helicóptero en camino fueron por mí. Y en un trekking a la Laguna El Cepo con mi papá, mi hermano y 2 primos nos perdimos sin mapa bajo un calor sofocante, separados entre quienes llevaban la comida y quienes llevaban la carpa, reencontrándonos de noche antes de coronar la laguna al día siguiente.","Resiliencia"],
+  ["Casi 5 años juntos","Belén · Mi mayor logro hasta ahora","El amor de mi vida y mi mayor maestra","Conocí a Belén, quien se convirtió en mi mayor logro hasta ahora. En casi cinco años juntos fue la primera en muchas cosas y la primera en entrar hasta el fondo de mi corazón; pasamos de todo y es quien mejor me conoce. Aunque yo solía pensar que tras un error la confianza no vuelve, cuando me equivoqué con ella por inmadurez y apego evitativo, enfrenté meses de distancia, trabajé en mí mismo y nos escribimos cartas desde la honestidad más pura. Aun con mis errores, ella me recibe y me ama, enseñándome el verdadero significado del perdón y del amor incondicional.","Mi Mayor Logro"],
+  ["Hoy","5° Año Ingeniería Civil Industrial","Universidad Católica del Norte · Coquimbo","Desarrollando proyectos de gestión de activos, simulación en AnyLogic, SAP S/4HANA, evaluación financiera y modelos multicriterio, con la meta de vida puesta en llegar a la gerencia del Club Universidad de Chile.","Presente"]
+];
+
+var tl=document.getElementById("tl");
+T.forEach(function(t, idx){
+  var d=document.createElement("div");
+  d.className="it" + (idx===0 || idx===T.length-2 || idx===T.length-1 ? " open" : "");
+  d.innerHTML="<button><small>"+t[0]+"</small><h3>"+t[1]+"</h3><div style='color:#8e939c;font-size:13px'>"+t[2]+"</div><div class='more'><p>"+t[3]+"</p><span class='tag'>"+t[4]+"</span></div></button>";
+  d.firstChild.onclick=function(){d.classList.toggle("open")};
+  tl.appendChild(d);
+});
+
+var SM=[
+  "Qué olorosos andábamos con mi hermano Jonathan, jaja.",
+  "Le juré al doctor que nunca más saltaba en las camas...",
+  "¡Con los lentes mineros de mi papá me robé la película!",
+  "Entre esguinces y caídas me gané el apodo de Yuyín.",
+  "En Santiago quedé seleccionado, pero tocó aprender resiliencia.",
+  "Leer bien ese 'NO se detecta' me devolvió el alma al cuerpo.",
+  "Belén es mi mayor logro hasta ahora: casi 5 años que transformaron mi corazón.",
+  "Entre la rodilla en el colegio, los meniscos en la U y el esguince crónico...",
+  "¡4 horas en el mar! 5 salvavidas, bote y hasta helicóptero en camino.",
+  "Un grupo con la carpa y el otro con la comida rumbo a Laguna El Cepo.",
+  "Bajando por La Serena a jugar fútbol casi no la cuento.",
+  "Quedé meses sin querer manejar, pero de todo se aprende."
+];
+
+var ST=[
+  {t:"Infancia",h:"Los pamperitos",cap:"Tierras Blancas",bg:"linear-gradient(160deg,#3a2c14,#0d0d0d)",p:"Mi mamá Jessica nos bañaba con tanto cariño que mi hermano Jonathan y yo llegábamos al jardín Grillitos de San Ramón oliendo a colonia de bebé. Las tías nos bautizaron los pamperitos.",els:[["baby","bob",18,42,76,0],["baby","bob",46,44,76,.4],["bottle","float",74,22,46,0],["bubble","float",12,14,30,.8],["bubble","float",62,10,26,1.4]]},
+  {t:"Kinder",h:"El salto y el velador",cap:"La noche anterior al baile",bg:"linear-gradient(160deg,#1a1a2e,#0a0a0a)",p:"La noche antes de bailar música de los 80, saltábamos de cama en cama con mi hermano. Chocamos en el aire y caí de cabeza contra la punta de un velador: sangre, puntos en la posta y una cicatriz sobre la ceja.",els:[["bed","",24,50,100,0],["kid","jump",22,20,64,0,0,"#C9A24B"],["kid","jump",48,20,64,.3,0,"#C0C4CC"],["stand","",72,50,54,0],["burst","pulse",70,26,32,0]]},
+  {t:"Kinder",h:"El baile de los lentes mineros",cap:"Presentación de 4tos medios",bg:"linear-gradient(160deg,#241c06,#0a0a0a)",p:"Con un parche enorme sobre la ceja y los lentes oscuros de minero de mi papá para no asustar a los niños, salí al centro con mi traje azul brillante. Fui el único con lentes y el que más se lució.",els:[["spot","pulse",36,0,86],["kids","sway",38,24,94,0,0,"#2a5bd7"],["star","spin",16,28,30,0],["star","spin",74,40,26,1],["note","float",12,10,30,.5],["note","float",78,8,30,1]]},
+  {t:"Niñez",h:"El apodo de Yuyín",cap:"Recreos y partidos intensos",bg:"linear-gradient(160deg,#102a2a,#0a0a0a)",p:"Entre recreos y partidos, las caídas y esguinces eran tan seguidos que ya ni llamaban a mi mamá: la misma inspectora me llevaba al hospital. Por eso en mi familia me apodaron Yuyín, como el niño de Hey Arnold.",els:[["school","",6,42,76,0],["kid","trip",42,32,78,0,0,"#C9A24B"],["band","float",66,22,34,0],["star","spin",24,12,28,0],["star","spin",78,50,24,.8]]},
+  {t:"17 años",h:"Las pruebas de fútbol",cap:"La Serena · La U · Coquimbo · Santiago",bg:"linear-gradient(160deg,#0f2a14,#0a0a0a)",p:"En La Serena, la U y Coquimbo jugué apenas 10 minutos. En Santiago quedé seleccionado, pero al no tener familiares ni alojamiento allá tuve que desistir. Dolió, pero ahí nació mi mirada analítica del fútbol.",els:[["stadium","",30,4,130],["ball","roll",36,64,36],["kid","walk",40,42,68,0,50,"#2d8a4a"],["clock","pulse",78,12,36,0]]},
+  {t:"18 años",h:"El susto de la biopsia",cap:"Una palabra que lo cambió todo",bg:"linear-gradient(160deg,#2a1414,#0a0a0a)",p:"Tras caer en cama al salir de 4° medio, me hicieron una biopsia. Nervioso, leí 'se detecta neoplasia maligna' y lloré pensando que iba a morir, hasta que mi familia leyó bien: 'NO se detecta neoplasia maligna'. Quedé paralizado y agradecido de Dios.",els:[["doc","float",16,18,70,0],["lens","pulse",36,32,44,.3],["drop","fall",58,8,26,0],["heart","pulse",62,48,50,0],["star","float",80,14,30,.5]]},
+  {t:"Mi Mayor Logro",h:"Belén · Casi 5 años y un amor que sana",cap:"La primera en entrar al fondo de mi corazón",bg:"linear-gradient(160deg,#301322,#0c0a12)",p:"Belén es mi mayor logro hasta ahora. En casi cinco años juntos fue la primera en muchas cosas y quien mejor me conoce. Yo creía que tras un error la confianza jamás volvía, pero cuando me equivoqué con ella por inmadurez y apego evitativo, asumí mi responsabilidad tras meses de distancia, nos abrimos el alma en cartas sinceras y ella aun así me recibe y me ama.",els:[["kid","bob",18,34,76,0,0,"#C9A24B"],["belen","bob",54,34,76,.3],["heart","pulse",40,14,44,0],["letter","float",41,52,40,.4],["star","spin",14,14,26,0],["star","spin",78,18,26,.7]]},
+  {t:"Básquet y Universidad",h:"La rodilla, los meniscos y el esguince crónico",cap:"Batallas físicas en la cancha",bg:"linear-gradient(160deg,#2a1d0e,#0a0a0a)",p:"Primero en el colegio jugando básquet se me salió la rodilla de lugar; años después, en la universidad, me lesioné los meniscos al punto de casi no poder pisar, sumado a un esguince crónico de niñez por no cuidarme a tiempo. Aun así, jamás dejé el deporte.",els:[["bball","jump",16,32,50,0],["kid","trip",38,32,74,0,0,"#d97706"],["leg","shake",64,34,68,0],["band","float",76,16,34,.3],["burst","pulse",50,16,32,0]]},
+  {t:"Verano en el océano",h:"4 horas mar adentro y rescate épico",cap:"5 salvavidas, bote y helicóptero en camino",bg:"linear-gradient(160deg,#08203e,#06101e)",p:"Estaba surfeando en verano y, mirando el horizonte esperando una ola, el mar se embraveció de golpe y no pude salir. Estuve 4 horas resistiendo mar adentro hasta que entraron 5 salvavidas con bote y el helicóptero de rescate en camino para sacarme con vida.",els:[["heli","walk",58,6,64,0,40],["surf","wave",18,52,58,0],["kid","bob",24,38,58,0,0,"#38bdf8"],["boat","wave",54,44,64,.4],["wave","wave",4,56,140],["buoy","float",44,54,36,.2]]},
+  {t:"Trekking extremo",h:"Perdidos rumbo a la Laguna El Cepo",cap:"Un grupo con la comida y el otro con la carpa",bg:"linear-gradient(160deg,#2b1d12,#0c1017)",p:"Haciendo trekking hacia la Laguna El Cepo con mi papá, mi hermano y 2 primos bajo un calor sofocante que apenas dejaba respirar, perdimos el mapa y nos separamos: un grupo tenía la comida y el otro la carpa, así que no podíamos sobrevivir el uno sin el otro. Ya de noche y al borde de la desesperación logramos encontrarnos, acampamos juntos y al día siguiente llegamos a la laguna.",els:[["sun","pulse",12,8,44,0],["peak","",6,34,96],["peak","",48,28,116],["kid","walk",18,50,56,0,28,"#C9A24B"],["food","float",28,46,34,.2],["kid","walk",62,50,56,.4,28,"#C0C4CC"],["tent","float",74,48,40,.5]]},
+  {t:"Sobre ruedas",h:"Bajando por La Serena y aprendiendo en patines",cap:"A milímetros del parachoques",bg:"linear-gradient(160deg,#262626,#0a0a0a)",p:"Dos veces me salvé por milagro del tránsito: primero bajando en bicicleta por La Serena rumbo a jugar un partido de fútbol, y otra vez cuando recién estaba aprendiendo a andar en patines y perdí el control frente a un auto.",els:[["bike","walk",22,52,60,0,75],["kid","walk",24,34,56,0,75,"#2a5bd7"],["skate","walk",48,28,40,.4,60],["car","walk",62,54,64,.2,95,"#C0C4CC"],["warn","pulse",78,10,36]]},
+  {t:"Juventud y lección",h:"El choque del auto de mis papás",cap:"Meses sin querer volver al volante",bg:"linear-gradient(160deg,#2a1616,#0a0a0a)",p:"Siendo muy joven y por pura falta de experiencia choqué el auto de mis papás. El impacto emocional y la culpa de haberles fallado me dejaron tan marcado que pasé varios meses medio traumado y sin querer tocar un volante, hasta que superé el miedo con responsabilidad.",els:[["car","shake",22,52,68,0,0,"#C0C4CC"],["burst","pulse",44,36,48,0],["kid","bob",62,40,64,.2,0,"#C9A24B"],["heart","pulse",78,18,34,0]]}
+];
+
+var track=document.getElementById("track"),dots=document.getElementById("dots"),sw=document.getElementById("stories"),cur=0;
+ST.forEach(function(x,i){
+  var d=document.createElement("div");
+  d.className="slide";
+  d.innerHTML="<div class='scene' style='background:"+x.bg+"'>"+x.els.map(function(e){return "<svg class='el a-"+e[1]+"' viewBox='0 0 64 64' width='"+e[4]+"' height='"+e[4]+"' style='left:"+e[2]+"%;top:"+e[3]+"%;animation-delay:"+(e[5]||0)+"s;--d:"+(e[6]||55)+"px;--c:"+(e[7]||"#C9A24B")+"'><use href='#s-"+e[0]+"'/></svg>"}).join("")+"<span class='cap'>"+x.cap+"</span></div><div class='txt'><small>"+x.t+"</small><h3>"+x.h+"</h3><p>"+x.p+"</p></div>";
+  track.appendChild(d);
+  var b=document.createElement("button");
+  b.setAttribute("aria-label","Historia "+(i+1));
+  b.onclick=function(){show(i)};
+  dots.appendChild(b);
+});
+
+function show(i){
+  cur=Math.max(0,Math.min(ST.length-1,i));
+  track.style.transform="translateX(-"+cur*100+"%)";
+  [].forEach.call(track.children,function(c,k){c.classList.toggle("act",k===cur)});
+  [].forEach.call(dots.children,function(c,k){c.classList.toggle("on",k===cur)});
+  document.getElementById("cnt").textContent=(cur+1)+" / "+ST.length;
+  if(document.getElementById("espacio").classList.contains("on") && document.getElementById("sp-historias").classList.contains("on")){
+    buddySay(SM[cur]);
+  }
+}
+document.getElementById("prev").onclick=function(){show(cur-1)};
+document.getElementById("next").onclick=function(){show(cur+1)};
+addEventListener("keydown",function(e){
+  if(!document.getElementById("espacio").classList.contains("on"))return;
+  if(e.key==="ArrowRight")show(cur+1);
+  if(e.key==="ArrowLeft")show(cur-1);
+});
+var tx=0;
+sw.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+sw.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)show(cur+(d<0?1:-1))});
+
+/* 5. NAVEGACIÓN ENTRE VISTAS */
+function go(id){
+  document.querySelectorAll(".view").forEach(function(e){e.classList.toggle("on",e.id===id)});
+  navItems.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.v===id)});
+  window.scrollTo(0,0);
+  if(innerWidth<1040)document.body.classList.remove("open");
+  buddyView(id);
+  if(id==="inicio"){count();setMarioOutfit("gala");}
+  if(id==="espacio"){setMarioOutfit("gala");show(cur);}
+  if(id==="futuro"){setMarioOutfit("exec","Mi norte definitivo: llegar a la gerencia de la Universidad de Chile.");}
+}
+navItems.onclick=function(e){var b=e.target.closest("button");if(b)go(b.dataset.v)};
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+document.getElementById("menuBtn").onclick=function(){document.body.classList.toggle("open")};
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+function count(){
+  var n=new Date(),a=n.getFullYear()-2002;
+  if(n<new Date(n.getFullYear(),10,21))a--;
+  document.querySelectorAll("[data-n]").forEach(function(el){
+    var to=el.dataset.n==="age"?a:+el.dataset.n,i=0;
+    clearInterval(el._t);
+    el._t=setInterval(function(){i++;el.textContent=i;if(i>=to)clearInterval(el._t)},55);
+  });
+}
+count();
+
+/* 6. FÍSICA DEL MINI MARIO PATEANDO EL BALÓN EN LA PORTADA */
+(function(){
+  var f=document.getElementById("field"),m=document.getElementById("mario"),b=document.getElementById("ball2"),bub=document.getElementById("bubble"),home=document.getElementById("inicio");
+  var W=0,H=0,c={x:0,y:0,dir:1},ball={x:0,y:0,vx:0,vy:0,r:0},t0=0,kicks=0,until=0,mi=1,was=false;
+  var msg=["¡Hola! Soy Mario (#10)","Bienvenido a mi portafolio QC&CP","Belén es mi mayor logro hasta hoy","¡Toque simple estilo Riquelme!","Sueño azul: llegar a la gerencia de la U"];
+  function say(t,ms){bub.textContent=t;bub.classList.add("on");setTimeout(function(){bub.classList.remove("on")},ms)}
+  function reset(ts){W=f.clientWidth;H=f.clientHeight;c.x=W*0.2;c.y=H*0.88;ball.x=W*0.38;ball.y=c.y;ball.vx=ball.vy=0;until=ts+3000;say(msg[0],2800)}
+  function kick(){
+    var tx=50+Math.random()*(W-100),ty=H*0.66+Math.random()*H*0.28,dx=tx-ball.x,dy=ty-ball.y,d=Math.hypot(dx,dy)||1,sp=270+Math.random()*190;
+    ball.vx=dx/d*sp;ball.vy=dy/d*sp;
+    m.classList.add("kick");setTimeout(function(){m.classList.remove("kick")},350);
+    kicks++;if(kicks%3===0){until=t0+2300;say(msg[mi++%msg.length],2200)}
+  }
+  function loop(ts){
+    var dt=Math.min((ts-t0)/1000,.05)||.016;t0=ts;
+    var on=home.classList.contains("on");
+    if(on){
+      if(!was)reset(ts);
+      W=f.clientWidth;H=f.clientHeight;
+      var sc=W<600?.78:1,dx=ball.x-c.x,dy=ball.y-c.y,d=Math.hypot(dx,dy),sp=Math.hypot(ball.vx,ball.vy);
+      if(ts<until){m.classList.remove("walk");m.classList.add("wave");if(Math.abs(dx)>4)c.dir=dx>0?1:-1}
+      else{
+        m.classList.remove("wave");
+        ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;
+        var fr=Math.pow(.3,dt);ball.vx*=fr;ball.vy*=fr;ball.r+=ball.vx*dt*2;
+        if(ball.x<30||ball.x>W-30){ball.vx*=-1;ball.x=Math.max(30,Math.min(W-30,ball.x))}
+        if(ball.y<H*.62||ball.y>H-10){ball.vy*=-1;ball.y=Math.max(H*.62,Math.min(H-10,ball.y))}
+        if(d>44){var s=(sp>40?190:130)*dt;c.x+=dx/d*s;c.y+=dy/d*s;m.classList.add("walk");if(Math.abs(dx)>4)c.dir=dx>0?1:-1}
+        else{m.classList.remove("walk");if(sp<40)kick()}
+      }
+      var hop=Math.abs(Math.sin(ts/90))*Math.min(sp/25,12);
+      m.style.transform="translate("+(c.x-34)+"px,"+(c.y-118)+"px) scale("+(c.dir*sc)+","+sc+")";
+      b.style.transform="translate("+(ball.x-13)+"px,"+(ball.y-24-hop)+"px) rotate("+ball.r+"deg)";
+      bub.style.left=c.x+"px";bub.style.top=(c.y-118*sc-40)+"px";
+    }
+    was=on;requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+document.querySelectorAll(".view:not(#inicio) .wrap").forEach(function(w){
+  var t=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  t.setAttribute("viewBox","0 0 200 260");
+  t.setAttribute("class","mini");
+  t.innerHTML='<use href="#bd"/>';
+  w.appendChild(t);
+});
+
+go("inicio");
+if(innerWidth>=1040)document.body.classList.add("open");
+</script>
+</body>
+</html>
