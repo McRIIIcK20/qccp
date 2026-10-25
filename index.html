@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>QC&CP · Mario Andrés Coroseo Ramos | Portafolio & Historia</title>
+<title>QC&amp;CP · Mario Andrés Coroseo Ramos | Portafolio &amp; Historia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -662,7 +662,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
 
     <div class="counters">
       <div><b data-n="age">0</b><small>Años de historia</small></div>
-      <div><b>6</b><small>Proyectos &amp; Sistemas</small></div>
+      <div><b>5</b><small>Proyectos &amp; Sistemas</small></div>
       <div><b>#10</b><small>Visión &amp; Analítica</small></div>
     </div>
 
@@ -678,7 +678,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
   <div class="wrap">
     <h2 class="title gold">Laboratorio de Proyectos e Ingeniería</h2>
     <div class="rule"></div>
-    <p class="sub" id="projSubText">Complemento interactivo a mi CV. <b>Pasa el mouse</b> sobre cualquier proyecto para preseleccionarlo y cambiar el rol de Mini Mario, o <b>haz clic en cualquier tarjeta</b> para agrandar solo ese proyecto en pantalla con todas sus especificaciones y el link a GitHub.</p>
+    <p class="sub" id="projSubText">Complemento interactivo a mi CV. <b>Pasa el mouse</b> sobre cualquier proyecto para preseleccionarlo y cambiar el rol de Mini Mario, o <b>haz clic en cualquier tarjeta</b> para agrandar solo ese proyecto en pantalla con todas sus especificaciones reales.</p>
 
     <div class="wardrobe-bar">
       <span>👔 <b>Modo actual de Mini Mario:</b> <em id="outfitLabel" style="color:var(--text);font-style:normal">Gala Balón de Oro (#10)</em></span>
@@ -693,7 +693,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
       </div>
     </div>
 
-    <!-- Cuadrícula de los 6 proyectos -->
+    <!-- Cuadrícula de proyectos -->
     <div class="proj-grid" id="projGrid"></div>
 
     <!-- Vista Expandida de 1 solo proyecto al hacer clic -->
@@ -777,7 +777,7 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
       <div class="tl" id="tl"><div class="fill"></div></div>
     </div>
 
-    <!-- SUBPANE 4: HISTORIAS ANIME (LAS 12 COMPLETAS INCLUYENDO BELÉN) -->
+    <!-- SUBPANE 4: HISTORIAS ANIME -->
     <div class="subpane" id="sp-historias">
       <div id="stories">
         <div class="viewport"><div class="track" id="track"></div></div>
@@ -851,177 +851,109 @@ svg.ico{width:42px;height:42px;margin-bottom:10px;display:block}
 <div id="buddy"><div id="bbub"></div><div id="bm"></div></div>
 
 <script>
-/* 1. DATOS DEL LABORATORIO DE PROYECTOS (CON ESPECIFICACIONES DETALLADAS PARA EXPANSIÓN) */
-var PROJECTS = [
-  {
-    id:"activos",
-    cat:"Ingeniería de Mantenimiento & Minería",
-    title:"Sistema de Gestión de Activos · Chancador Primario",
-    desc:"Diseño de registro maestro de activos, plan de mantenimiento preventivo/correctivo, carta Gantt e indicadores clave (MTBF, MTTR y Disponibilidad) para un chancador giratorio primario.",
-    problem:"Las detenciones no programadas en equipos críticos de conminución (Chancador Primario Giratorio) generan pérdidas operacionales masivas en planta minera.",
-    methodology:"Estructuración de taxonomía de activos (ISO 14224), matriz de criticidad, planificación en Carta Gantt y modelamiento de indicadores de confiabilidad (MTBF), mantenibilidad (MTTR) y disponibilidad física.",
-    deliverables:[
-      "<strong>Maestro de Activos Codificado:</strong> Desglose jerárquico de sistemas, subsistemas y componentes críticos del chancador.",
-      "<strong>Plan Maestro Preventivo y Carta Gantt:</strong> Programación de mantenciones mayores y lubricación sin solapamiento crítico.",
-      "<strong>Tablero de Control de Confiabilidad:</strong> Cálculo automatizado de MTBF (142 h), MTTR (4,2 h) y Disponibilidad (94,8%)."
-    ],
-    kpis:[["94.8%","Disponibilidad Física"],["142 hrs","MTBF Operativo"],["4.2 hrs","MTTR Promedio"]],
-    repoUrl:"https://github.com/McRIIIcK20/gestion-activos-chancador",
-    outfit:"helmet",
-    outfitName:"⛑️ Modo Terreno / Ejecución Minera",
-    speech:"¡Casco puesto! Aquí controlo MTBF, MTTR y disponibilidad del chancador primario.",
-    tags:["Gestión de Activos","MTBF / MTTR","Confiabilidad","Excel Avanzado"],
-    cur:"Cursor-1",
-    stageHTML:
-      '<div class="ui-grid">'+
-        '<div class="ui-box"><small style="color:#8e939c">DISPONIBILIDAD</small><span class="ui-kpi">94.8%</span><div class="ui-bar"><span></span></div></div>'+
-        '<div class="ui-box"><small style="color:#8e939c">MTBF / MTTR</small><span class="ui-kpi">142h / 4.2h</span><span class="ui-btn-sim">✓ OT Preventiva</span></div>'+
-      '</div>'+
-      '<div class="ui-box" style="margin-top:8px;font-size:10px;color:#C0C4CC">⚙ Activo: <b>CH-GIR-001 (Chancador Primario)</b> · Estado: <span style="color:#27c93f">OPERATIVO</span></div>'
-  },
-  {
-    id:"sap",
-    cat:"ERP & Cadena de Abastecimiento",
-    title:"Flujos de Compras y Materiales en SAP S/4HANA",
-    desc:"Ejecución e integración de procesos críticos en SAP S/4HANA: creación de Business Partners (BP), maestro de materiales (MM01), solicitudes de pedido (ME51N) y peticiones de oferta (ME41).",
-    problem:"Necesidad de estandarizar y auditar el ciclo completo de aprovisionamiento (Procure-to-Pay) evitando quiebres de stock y errores de imputación en ERP.",
-    methodology:"Configuración y ejecución secuencial en SAP S/4HANA conectando datos maestros de proveedores y materiales con el flujo documental de compras y cotizaciones.",
-    deliverables:[
-      "<strong>Gestión de Interlocutores Comerciales (BP):</strong> Creación y homologación de proveedores con roles financieros y de compras.",
-      "<strong>Maestro de Materiales (MM01):</strong> Parametrización de vistas de compras, planificación MRP y almacenamiento.",
-      "<strong>Flujo de Abastecimiento (ME51N / ME41):</strong> Generación de SolPed, petición de oferta a proveedores y trazabilidad documental."
-    ],
-    kpis:[["100%","Trazabilidad ERP"],["4 Transac.","BP·MM01·ME51N·ME41"],["S/4HANA","Estándar Corporativo"]],
-    repoUrl:"https://github.com/McRIIIcK20/sap-s4hana-abastecimiento",
-    outfit:"exec",
-    outfitName:"💼 Modo Ejecutivo ERP / SAP",
-    speech:"Traje ejecutivo listo: ejecutando transacciones MM01, BP y compras en SAP S/4HANA.",
-    tags:["SAP S/4HANA","MM01 & BP","Procurement","Supply Chain"],
-    cur:"Cursor-2",
-    stageHTML:
-      '<div class="sap-step"><span>1. Transacción <b>BP</b> · Proveedor</span><span class="sap-ok">✓ CREADO</span></div>'+
-      '<div class="sap-step"><span>2. Transacción <b>MM01</b> · Material</span><span class="sap-ok" style="animation-delay:.8s">✓ ACTIVO</span></div>'+
-      '<div class="sap-step"><span>3. Solicitud Pedido <b>ME51N / ME41</b></span><span class="ui-btn-sim">Liberar OC</span></div>'
-  },
-  {
-    id:"anylogic",
-    cat:"Investigación de Operaciones & Simulación",
-    title:"Simulación en AnyLogic & Ruteo Vehicular (VRP)",
-    desc:"Modelamiento de eventos discretos, dinámica de sistemas y optimización de rutas de transporte (Vehicle Routing Problem) con Solver y AnyLogic para reducir tiempos de espera y costos logísticos.",
-    problem:"Cuellos de botella en procesos de atención/producción y altos costos de distribución por rutas de reparto subóptimas.",
-    methodology:"Combinación de optimización matemática exacta/heurística para ruteo vehicular (VRP) y simulación computacional en AnyLogic (Eventos Discretos y Dinámica de Sistemas) bajo incertidumbre estocástica.",
-    deliverables:[
-      "<strong>Modelo de Eventos Discretos (AnyLogic):</strong> Análisis de colas, utilización de recursos y reducción de tiempos de ciclo.",
-      "<strong>Modelo de Dinámica de Sistemas:</strong> Diagramas causales y de Forrester para evaluar políticas en el largo plazo.",
-      "<strong>Optimizador de Ruteo (VRP):</strong> Asignación óptima de flota minimizando distancia total recorrida y cumpliendo ventanas de capacidad."
-    ],
-    kpis:[["98.2%","Nivel de Servicio"],["-22%","Tiempo en Cola"],["Óptimo","Ruteo VRP"]],
-    repoUrl:"https://github.com/McRIIIcK20/simulacion-anylogic-vrp",
-    outfit:"research",
-    outfitName:"🔬 Modo Investigador / Simulación",
-    speech:"Con bata de investigador: simulando colas, rutas VRP y dinámica de sistemas en AnyLogic.",
-    tags:["AnyLogic","Simulación Discreta","Dinámica de Sistemas","VRP Solver"],
-    cur:"Cursor-3",
-    stageHTML:
-      '<svg viewBox="0 0 260 95" style="width:100%;height:92px;background:#0d1017;border-radius:6px;border:1px solid #ffffff14">'+
-        '<path d="M22 70 Q90 15 150 55 T238 28" fill="none" stroke="#C9A24B" stroke-width="2" stroke-dasharray="4 4"/>'+
-        '<circle cx="22" cy="70" r="6" fill="#27c93f"/><circle cx="150" cy="55" r="6" fill="#E8C877"/><circle cx="238" cy="28" r="6" fill="#38bdf8"/>'+
-        '<circle cx="22" cy="70" r="4" fill="#fff"><animateMotion dur="3.5s" repeatCount="indefinite" path="M0 0 Q68 -55 128 -15 T216 -42"/></circle>'+
-        '<text x="12" y="20" fill="#8e939c" font-size="9">Simulación Activa · Tasa Servicio: 98.2%</text>'+
-      '</svg>'+
-      '<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px"><span style="color:#8e939c">Ruta Óptima VRP</span><span class="ui-btn-sim">▶ Run AnyLogic</span></div>'
-  },
-  {
-    id:"mcdm",
-    cat:"Análisis Multicriterio Avanzado",
-    title:"Modelos de Decisión: AHP, TOPSIS, MEREC, MABAC & COPRAS",
-    desc:"Implementación matemática de matrices de decisión multicriterio para evaluación y ranking objetivo de alternativas complejas bajo múltiples ponderaciones.",
-    problem:"Decisiones estratégicas donde existen múltiples criterios en conflicto (costo, calidad, riesgo, plazo) que no pueden resolverse con intuición subjetiva.",
-    methodology:"Ponderación subjetiva con verificación de consistencia (AHP) y ponderación objetiva basada en remoción de efectos (MEREC), acopladas a algoritmos de ranking de proximidad al ideal (TOPSIS, MABAC y COPRAS).",
-    deliverables:[
-      "<strong>Ponderador Híbrido AHP + MEREC:</strong> Cálculo del Ratio de Consistencia (CR < 0.10) y pesos objetivos por variabilidad de datos.",
-      "<strong>Motores de Ranking Multicriterio:</strong> Matrices normalizadas y cálculo simultáneo en TOPSIS, MABAC y COPRAS.",
-      "<strong>Análisis de Sensibilidad Cruzado:</strong> Comparación de robustez del ganador ante cambios en los pesos de los criterios."
-    ],
-    kpis:[["5 Métodos","AHP·TOPSIS·MEREC·MABAC·COPRAS"],["CR < 0.10","Consistencia Validada"],["100%","Trazabilidad Matemática"]],
-    repoUrl:"https://github.com/McRIIIcK20/decision-multicriterio-mcdm",
-    outfit:"thinker",
-    outfitName:"🤔 Modo Pensador / Estratega MCDM",
-    speech:"Modo pensador: ponderando criterios con AHP, MEREC y calculando el ranking TOPSIS.",
-    tags:["AHP & TOPSIS","MEREC","MABAC & COPRAS","Toma de Decisiones"],
-    cur:"Cursor-4",
-    stageHTML:
-      '<div class="ui-box" style="margin-bottom:6px">'+
-        '<div style="display:flex;justify-content:space-between;font-size:10px"><span>Alternativa A1 (Score TOPSIS)</span><b style="color:#27c93f">0.892 ★ #1</b></div>'+
-        '<div class="ui-bar"><span style="width:89%"></span></div>'+
-      '</div>'+
-      '<div class="ui-box">'+
-        '<div style="display:flex;justify-content:space-between;font-size:10px"><span>Alternativa A2 (MABAC / COPRAS)</span><b style="color:#E8C877">0.741 · #2</b></div>'+
-        '<div class="ui-bar"><span style="width:74%;animation:none"></span></div>'+
-      '</div>'
-  },
-  {
-    id:"finanzas",
-    cat:"Evaluación de Proyectos & BI",
-    title:"Evaluación Financiera · Proyecto Nueva Flota",
-    desc:"Evaluación económica, flujos de caja proyectados, especificaciones de maquinaria pesada, OPEX/CAPEX y análisis de sensibilidad para expansión de flota en Constructora Impera SpA.",
-    problem:"Determinar la viabilidad técnica, operacional y financiera de adquirir maquinaria pesada para el proyecto de expansión de flota en Pan de Azúcar, Coquimbo.",
-    methodology:"Estudio técnico de especificaciones de equipos, depreciación, calendario de inversiones (CAPEX), costos operacionales (OPEX), construcción de flujos de caja puros/financiados y sensibilización de VAN y TIR.",
-    deliverables:[
-      "<strong>Ingeniería y Selección de Flota:</strong> Fichas técnicas de rendimiento horario, consumo de combustible y mantenimiento.",
-      "<strong>Modelo de Flujo de Caja a 5-10 años:</strong> Proyección de ingresos, costos directos, impuestos, capital de trabajo y valor residual.",
-      "<strong>Evaluación de Rentabilidad y Riesgo:</strong> Determinación de VAN positivo, TIR superior a la tasa de descuento y Payback."
-    ],
-    kpis:[["+ UF 14.820","VAN Estimado"],["24.6%","TIR del Proyecto"],["3.1 Años","Payback Recuperación"]],
-    repoUrl:"https://github.com/McRIIIcK20/evaluacion-financiera-nueva-flota",
-    outfit:"finance",
-    outfitName:"📊 Modo Analista Financiero & BI",
-    speech:"Analizando flujos de caja, VAN, TIR y costos operativos del Proyecto Nueva Flota.",
-    tags:["Evaluación de Inversiones","Flujo de Caja","Power BI","Excel Financiero"],
-    cur:"Cursor-5",
-    stageHTML:
-      '<div class="ui-grid">'+
-        '<div class="ui-box"><small style="color:#8e939c">VAN PROYECTO</small><span class="ui-kpi" style="color:#27c93f">+ UF 14.820</span><small style="color:#27c93f;font-size:9px">▲ Rentable</small></div>'+
-        '<div class="ui-box"><small style="color:#8e939c">TIR / PAYBACK</small><span class="ui-kpi">24.6%</span><small style="color:#C0C4CC;font-size:9px">Recup: 3.1 años</small></div>'+
-      '</div>'+
-      '<div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;color:#8e939c">Escenario Sensibilidad:</span><span class="ui-btn-sim">Simular CAPEX</span></div>'
-  },
-  {
-    id:"cvfutbol",
-    cat:"Computer Vision & Sports Analytics",
-    title:"Visión por Computador Web & Analítica de Fútbol",
-    desc:"Aplicación web interactiva con código de visión artificial para reconocimiento facial, estimación de edad e identificación de género en tiempo real, junto a modelos de datos aplicados a gestión deportiva.",
-    problem:"Integrar modelos de inteligencia artificial en el navegador web sin requerir servidores costosos, y conectar la ciencia de datos con la evaluación de rendimiento deportivo.",
-    methodology:"Implementación de redes neuronales ligeras para detección de rostros y extracción de características biométricas en tiempo real, complementado con estructuración de KPIs tácticos y financieros para clubes de fútbol.",
-    deliverables:[
-      "<strong>Motor de Visión por Computador Web:</strong> Reconocimiento facial, clasificación de género y estimación de edad en vivo.",
-      "<strong>Arquitectura Ligera Cliente:</strong> Procesamiento directo en el navegador cuidando la privacidad del usuario.",
-      "<strong>Enfoque Sports Management:</strong> Base analítica orientada a scouting, control financiero y gestión en clubes profesionales."
-    ],
-    kpis:[["98.4%","Precisión Detección"],["Real-Time","Inferencia Web"],["IA + Fútbol","Sports Analytics"]],
-    repoUrl:"https://github.com/McRIIIcK20/computer-vision-sports-analytics",
-    outfit:"data",
-    outfitName:"🎧 Modo Data Scientist & Fútbol IA",
-    speech:"¡Mi favorito! Combinando Visión por Computador e Inteligencia de Datos para el fútbol.",
-    tags:["Computer Vision","JavaScript / Python","Reconocimiento Facial","Fútbol Data"],
-    cur:"Cursor-6",
-    stageHTML:
-      '<div style="display:flex;gap:10px;align-items:center;background:#0e131d;border:1px solid #38bdf844;padding:8px;border-radius:6px">'+
-        '<div style="width:54px;height:54px;border:2px dashed #22c55e;border-radius:6px;display:grid;place-items:center;position:relative"><span style="font-size:9px;color:#22c55e">FACE ID</span></div>'+
-        '<div style="font-size:10px;line-height:1.5">'+
-          '<div>Rostro: <b style="color:#22c55e">Detectado (98.4%)</b></div>'+
-          '<div>Edad est.: <b style="color:#E8C877">23 años</b> · Género: <b>M</b></div>'+
-          '<span class="ui-btn-sim">⚡ Analizar Frame</span>'+
-        '</div>'+
-      '</div>'
-  }
+/* 1. LABORATORIO DE PROYECTOS CON DATOS REALES */
+(function(){
+function kpi(l,v,x){return '<div class="ui-box"><small style="color:#8e939c">'+l+'</small><span class="ui-kpi">'+v+'</span>'+(x||'')+'</div>';}
+function bar(l,v,w){return '<div class="ui-box" style="margin-bottom:6px"><div style="display:flex;justify-content:space-between;font-size:10px"><span>'+l+'</span><b style="color:#E8C877">'+v+'</b></div><div class="ui-bar"><span style="width:'+w+'%;animation:none"></span></div></div>';}
+
+window.PROJECTS = [
+{
+ id:"flota", cat:"Evaluación de Proyectos de Inversión",
+ title:"Proyecto Nueva Flota · Inversión en maquinaria pesada",
+ desc:"Evaluación técnica, económica y financiera (CAPEX, OPEX, flujos de caja puro y mixto, valor de desecho y sensibilidad) para que una constructora de la Región de Coquimbo compre una retroexcavadora CAT 420 y dos camiones (Mercedes-Benz Arocs 3240 K y Volvo FMX).",
+ problem:"La constructora depende de arrendar maquinaria pesada a terceros: eso encarece sus obras, la deja expuesta a la disponibilidad del mercado y frena su crecimiento. El proyecto responde si conviene comprar su propia flota y arrendarla cuando esté ociosa.",
+ methodology:"Balances de equipos, obras físicas, personal e insumos; proyección de IPC a 15 años; flujo de caja puro (TREMA 9,5 % por CAPM: Rf 4,72 %, beta 0,96, Rm 9,70 %) y mixto (WACC 7,71 %, crédito del 50 % al 8,1 % a 7 años); valor de desecho contable y económico; momento óptimo de inversión y simulación con diésel, horas de operación, ingresos por hora e IPC como variables.",
+ deliverables:[
+  "<strong>CAPEX ≈ $491,8 M:</strong> equipos $455 M (CAT 420 $120 M, Arocs $115 M, Volvo FMX $220 M), obras físicas $23,5 M y capital de trabajo inicial $13,3 M.",
+  "<strong>OPEX del año 1 ≈ $159,4 M:</strong> variables $88,9 M (combustible $84,7 M, diésel a $1.400/L) y fijos $70,4 M (remuneraciones $51,2 M, arriendo de terreno $7,8 M, mantención y patentes).",
+  "<strong>Ingresos del año base $254,5 M:</strong> 136 h/mes de uso propio y 32 h/mes de arriendo a terceros, reajustados por un IPC proyectado de 3,0 % a 3,6 %. Reinversión de equipos en los años 7, 8 y 14.",
+  "<strong>Flujo puro:</strong> VAN de $122,1 M (contable) y $189,1 M (económico), TIR de 13,3 % y 14,6 %, recuperación en 6 años.",
+  "<strong>Flujo mixto:</strong> VAN de $215,4 M y $348,6 M, TIR de 16,3 % y 18,7 %, IVAN de 0,88 y 1,42; el apalancamiento mejora todos los indicadores. El análisis de momento óptimo concluye que no es necesario postergar la inversión."],
+ kpis:[["$491,8 M","CAPEX total"],["$159,4 M","OPEX del año 1"],["$348,6 M","VAN mixto"]],
+ repoUrl:null, outfit:"finance", outfitName:"📊 Modo Analista Financiero & BI",
+ speech:"CAPEX de $491,8 M, OPEX de $159,4 M al año y un VAN mixto de $348,6 M.",
+ tags:["VAN / TIR / WACC","CAPEX & OPEX","Flujo de caja","Excel financiero","Sensibilidad"], cur:"Cursor-5",
+ stageHTML:'<div class="ui-grid">'+kpi("CAPEX TOTAL","$491,8 M",'<small style="color:#C0C4CC;font-size:9px">equipos + obras + CT</small>')+kpi("OPEX AÑO 1","$159,4 M",'<small style="color:#C0C4CC;font-size:9px">fijos + variables</small>')+'</div>'+bar("TIR flujo mixto (económico)","18,7 %",70)
+},
+{
+ id:"activos", cat:"Gestión de Activos & Confiabilidad",
+ title:"Registro Maestro de Activos · Chancador Primario Giratorio",
+ desc:"Proyecto de curso (Organización Digital): registro maestro de activos del chancado primario, convertido en una plantilla Excel con AMEF, ranking de criticidad, historial de eventos e indicadores de disponibilidad, MTBF y MTTR.",
+ problem:"En la minería del cobre el chancado primario es la primera etapa de la planta: si el chancador giratorio se detiene, se detiene el flujo de mineral hacia el resto del proceso. Se necesitaba un registro ordenado de activos y fallas para decidir qué mantener y qué reemplazar.",
+ methodology:"Modelo de referencia Metso Superior MKIII 60-89 (600 kW, ajuste hidráulico Hydroset) con 2 equipos. Taxonomía de activos, AMEF con escalas de frecuencia y severidad (criticidad F × S), criticidad por severidad y por dependencia, y regla de decisión: si el costo acumulado de mantención llega al 60 % del costo de reemplazo, se evalúa reemplazar.",
+ deliverables:[
+  "<strong>Registro de componentes:</strong> 16 por chancador (32 en total) con ID, criticidad, fallas, costos y decisión de reemplazo.",
+  "<strong>AMEF:</strong> 28 modos de falla de 10 tipos de componente (Farfán 2014 y datos del fabricante), con causa, efecto, detección y criticidad.",
+  "<strong>Historial de eventos:</strong> cada detención (preventiva, correctiva programada o falla) alimenta automáticamente los indicadores.",
+  "<strong>Indicadores:</strong> disponibilidad, MTBF y MTTR contra metas de clase mundial (≥ 95 %, ≥ 3.000 h y ≤ 16 h).",
+  "<strong>Datos de demostración:</strong> con 12 eventos de ejemplo, el chancador CG1 da 99,1 % de disponibilidad, MTBF de 3.617 h y MTTR de 10,1 h. Son cifras ilustrativas, no mediciones de una planta."],
+ kpis:[["28","Modos de falla (AMEF)"],["32","Componentes registrados"],["≥ 60 %","Regla de reemplazo"]],
+ repoUrl:null, outfit:"helmet", outfitName:"⛑️ Modo Terreno / Ejecución Minera",
+ speech:"Casco puesto: AMEF, criticidad y la regla del 60 % para decidir cuándo reemplazar.",
+ tags:["AMEF / FMECA","MTBF / MTTR","Gestión de activos","Excel avanzado"], cur:"Cursor-1",
+ stageHTML:'<div class="ui-grid">'+kpi("DISPONIBILIDAD CG1","99,1 %",'<div class="ui-bar"><span></span></div>')+kpi("MTBF / MTTR","3.617 h / 10,1 h",'<span class="ui-btn-sim">Evento EV-007</span>')+'</div><div class="ui-box" style="margin-top:8px;font-size:10px;color:#C0C4CC">Datos de ejemplo · Metso Superior MKIII</div>'
+},
+{
+ id:"cds", cat:"Diseño de Cadena de Suministro",
+ title:"Cadena de Suministro · Piloto logístico regional",
+ desc:"Proyecto de curso: decidir si una empresa de bebidas que externalizó su logística debe internalizar su operación downstream, partiendo con un piloto regional. Proyecto en curso.",
+ problem:"La empresa entregó toda su logística a un operador 3PL y después vio caer las ventas, aumentar los retrasos y los productos dañados, y perder visibilidad del producto. Hay que diagnosticar la demanda y diseñar una alternativa para el piloto.",
+ methodology:"Depuración de 36 meses de ventas (enero 2023 a diciembre 2025) con Python y Power Query, cruzadas con códigos de facturación, maestra de productos y georreferenciación de clientes; análisis ABC, estacionalidad y territorio; luego diseño conceptual y dimensionamiento de almacenamiento, procesos y personas.",
+ deliverables:[
+  "<strong>Base depurada:</strong> 7,53 M de filas de ventas; el 94,5 % es venta efectiva tras excluir anulaciones, mermas, consumo interno y envases.",
+  "<strong>Clasificación ABC:</strong> el 11,6 % de los SKU (clase A) concentra el 79,9 % del volumen.",
+  "<strong>Tendencia de demanda:</strong> el volumen anual baja de 7,31 M a 6,78 M de unidades entre 2023 y 2025 (−7,3 %): cervezas −17,9 %, gaseosas −12,6 % y aguas minerales +14,2 %.",
+  "<strong>Hallazgo de datos:</strong> 40 clientes figuraban con una comuna de Santiago, pero sus direcciones y coordenadas están dentro de la zona del piloto; son cerca del 20 % del volumen de venta efectiva de los tres años y se recomendó incluirlos en el piloto.",
+  "<strong>Mi aporte:</strong> análisis de variabilidad de demanda, matriz ABC/XYZ, mapeo de clientes y un pipeline propio en Python."],
+ kpis:[["7,53 M","Filas depuradas"],["79,9 %","Volumen en el 11,6 % de SKU"],["−7,3 %","Demanda 2023 → 2025"]],
+ repoUrl:null, outfit:"research", outfitName:"🔬 Modo Investigador / Simulación",
+ speech:"Depurando 7,5 millones de filas: el 11,6 % de los SKU mueve casi el 80 % del volumen.",
+ tags:["Python (pandas)","Power Query / Power BI","ABC / XYZ","Georreferenciación","Diseño de redes"], cur:"Cursor-3",
+ stageHTML:bar("Clase A · 11,6 % de SKU","79,9 % del volumen",80)+bar("Clase B · 18,3 % de SKU","15,1 %",15)+bar("Clase C · 70,1 % de SKU","5,0 %",5)
+},
+{
+ id:"scouting", cat:"Ciencia de Datos & Decisión Multicriterio",
+ title:"Scouting Lab · Delanteros infravalorados (Moneyball)",
+ desc:"Aplicación en Python y Streamlit que ordena delanteros de fútbol según su rendimiento ofensivo y su valor de mercado con AHP, MEREC, TOPSIS y MABAC.",
+ problem:"Los clubes suelen pagar por el nombre y no siempre por la eficiencia. Se buscaba identificar delanteros con alto rendimiento ofensivo y precio contenido.",
+ methodology:"Consolidación de cinco temporadas (2020-2026) de estadísticas avanzadas y valores de mercado; cruce de registros con estandarización de textos y merge_asof; filtro de más de 900 minutos; matriz de decisión con NPxG/90, tiros al arco/90 y xA/90 (a maximizar) y valor de mercado (a minimizar); pesos con AHP (escala de Saaty); ranking con TOPSIS validado con MABAC.",
+ deliverables:[
+  "<strong>Base de rendimiento:</strong> 432 delanteros con métricas avanzadas y valor de mercado.",
+  "<strong>Cuatro métodos multicriterio</strong> (AHP, MEREC, TOPSIS y MABAC) en un módulo propio, probados con pytest: consistencia de AHP, monotonía y casos extremos.",
+  "<strong>Pesos AHP por defecto:</strong> NPxG/90 45 %, valor de mercado 26 %, tiros al arco/90 14 % y xA/90 14 %.",
+  "<strong>Hallazgo:</strong> el delantero líder obtiene un score TOPSIS de 0,7633 y los dos primeros se mantienen en el Top 4 con MABAC; el segundo ofrece un rendimiento similar con un costo mucho menor.",
+  "<strong>Datos:</strong> los archivos crudos (más de 900 MB) no se suben al repositorio."],
+ kpis:[["432","Delanteros analizados"],["4","Métodos multicriterio"],["0,7633","Score TOPSIS líder"]],
+ repoUrl:"https://github.com/McRIIIcK20/Scouting-Proyect", outfit:"thinker", outfitName:"🤔 Modo Pensador / Estratega MCDM",
+ speech:"Cuatro métodos, un ranking: el líder alcanza un score TOPSIS de 0,7633.",
+ tags:["Python","Streamlit","AHP · MEREC","TOPSIS · MABAC","pytest"], cur:"Cursor-4",
+ stageHTML:bar("1.º lugar · score TOPSIS","0,7633",76)+bar("2.º lugar · Top 4 (TOPSIS y MABAC)","0,70",70)
+},
+{
+ id:"tienda", cat:"Sistemas de Información & Business Intelligence",
+ title:"TiendaFutbol · ERP y punto de venta con Excel VBA, Access y Power BI",
+ desc:"Sistema para una tienda deportiva: formularios en Excel VBA conectados a una base relacional en Access, con login, inventario, ventas, boletas en PDF y dashboard en Power BI.",
+ problem:"Una tienda pequeña necesita vender, controlar inventario y emitir boletas sin pagar un ERP corporativo. El proyecto lo resuelve con herramientas de oficina que ya usa.",
+ methodology:"Arquitectura en capas: formularios y módulos VBA como interfaz, Access como base relacional normalizada, scripts de Python para crear y poblar la base, generar vistas y validar datos, y Power BI con medidas DAX. Desarrollo por fases con pruebas automatizadas en VBA.",
+ deliverables:[
+  "<strong>Interfaz VBA:</strong> 9 formularios (login, menú, catálogo, inventario, venta, configuración, clientes y usuarios) y 11 módulos de negocio.",
+  "<strong>Seguridad:</strong> inicio de sesión con contraseñas cifradas con SHA-256.",
+  "<strong>Ventas con transacción:</strong> el motor de ventas e inventario actualiza stock y venta de forma atómica; sus 55 pruebas VBA pasan sin fallas.",
+  "<strong>Boletas:</strong> emisión automática en PDF desde una plantilla de Excel (24 pruebas de esa fase sin fallas).",
+  "<strong>Business Intelligence:</strong> 5 vistas analíticas exportadas a CSV y un dashboard en Power BI con tema y medidas DAX propias."],
+ kpis:[["9","Formularios VBA"],["11","Módulos de negocio"],["55","Pruebas VBA sin fallas"]],
+ repoUrl:null, outfit:"exec", outfitName:"💼 Modo Ejecutivo ERP / SAP",
+ speech:"Login, ventas con transacción, boletas en PDF y dashboard: todo en un solo sistema.",
+ tags:["Excel VBA","MS Access (SQL)","Python","Power BI (DAX)"], cur:"Cursor-2",
+ stageHTML:'<div class="sap-step"><span>1. <b>Login</b> · SHA-256</span><span class="sap-ok">OK</span></div><div class="sap-step"><span>2. <b>Venta</b> · transacción</span><span class="sap-ok" style="animation-delay:.8s">OK</span></div><div class="sap-step"><span>3. <b>Boleta</b> · PDF</span><span class="ui-btn-sim">Emitir</span></div>'
+}
 ];
 
-/* Renderizar tarjetas de proyectos con delegación robusta de clic y hover */
 var projGrid = document.getElementById("projGrid");
 var projDetail = document.getElementById("projDetail");
 var projSubText = document.getElementById("projSubText");
 
+projGrid.innerHTML = "";
 PROJECTS.forEach(function(p, idx){
   var card = document.createElement("article");
   card.className = "proj-card";
@@ -1052,7 +984,6 @@ PROJECTS.forEach(function(p, idx){
   projGrid.appendChild(card);
 });
 
-/* Listener único infalible en la cuadrícula para expandir al hacer clic */
 projGrid.addEventListener("click", function(e){
   var card = e.target.closest(".proj-card");
   if(!card) return;
@@ -1060,17 +991,7 @@ projGrid.addEventListener("click", function(e){
   if(!isNaN(idx)) openProjectDetail(idx);
 });
 
-projGrid.addEventListener("keydown", function(e){
-  if(e.key === "Enter" || e.key === " "){
-    var card = e.target.closest(".proj-card");
-    if(card){
-      e.preventDefault();
-      openProjectDetail(parseInt(card.getAttribute("data-idx"), 10));
-    }
-  }
-});
-
-function openProjectDetail(idx){
+window.openProjectDetail = function(idx){
   var p = PROJECTS[idx];
   var prevIdx = (idx - 1 + PROJECTS.length) % PROJECTS.length;
   var nextIdx = (idx + 1) % PROJECTS.length;
@@ -1086,9 +1007,13 @@ function openProjectDetail(idx){
     return '<button type="button" class="other-item" data-open-idx="'+oIdx+'"><small>'+op.outfitName.split(" ")[0]+' '+op.cat.split(" ")[0]+'</small>'+op.title+'</button>';
   }).join("");
 
+  var repoSection = p.repoUrl ? 
+    '<div class="repo-box"><div><small style="display:block;color:#8e939c;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em">Repositorio Oficial en GitHub</small><span class="repo-url">'+p.repoUrl+'</span></div><a class="btn-gh" style="flex:0 0 auto" href="'+p.repoUrl+'" target="_blank" rel="noopener noreferrer">Abrir Repositorio en GitHub ↗</a></div>' :
+    '<div class="repo-box"><div><small style="display:block;color:#8e939c;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em">Repositorio / Documentación</small><span class="repo-url">En preparación · Código y archivos disponibles a pedido</span></div></div>';
+
   projDetail.innerHTML =
     '<div class="detail-topbar">'+
-      '<button type="button" class="btn-back" id="btnBackGrid">← Volver a todos los proyectos (6)</button>'+
+      '<button type="button" class="btn-back" id="btnBackGrid">← Volver a todos los proyectos ('+PROJECTS.length+')</button>'+
       '<div class="detail-nav">'+
         '<button type="button" id="btnPrevProj">‹ Anterior</button>'+
         '<button type="button" id="btnNextProj">Siguiente ›</button>'+
@@ -1118,13 +1043,7 @@ function openProjectDetail(idx){
           p.deliverables.map(function(d){return '<li>'+d+'</li>';}).join("")+
         '</ul>'+
         '<div class="tech-tags" style="margin-bottom:18px">'+p.tags.map(function(t){return '<span>'+t+'</span>';}).join("")+'</div>'+
-        '<div class="repo-box">'+
-          '<div>'+
-            '<small style="display:block;color:#8e939c;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em">Repositorio Oficial en GitHub</small>'+
-            '<span class="repo-url">'+p.repoUrl+'</span>'+
-          '</div>'+
-          '<a class="btn-gh" style="flex:0 0 auto" href="'+p.repoUrl+'" target="_blank" rel="noopener noreferrer">Abrir Repositorio en GitHub ↗</a>'+
-        '</div>'+
+        repoSection+
       '</div>'+
     '</div>'+
     '<div class="other-projs">'+
@@ -1140,14 +1059,18 @@ function openProjectDetail(idx){
   });
 
   window.scrollTo({top: document.getElementById("proyectos").offsetTop, behavior: "smooth"});
-}
+};
 
-function closeProjectDetail(){
+window.closeProjectDetail = function(){
   projDetail.classList.remove("on");
   projDetail.innerHTML = "";
   projGrid.classList.remove("hide-grid");
   projSubText.classList.remove("hide-grid");
-}
+};
+
+var cnt=document.querySelector(".counters div:nth-child(2) b");
+if(cnt) cnt.textContent = PROJECTS.length;
+})();
 
 /* 2. SISTEMA DE CAMBIO DE TRAJE DEL MINI MARIO */
 var buddy=document.getElementById("buddy"),bbub=document.getElementById("bbub"),bm=document.getElementById("bm"),bt,bh,bw;
@@ -1161,11 +1084,11 @@ bm.appendChild(bud);
 var OUTFIT_NAMES = {
   gala:"Gala Balón de Oro (#10)",
   helmet:"Terreno / Casco Minero (Gestión de Activos)",
-  exec:"Ejecutivo SAP S/4HANA",
-  research:"Investigador / Simulación AnyLogic",
-  thinker:"Pensador / Decisiones Multicriterio",
-  finance:"Analista Financiero & BI",
-  data:"Data Scientist & Visión por Computador"
+  exec:"Ejecutivo SAP / ERP TiendaFutbol",
+  research:"Investigador / Cadena de Suministro",
+  thinker:"Pensador / Scouting MCDM",
+  finance:"Analista Financiero (Nueva Flota)",
+  data:"Data Scientist & Scouting"
 };
 
 function setMarioOutfit(outfit, customSpeech, activeCard){
@@ -1199,7 +1122,7 @@ function buddySay(t){
 }
 
 var VP={
-  proyectos:["Pasa el mouse por un proyecto para preseleccionarlo o haz clic para agrandarlo.","Haz clic en cualquier tarjeta para ver sus especificaciones completas y link de GitHub."],
+  proyectos:["Pasa el mouse por un proyecto para preseleccionarlo o haz clic para agrandarlo.","Haz clic en cualquier tarjeta para ver sus especificaciones completas."],
   espacio:["Belén es mi mayor logro hasta ahora: casi 5 años que me cambiaron la vida.","Revisa las 12 viñetas anime: ¡incluí nuestra historia con Belén!"],
   futuro:["Mi sueño de vida: llegar a la gerencia de la Universidad de Chile.","A 10 años: tomar decisiones estratégicas en cualquier entorno."]
 };
@@ -1233,7 +1156,6 @@ views.forEach(function(v){
   navItems.appendChild(b);
 });
 
-/* Sub-tabs dentro de El Espacio QC&CP */
 document.getElementById("subtabs").addEventListener("click", function(e){
   var b = e.target.closest(".subtab");
   if(!b) return;
@@ -1242,7 +1164,7 @@ document.getElementById("subtabs").addEventListener("click", function(e){
   if(b.dataset.sub==="sp-historias") show(cur);
 });
 
-/* 4. LÍNEA DE TIEMPO Y LAS 12 VIÑETAS ANIME COMPLETADAS */
+/* 4. LÍNEA DE TIEMPO Y LAS 12 VIÑETAS ANIME */
 var T=[
   ["2002","El primer llanto","Hospital de Coquimbo · 21 de noviembre","Llegué al mundo un 21 de noviembre en Coquimbo. Fui un bebé tranquilo y travieso a la vez, tierno, sensible y de lágrima fácil: parecía llorar por todo. Ya se notaba un corazón que lo siente todo.","Origen"],
   ["Infancia","Los pamperitos","Jardín Grillitos de San Ramón, Tierras Blancas","En el jardín, mi hermano Jonathan y yo éramos los pamperitos: mi mamá Jessica nos mandaba siempre bañados y perfumados con colonia de bebé. Guardo el cariño de las tías y una pequeña marca en la frente.","Hito"],
