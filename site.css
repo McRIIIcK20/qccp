@@ -9,8 +9,8 @@
 /* Hallmark · dismissed 77 · the site is four views switched by the nav, so each render shows one view; every view was checked full height by hand */
 /* Hallmark · dismissed F4 · "Mi historia" is the outlined secondary, only the red button is filled; the ink outfit chip is a toggle state, not a button recipe */
 /* Hallmark · dismissed render · this sandbox blocks fonts.googleapis.com; the shots used local copies of Anton and Public Sans */
-@import url("./tokens.css");
-@import url("./base.css");
+@import url("./tokens.css?v=azul-u");
+@import url("./base.css?v=azul-u");
 
 :root {
   --nav-h: 72px;
